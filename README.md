@@ -17,6 +17,9 @@ Antes de iniciar, certifique-se de cumprir os seguintes requisitos:
 * Você deve ler o `<guia/link/documentação>` dos termos de uso.
 * (outros ...)
 
+* Ter o XAMPP (version >= 7.*) instalado.
+* Ter um banco com o nome "store".
+
 ## Como executar
 
 Para fazer o deploy da aplicação siga os seguintes passos:
@@ -31,7 +34,7 @@ Linux e/ou macOS:
 
 Windows (opcional):
 ```
-<commandos>
+- Rodar esse comando dentro do projeto "php artisan migrate"
 ```
 
 ## Usando o E-commerce
