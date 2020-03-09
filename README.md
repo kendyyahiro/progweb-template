@@ -4,7 +4,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/kendyyahiro/progweb-template)
 ![GitHub contributors](https://img.shields.io/github/contributors/kendyyahiro/progweb-template)
 
-E-commerce de produtos usados é uma loja virtual onde os clientes poderão tanto comprar quanto anunciar produtos usados, basicamente será semelhante aos atuais e-commerces como: Mercado Livre e OLX que tem por objetivo facilitar a venda de produtos na internet, conectando cliente e vendedor com garantia de qualidade e segurança na venda.
+O e-commerce de produtos usados é uma loja virtual onde os clientes poderão tanto comprar quanto anunciar produtos usados, basicamente será semelhante aos atuais e-commerces como: Mercado Livre e OLX que tem por objetivo facilitar a venda de produtos na internet, conectando cliente e vendedor com garantia de qualidade e segurança na venda.
 
 A aplicação faz com que vários indivíduos possam negociar produtos entre eles, sem evitar constrangimentos na compra. Simplificadamente, o site proporcionará vendas onlines de produtos, serviços e até vagas de empregos.
 
@@ -44,8 +44,10 @@ Para usar o E-commerce, siga os seguintes passos:
 * Abra o navegador e digite o seguinte endereço: `http://google.com`
 * Ao abrir a aplicação você poderá:
   * Navegar pelo conteúdo público;
+  * Cadastrar usuário;
   * Entrar com usuário e senha para anunciar e/ou comprar produtos anunciados;
-  * Colocar produtos dentro do carrinho eletrônico.
+  * Colocar produtos dentro do carrinho eletrônico;
+  * Pós-compra: Feedback, problemas no recebimento, assistência.  
 * *Continua ...*  
 
 *Ao entrar no site do e-commerce, você poderá desfrutar de algumas funções como vender, anunciar produtos e/ou apenas buscar no banco de dados alguns produtos já anunciados e se quiser poderá efetivar a compra, mas apenas o usuário que estiver logado poderá efetuar a compra, pagamento e anunciar.*
