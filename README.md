@@ -1,12 +1,12 @@
-# Nome_da_Aplicação
+# E-commerce de produtos usados
 
 <!--- Exemplos de badges. Acesse https://shields.io para outras opções. Você pode querer incluir informações de dependencias, build, testes, licença, etc. --->
-![GitHub repo size](https://img.shields.io/github/repo-size/hsborges/progweb-template)
-![GitHub contributors](https://img.shields.io/github/contributors/hsborges/progweb-template)
+![GitHub repo size](https://img.shields.io/github/repo-size/kendyyahiro/progweb-template)
+![GitHub contributors](https://img.shields.io/github/contributors/kendyyahiro/progweb-template)
 
-Nome_da_Aplicação é um/uma ... que permite/tem por objetivo/visa/etc .... 
+E-commerce de produtos usados é uma loja virtual onde os clientes poderão tanto comprar quanto anunciar produtos usados, basicamente será semelhante aos atuais e-commerces como: Mercado Livre e OLX que tem por objetivo facilitar a venda de produtos na internet, conectando cliente e vendedor com garantia de qualidade e segurança na venda.
 
-Coloque aqui linhas adicionais com informações sobre o que a aplicação faz. Sua introdução deve ser de no máximo 3 parágrafos, seja simples e objetivo para não sobrecarregar de detalhes desnecessários este espaço. Se necessário, crie novas seções abaixo.
+A aplicação faz com que vários indivíduos possam negociar produtos entre eles, sem evitar constrangimentos na compra. Simplificadamente, o site proporcionará vendas onlines de produtos, serviços e até vagas de empregos.
 
 ## Pré-requisitos
 
@@ -34,24 +34,29 @@ Windows (opcional):
 <commandos>
 ```
 
-## Usando Nome_da_Aplicação
+## Usando o E-commerce
 
-Para usar Nome_da_Aplicação, siga os seguintes passos (exemplos):
+Para usar o E-commerce, siga os seguintes passos:
 
-* Abra o navegador e digite o seguinte endereço: `http://localhost/....`
+* Abra o navegador e digite o seguinte endereço: `http://google.com`
 * Ao abrir a aplicação você poderá:
-  * Navegar pelo conteúdo público, ou
-  * Entrar com usuário e senha para ....
+  * Navegar pelo conteúdo público;
+  * Entrar com usuário e senha para anunciar e/ou comprar produtos anunciados;
+  * Colocar produtos dentro do carrinho eletrônico.
 * *Continua ...*  
 
-*Descreva as principais atividades, e/ou fluxos, que são possíveis de serem realizadas na aplicação.*
+*Ao entrar no site do e-commerce, você poderá desfrutar de algumas funções como vender, anunciar produtos e/ou apenas buscar no banco de dados alguns produtos já anunciados e se quiser poderá efetivar a compra, mas apenas o usuário que estiver logado poderá efetuar a compra, pagamento e anunciar.*
 
 ## Contribuidores
 
 As seguintes pessoas contribuiram para este projeto:
 
-* [Meu nome](https://github.com/meu_nome)
-* *.... (liste todos os membros da equipe)*
+* [Kendy Yahiro](https://github.com/kendyyahiro)
+* [Vitor Koji](https://github.com/vitorkoji)
+* [Geovanna Santiago](https://github.com/GeovannaSantiago)
+* [Roger Daniel](https://github.com/rrowdas)
+<!---* [Fernando Kendy Yahiro](https://github.com/kendyyahiro) --->
+
 
 ## Licença de uso
 
