@@ -11,7 +11,7 @@ A aplicação faz com que vários indivíduos possam negociar produtos entre ele
 ## Pré-requisitos
 
 Antes de iniciar, certifique-se de cumprir os seguintes requisitos:
-<!--- Estes são alguns exemplos de requisitos. Adicione, duplique e remove como necessário --->
+<!--- Estes são alguns exemplos de requisitos. Adicione, duplique e remova como necessário --->
 * Você deve possuir a última versão do `<linguagem/dependencia/etc>` instalado.
 * Você deve possuir uma máquina `<Windows/Linux/Mac>`. (Deixe claro qual SO é possível rodar a aplicação, Linux é obrigatório).
 * Você deve ler o `<guia/link/documentação>` dos termos de uso.
@@ -66,5 +66,5 @@ As seguintes pessoas contribuiram para este projeto:
 ## Licença de uso
 
 <!--- Se não tiver certeza de qual, verifique este site: https://choosealicense.com/--->
-Este projeto usa a seguinte licença: [<nome_da_licenca>](<link>).
+Este projeto usa a seguinte licença: [<GNU GPLv3>](<link>).
 *Você também deve criar um arquivo chamado LICENSE no projeto*
