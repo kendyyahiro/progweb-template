@@ -60,7 +60,7 @@ As seguintes pessoas contribuiram para este projeto:
 * [Vitor Koji](https://github.com/vitorkoji)
 * [Geovanna Santiago](https://github.com/GeovannaSantiago)
 * [Roger Daniel](https://github.com/rrowdas)
-<!---* [Fernando Kendy Yahiro](https://github.com/kendyyahiro) --->
+* [Kelli Regina](https://github.com/Kelli-Regina)
 
 
 ## Licença de uso
