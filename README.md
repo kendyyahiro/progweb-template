@@ -48,7 +48,7 @@ Para usar o E-commerce, siga os seguintes passos:
   * Entrar com usuário e senha para anunciar e/ou comprar produtos anunciados;
   * Colocar produtos dentro do carrinho eletrônico;
   * Pós-compra: Feedback, problemas no recebimento, assistência.  
-* *Continua ...*  
+* *Continua ....*  
 
 *Ao entrar no site do e-commerce, você poderá desfrutar de algumas funções como vender, anunciar produtos e/ou apenas buscar no banco de dados alguns produtos já anunciados e se quiser poderá efetivar a compra, mas apenas o usuário que estiver logado poderá efetuar a compra, pagamento e anunciar.*
 
