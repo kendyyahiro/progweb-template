@@ -6,7 +6,7 @@
 
 O e-commerce de produtos usados é uma loja virtual onde os clientes poderão tanto comprar quanto anunciar produtos usados, basicamente será semelhante aos atuais e-commerces como: Mercado Livre e OLX que tem por objetivo facilitar a venda de produtos na internet, conectando cliente e vendedor com garantia de qualidade e segurança na venda.
 
-A aplicação faz com que vários indivíduos possam negociar produtos entre eles, sem evitar constrangimentos na compra. Simplificadamente, o site proporcionará vendas onlines de produtos, serviços e até vagas de empregos.
+A aplicação faz com que vários indivíduos possam negociar produtos entre eles, sem evitar constrangimentos na compra. Simplificadamente, o site proporcionará vendas onlines de produtos e serviços.
 
 ## Pré-requisitos
 
