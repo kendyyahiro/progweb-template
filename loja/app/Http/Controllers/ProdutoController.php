@@ -16,7 +16,6 @@ class ProdutoController extends Controller
     {
         return view('produto.index', ['produto' => 'testee']);
     }
-
     /**
      * Show the form for creating a new resource.
      *
