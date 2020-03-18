@@ -4,6 +4,10 @@
 
 @section('conteudo')
 
-<h1>Listagem de produtos aqui</h1>
+<section>
+	<div>
+		<h1>Loja de usados</h1>
+	</div>
+</section>
 
 @endsection

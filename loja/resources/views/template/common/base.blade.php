@@ -63,3 +63,8 @@
         </style>
     </head>
     <body>
+
+        @yield('conteudo')
+
+    </body>
+</html>
