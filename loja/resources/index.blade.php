@@ -1,6 +1,5 @@
-
-
 @extends('template.common.base')
+
 
 @section('conteudo')
 

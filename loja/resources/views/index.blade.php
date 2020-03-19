@@ -4,6 +4,6 @@
 
 @section('conteudo')
 
-<h1>Index</h1>
+<!-- <h1>Index</h1> -->
 
-@endsection
+@endsection 
