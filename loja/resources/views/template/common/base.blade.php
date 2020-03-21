@@ -12,78 +12,154 @@
         <link rel="stylesheet" type="text/css" href="./css/cssLaravel.css">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-        
-        <nav class="navbar navbar-expand-lg">
-            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+         
+        <nav class="navbar navbar-expand-lg text-white">
+            <a href="#" class="navbar-brand">Oferta e Procura</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
                 <span class="navbar-toggler-icon"></span>
-            </button> -->
-            <div class="collapse navbar-collapse " id="navbarTogglerDemo01">
-                <a class="navbar-brand text-muted" href="#">Hidden brand</a>
-                @if (Route::has('login'))
-                <div class="top-right links" >
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0" >
+            </button>
+
+            <div id="menu" class="collapse navbar-collapse sticky-top">
+                <!-- <div class="top-right links"> -->
+                    @if (Route::has('login'))
+                    <ul class="navbar-nav ml-md-auto">
                         @auth
-                        <li class="nav-item active">
+                        <button type="submit">&#128269;</button>
+                        <li class="nav-item active navbar-dark">
                             <a class="nav-link" href="{{ url('/home') }}">Home</a>
                         </li>
                         @else
-                        <li class="nav-item active"> 
+                        <li class="nav-item active navbar-dark">
+                            <a class="nav-link"href="#">Meus Anúncios</a>
+                        </li>
+                        <li class="nav-item active navbar-dark"> 
                             <a class="nav-link" href="{{ route('login') }}">Login</a>
                         </li>                        
-                        <li class="nav-item active">    
+                        <li class="nav-item active navbar-dark">    
                             @if (Route::has('register'))
                             <a class="nav-link" href="{{ route('register') }}">Register</a>
                             @endif
                         </li>
-                        @endauth
+                        <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Anuncie aqui</a>                        <!-- <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary link</a>                        @endauth -->
+
+                        <!-- <form class="form-inline input-group">
+                            <input type="text" placeholder="Meus Anuncios" name="meus-anuncios" class="form-control">
+                            <input type="submit" class="btn-success">
+                        </form> -->
                     </ul>
-                    </div> 
-                </div>
+                    <!-- </div>  -->
+            </div>
             @endif
         </nav>
-            
-            <div class="content">
-                <div class="title m-b-md">
-                    <!-- Laravel2 -->
+        <div class="jumbotron text-center">
+        <h1>My First Bootstrap Page</h1>
+        <p>Resize this responsive page to see the effect!</p> 
+        </div>
+        
+        <p><h4>Anúncios Recentes</h4></p>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2">
+                    <h4>Column 1</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+                <div class="col-sm-2">
+                    <h4>Column 2</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+                <div class="col-sm-2">
+                    <h4>Column 3</h4>        
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+                <div class="col-sm-2">
+                    <h4>Column 4</h4>        
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+                <div class="col-sm-2">
+                    <h4>Column 5</h4>        
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+                <div class="col-sm-2">
+                    <h4>Column 6</h4>        
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+                
+                <div class="col-sm-2">
+                    <h4>Column 1</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+                <div class="col-sm-2">
+                    <h4>Column 2</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+                <div class="col-sm-2">
+                    <h3>Column 3</h3>        
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+                <div class="col-sm-2">
+                    <h4>Column 4</h4>        
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+                <div class="col-sm-2">
+                    <h4>Column 5</h4>        
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+                <div class="col-sm-2">
+                    <h4>Column 6</h4>        
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+            </div>  
+        </div  class="space margin -bottom"> 
+        <!-- Deixar AQUI específico para 3 anúncios pré-programados para 3 tipos de produtos. -->
+        <div>
+            <div class="especific-container-fluid text-center">
+                <div class="row">
+                    <div class="col-sm-4">
+                            <h4>Anuncio Dedicado 1</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <h4>Anuncio Dedicado 2</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <h4>Anuncio Dedicado 3</h4>        
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                        </div>
+                    </div> 
                 </div>
             </div>
-        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">Navbar</a>
-
-        <div class="col-md-2 col-md-offset-3">
-            <form action="" class="search-form">
-                <div class="form-group has-feedback">
-            		<label for="search" class="sr-only">Search</label>
-            		<input type="text" class="form-control" name="search" id="search" placeholder="search">
-              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
-            	</div>
-            </form>
-        </div> -->
-            <!-- <form class="form-inline my-0 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form> -->
-        <!-- <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-            </ul> -->
         </div>
-        </nav>
+
+            <div class=""></div>
+                <div class="content">
+                    <div class="title m-b-md">
+                        <!-- Laravel2 -->
+                    </div>
+                </div>
+            </div>
+
     </head>
     <body>
 
         @yield('conteudo')
-
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </body>
 </html>
