@@ -20,18 +20,13 @@ Route::get('/', function(){
 	return view('index');
 });
 
+//Quando utiliza o middleware('auth'), você verifica se o usuário está logado.
 Route::get('/produto', 'ProdutoController@index');
-Auth::routes();
+
+Route::get('/produto/create', 'ProdutoController@create')
+	->middleware('auth');
+Route::post('/produto/store', 'ProdutoController@store')
+	->middleware('auth');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
-
-// Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
-
-// Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');

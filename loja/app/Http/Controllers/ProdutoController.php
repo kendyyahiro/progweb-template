@@ -24,7 +24,7 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        //
+        return view('produto.add', compact('produtos'));
     }
 
     /**
@@ -35,7 +35,9 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(ProdutoModel::Create($request->all())){
+            return redirect('/produto')->with('success', 'Contact saved!');
+        }
     }
 
     /**

@@ -4,9 +4,18 @@
 
 @section('conteudo')
 
+
+<section>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12 col-md-3 offset-9">
+				<a href="{{ action('ProdutoController@create') }}" class="btn btn-primary">Cadastrar produto</a>
+			</div>
+		</div>
+	</div>
+</section>
+
 <h1 class="text-center">Listagem de produtos aqui</h1>
-
-
 <section>
 	<div class="container">
 		<div class="row">
