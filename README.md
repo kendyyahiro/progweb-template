@@ -26,6 +26,8 @@ Para fazer o deploy da aplicação siga os seguintes passos:
 
 Linux/Windows:
 ```
+- Considerando que já foi clonado o repositório no caminho: `C:\xampp\htdocs`...
+- Abra o projeto em um editor de código-fonte e ao abrir o projeto loja, execute o comando: `composer install`
 - Inicialmente, inicie o APACHE e o MySQL do Xampp ou de outro software desejado
 - Rodar esse comando dentro do projeto "php artisan migrate"
 - Abra-o em um navegador e digite: "http://localhost/progweb-template/loja/public"
