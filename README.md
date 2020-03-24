@@ -14,9 +14,10 @@ Antes de iniciar, certifique-se de cumprir os seguintes requisitos:
 <!--- Estes são alguns exemplos de requisitos. Adicione, duplique e remova como necessário --->
 * Você deve possuir a última versão do `PHP` instalado.
 * Você deve possuir a última versão do `Laravel 7.*` instalado.
+* Ter o Xampp (version ≥ 7.*) instalado.
+* Após instalar o Xampp, clone o repositório dentro da pasta do Xampp no htdocs: `C:\xampp\htdocs`
 * Você deve possuir uma máquina `<Windows/Linux>`.
 * Você deve ler o `<guia/link/documentação>` dos termos de uso (Não é necessário, mas sempre bom).
-* Ter o xampp (version ≥ 7.*) instalado.
 * Ter um banco de dados com o nome "store".
 
 ## Como executar
