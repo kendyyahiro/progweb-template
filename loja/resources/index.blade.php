@@ -1,4 +1,4 @@
-@extends('template.common.base')
+@extends('site.base')
 
 
 @section('conteudo')

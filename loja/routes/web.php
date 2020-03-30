@@ -30,3 +30,11 @@ Route::post('/produto/store', 'ProdutoController@store')
 
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
+
+Route::get('/my-requests', function(){
+	return view('site.my-requests');
+})->name('site.my-requests');
+
+Route::get('/advertise-here', function(){
+	return view('site.advertise-here');
+})->name('site.advertise-here');

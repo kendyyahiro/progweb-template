@@ -20,36 +20,33 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
             <span class="navbar-toggler-icon"></span>
         </button>
-
+<!-- QUANDO ESTOU LOGADO, DA ERRO AO VOLTAR PARA PUBLIC/ -->
         <div id="menu" class="collapse navbar-collapse sticky-top">
             <!-- <div class="top-right links"> -->
                 @if (Route::has('login'))
                 <ul class="navbar-nav ml-md-auto">
                     @auth
                     <button type="submit">&#128269;</button>
-                    <li class="nav-item active navbar-dark">
-                        <a class="nav-link" href="{{ url('/home') }}">Home</a>
+                    <li class="nav-item navbar-dark">
+                        <a class="nav-link" href="{{ route('site.home') }}">Home</a>
                     </li>
                     @else
-                    <li class="nav-item active navbar-dark">
-                        <a class="nav-link"href="#">Meus Anúncios</a>
+                    <li class="nav-item {{ (Route::current()->getName() === 'site.my-requests' ? 'active': '') }}">
+                        <a class="nav-link"href="{{ route('site.my-requests') }}">Meus Anúncios</a>
                     </li>
-                    <li class="nav-item active navbar-dark"> 
+                    <li class="nav-item {{ (Route::current()->getName() === 'login' ? 'active': '') }}">
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
-                    </li>                        
-                    <li class="nav-item active navbar-dark">    
+                    </li>
+                    <li class="nav-item {{ (Route::current()->getName() === 'register' ? 'active': '') }}">
                         @if (Route::has('register'))
                         <a class="nav-link" href="{{ route('register') }}">Register</a>
                         @endif
                     </li>
-                    <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Anuncie aqui</a>                        <!-- <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary link</a>                        @endauth -->
+                    <a href="{{ route('site.advertise-here') }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Anuncie aqui</a>
+                    @endauth
 
-                        <!-- <form class="form-inline input-group">
-                            <input type="text" placeholder="Meus Anuncios" name="meus-anuncios" class="form-control">
-                            <input type="submit" class="btn-success">
-                        </form> -->
+
                     </ul>
-                    <!-- </div>  -->
                     @endif
                 </div>
             </nav>
@@ -59,10 +56,6 @@
 
             @yield('conteudo')
 
-
-
-
-            
             <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

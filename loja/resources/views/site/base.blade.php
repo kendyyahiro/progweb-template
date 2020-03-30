@@ -1,0 +1,1 @@
+@extends('site.master.layout')

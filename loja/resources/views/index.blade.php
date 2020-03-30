@@ -1,9 +1,7 @@
-
-
-@extends('template.common.base')
+<!-- @extends('site.base') -->
 
 @section('conteudo')
-<p><h4>Anúncios Recentes</h4></p> 
+<p><h4>Anúncios Recentes</h4></p>
 <section class="container-fluid">
 	<div class="row">
 		@for ($i = 1; $i <= 12; $i++)
@@ -13,8 +11,8 @@
 			<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
 		</div>
 		@endfor
-	</div>  
-</section  class="space margin -bottom"> 
+	</div>
+</section  class="space margin -bottom">
 <!-- Deixar AQUI específico para 3 anúncios pré-programados para 3 tipos de produtos. -->
 <section>
 	<div class="container-fluid text-center">
@@ -26,8 +24,8 @@
 				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
 			</div>
 			@endfor
-		</div> 
+		</div>
 	</div>
 </section>
 
-@endsection 
+@endsection
