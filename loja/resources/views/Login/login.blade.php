@@ -1,4 +1,4 @@
-@include('template.common.header')
+<!-- @include('template.common.header')
 
 <section>
 	<h1>Login</h1>
@@ -12,3 +12,4 @@
 </section>
 
 @include('template.common.footer')
+ -->
