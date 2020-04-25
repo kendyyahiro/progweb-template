@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,16 +20,10 @@ Route::get('/', function () {
 
 
 /*Produtos*/
-Route::get('/produto', 'ProdutoController@index')->name('produto');
-Route::get('/produto/create', 'ProdutoController@create')->name('produto');
-Route::get('/produto/edit', 'ProdutoController@edit')->name('produto');
-Route::get('/produto/show', 'ProdutoController@show')->name('produto');
+rotasCrud('produto', 'ProdutoController');
 
 /*Carrinho de compras*/
-Route::get('/carrinho-compra', 'CarrinhoCompraController@index')->name('carrinho-compra');
-Route::get('/carrinho-compra/create', 'CarrinhoCompraController@create')->name('carrinho-compra');
-Route::get('/carrinho-compra/edit', 'CarrinhoCompraController@edit')->name('carrinho-compra');
-Route::get('/carrinho-compra/show', 'CarrinhoCompraController@show')->name('carrinho-compra');
+rotasCrud('carrinho-compra', 'CarrinhoCompraController');
 
 //Rotas de autenticação
 Auth::routes();

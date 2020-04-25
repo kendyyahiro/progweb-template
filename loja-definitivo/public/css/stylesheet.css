@@ -103,6 +103,54 @@ h3{
     text-align: center;
 }*/
 
+/*Layout Base*/
+  header .logo{
+    width: 130px;
+  }
+
+  header .anuncie-aqui{
+    background-color: #B84343;
+    padding: 10px 15px;
+    border-radius: 15px;
+  }
+
+  header .anuncie-aqui a{
+    color: #FFF;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  footer{
+    background-color: #0988BE;
+    padding: 30px 0px;
+    position: relative;
+    bottom: 0px;
+  }
+
+  footer .links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  footer .links a{
+    color: #FFF;
+    padding: 15px 0px;
+  }
+
+  footer .midia_social{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  footer .midia_social i{
+    color: #FFF;
+    font-size: 30px;
+  }
+
+/*Fim Layout Base*/
 /*Produto*/
   /*CSS - Quem Somos*/
 

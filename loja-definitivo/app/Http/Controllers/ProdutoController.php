@@ -24,7 +24,11 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        return view('produto.create');
+        // $task = new Task();
+    	// $task->description = $request->description;
+    	// $task->user_id = Auth::id();
+    	// $task->save();
+    	// return redirect('/'); 
     }
 
     /**
