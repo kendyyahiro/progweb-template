@@ -1,0 +1,211 @@
+.search-form .form-group {
+  float: right !important;
+  transition: all 0.35s, border-radius 0s;
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+}
+.search-form .form-group input.form-control {
+  padding-right: 20px;
+  border: 0 none;
+  background: transparent;
+  box-shadow: none;
+  display:block;
+}
+.search-form .form-group input.form-control::-webkit-input-placeholder {
+  display: none;
+}
+.search-form .form-group input.form-control:-moz-placeholder {
+  /* Firefox 18- */
+  display: none;
+}
+.search-form .form-group input.form-control::-moz-placeholder {
+  /* Firefox 19+ */
+  display: none;
+}
+.search-form .form-group input.form-control:-ms-input-placeholder {
+  display: none;
+}
+.search-form .form-group:hover,
+.search-form .form-group.hover {
+  width: 100%;
+  border-radius: 4px 25px 25px 4px;
+}
+.search-form .form-group span.form-control-feedback {
+  position: absolute;
+  top: -1px;
+  right: -2px;
+  z-index: 2;
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+    color: #3596e0;
+    left: initial;
+    font-size: 14px;
+  }
+  
+.menu.container-fluid {
+    background-color: #0988BE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.category-stripe a .icon-background {
+    background-color: #fff;
+    border-radius: 100%;
+    width: 58px;
+    height: 58px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+    transition: box-shadow .3s;
+}
+
+.category-stripe a {
+    cursor: pointer;
+    width: 91px;
+    min-height: 91px;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+li
+{
+     float: left;
+     margin: 10px; 
+}
+
+h4 {
+    font-size: 1.5rem;
+    padding-left: 40px;
+}
+h3{
+  text-align: center;
+}
+
+/*p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-left: 10px;
+    text-align: center;
+}*/
+
+/*Produto*/
+  /*CSS - Quem Somos*/
+
+  .envolto {
+    margin-top: 100px;
+  }
+
+  .perfil {
+    flex-grow: 1;
+    display: inline-block;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px;
+    text-align: center;
+  }
+
+  .foto img {
+    width: 150px;
+  }
+
+  .informacoes_perfil {
+    font-family: goudy old style;
+    font-size: 1.25em;
+    font-weight: lighter;
+    padding-top: 15px;
+  }
+
+  .informacoes_perfil span {
+    display: block;
+    line-height: 1.5em;
+    text-align: center;
+  }
+
+  .menu_return {
+    margin-top: 70px;
+  }
+
+  .menu_return ul {
+    font-family: goudy old style;
+    text-align: center;
+    font-size: 20px;
+    list-style: none;
+  }
+
+  .menu_return ul li {
+      padding: 10px;
+    color: #0988BE;
+      display: inline;
+  }
+
+  .menu_return ul li a:hover {
+    color: #A52A2A;
+  }
+
+  .menu_return ul li a:link {
+    text-decoration: none;
+  }
+
+  .catalogo {
+    margin-top: 30px;
+  }
+
+  .produto {
+    display: flex;
+    margin: 20px;
+  }
+
+  .informacoes_produtos {
+    font-family: goudy old style;
+    font-size: 1.25em;
+    font-weight: lighter;
+    /*padding-top: 15px;*/
+    margin-left: 20px;
+  }
+
+  .informacoes_produtos span {
+    display: block;
+    line-height: 1.5em;
+    text-align: left;
+  }
+
+  .menu_produtos {
+    margin-top: 40px;
+  }
+
+  .menu_produtos ul {
+    font-family: goudy old style;
+    text-align: center;
+    font-size: 20px;
+    list-style: none;
+  }
+
+  .menu_produtos ul li {
+      padding: 10px;
+    color: #0988BE;
+      display: inline;
+  }
+
+  .menu_produtos ul li a:hover {
+    color: #A52A2A;
+  }
+
+  .menu_produtos ul li a:link {
+    text-decoration: none;
+  }
+/*Fim Produto*/

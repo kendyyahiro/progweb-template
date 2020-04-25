@@ -14,7 +14,7 @@ class CarrinhoCompraController extends Controller
      */
     public function index()
     {
-        //
+        return view('carrinho-compra.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class CarrinhoCompraController extends Controller
      */
     public function create()
     {
-        //
+        return view('carrinho-compra.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class CarrinhoCompraController extends Controller
      */
     public function show(CarrinhoCompra $carrinhoCompra)
     {
-        //
+        return view('carrinho-compra.show');
     }
 
     /**
@@ -57,7 +57,7 @@ class CarrinhoCompraController extends Controller
      */
     public function edit(CarrinhoCompra $carrinhoCompra)
     {
-        //
+        return view('carrinho-compra.edit');
     }
 
     /**
