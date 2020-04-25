@@ -1,6 +1,4 @@
-
-
-@extends('template.common.base')
+@extends('layouts.app')
 
 @section('conteudo')
 
