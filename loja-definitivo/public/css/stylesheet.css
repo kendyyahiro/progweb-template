@@ -78,7 +78,6 @@ footer{flex-shrink: 0;}
 
 .category-stripe a {
     cursor: pointer;
-    width: 91px;
     min-height: 91px;
     text-decoration: none;
     color: #fff;
