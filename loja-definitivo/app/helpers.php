@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Route;
  */
 function rotasCrud($rota, $controller){
 	Route::get('/'.$rota, $controller.'@index')->name($rota);
-	Route::get('/'.$rota.'/create', $controller.'@create')->name($rota.'/create');
-	Route::get('/'.$rota.'/edit', $controller.'@edit')->name($rota.'/edit');
-	Route::get('/'.$rota.'/show', $controller.'@show')->name($rota.'/show');
+	Route::get('/'.$rota.'/create', $controller.'@create')->name($rota.'/create')->middleware('auth');
+	Route::get('/'.$rota.'/edit', $controller.'@edit')->name($rota.'/edit')->middleware('auth');
+	Route::get('/'.$rota.'/show', $controller.'@show')->name($rota.'/show')->middleware('auth');
+	Route::post('/'.$rota.'/store', $controller.'@store')->name($rota.'/store')->middleware('auth');
+	Route::post('/'.$rota.'/update', $controller.'@update')->name($rota.'/update')->middleware('auth');
 }

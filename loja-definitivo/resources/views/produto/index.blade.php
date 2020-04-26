@@ -3,10 +3,6 @@
 @section('content')
 
 
-<style type="text/css">
-	
-</style>
-
 <div class="container">
 	<div class="catalogo">
 		<div class="produto">
