@@ -68,6 +68,15 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+
+                                    <a class="dropdown-item" href="{{ route('perfil') }}" onclick="event.preventDefault();
+                                            document.getElementById('perfil-form').submit();">
+                                        {{ __('Perfil') }}
+                                    </a>
+
+                                    <form id="perfil-form" action="{{ route('perfil') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                                 </div>
                             </li>
                             @endguest
