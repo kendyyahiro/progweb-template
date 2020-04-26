@@ -5,6 +5,14 @@ $usuario = Auth::user();
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
+            @if(session()->has('mensagem')) 
+                <div class="col-12 col-md-8">
+                    <div class="alert {{ session()->get('alert') }}" role="alert">
+                        {{ session()->get('mensagem') }}
+                    </div>
+                </div>
+            @endif
+
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Alterar') }}</div>

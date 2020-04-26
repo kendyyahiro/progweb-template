@@ -3,7 +3,11 @@ use Illuminate\Support\Facades\Route;
 
 /**
  * 
- * Esse método inicializa as rotas.
+ * Esse método inicializa as rotas padrão do CRUD
+ * index.blade.php
+ * create.blade.php
+ * edit.blade.php
+ * show.blade.php
  * 
  * @param String $rota - Recebe a rota
  * @param String $controller - Controller a ser chamada

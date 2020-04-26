@@ -51,8 +51,22 @@
                             </li>
                             @endif
                             @else
-                            <li class="nav-item anuncie-aqui">
-                                <a href="{{ route('produto/create') }}">Anuncie Aqui</a>
+                            <li class="nav-item d-flex justify-content-center align-items-center">
+                                <div class="img-anuncio">
+                                    <img src="{{ asset('img/img_layout/meus_anuncios.png') }}" class="img-fluid">
+                                </div>
+                                <a href="{{ route('produto') }}" class="link-anuncio">Meus anúncios</a>
+                            </li>
+                            <li class="nav-item d-flex justify-content-center align-items-center">
+                                <div class="img-carrinho">
+                                    <img src="{{ asset('img/img_layout/carrinho.png') }}" class="img-fluid">
+                                </div>
+                                <a href="{{ route('carrinho-compra') }}" class="link-carrinho">Carrinho</a>
+                            </li>
+                            <li class="nav-item">
+                                <div class="anuncie-aqui">
+                                    <a href="{{ route('produto/create') }}">Anuncie Aqui</a>
+                                </div>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -69,14 +83,9 @@
                                         @csrf
                                     </form>
 
-                                    <a class="dropdown-item" href="{{ route('perfil') }}" onclick="event.preventDefault();
-                                            document.getElementById('perfil-form').submit();">
+                                    <a class="dropdown-item" href="{{ route('perfil') }}">
                                         {{ __('Perfil') }}
                                     </a>
-
-                                    <form id="perfil-form" action="{{ route('perfil') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
                                 </div>
                             </li>
                             @endguest

@@ -108,6 +108,21 @@ h3{
     width: 130px;
   }
 
+  header .img-anuncio{
+    width: 40px;
+    margin-right: 10px;
+  }
+
+  header .img-carrinho{
+    width: 60px;
+  }
+
+  header a{
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.58);
+    font-weight: 700;
+  }
+
   header .anuncie-aqui{
     background-color: #B84343;
     padding: 10px 15px;

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Produto;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -19,7 +21,7 @@ class PerfilController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+       
     }
 
     public function editar()
@@ -53,7 +55,10 @@ class PerfilController extends Controller
         //exit( $usuario->password);
 
         if($usuario ->save()) {
-            \Session::flash('mensagem', ['msg' => 'Registro atualizado com sucesso!', 'class' => 'green white-text']);
+            session()->flash('mensagem', 'Registro atualizado com sucesso!');
+            session()->flash('alert', 'alert-success');
+
+            // Session::flash('mensagem', ['msg' => 'Registro atualizado com sucesso!', 'class' => 'green white-text']);
             //return redirect('/perfil/editar' );
             //return redirect()->route('perfil');
             return back()->withInput();
@@ -76,15 +81,25 @@ class PerfilController extends Controller
         }
     }
 
-
+    /**
+     * Esse método verifica se esse usuário possui algum anúncio/produto cadastrado
+     * Caso tenha, não permitirá a exclusão dele.
+     * 
+     * @param Integer $id - id do usuário a ser deletado
+     */
     public function deletar($id)
     {
-        User::find($id)->delete();
-        return redirect('/');
+        $produto = Produto::where('user_id', '=', $id);
 
+        if($produto->count() > 0){
+            session()->flash('mensagem', 'Não pode ser deletado. Usuário possui anúncios.');
+            session()->flash('alert', 'alert-danger');
+            return back()->withInput();
+        }else{
+            User::find($id)->delete();
+
+            //Testar isso
+            return redirect('/');
+        }
     }
-
-
-
-
 }
