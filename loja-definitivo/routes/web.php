@@ -29,3 +29,11 @@ rotasCrud('carrinho-compra', 'CarrinhoCompraController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/*Perfil*/
+Route::get('/perfil/editar', 'PerfilController@editar')->name('perfil');
+
+Route::get('/perfil/deletar/{id}',['as'=>'perfil.deletar', 'uses'=>'PerfilController@deletar']);
+
+Route::post('/perfil/atualizar/{id}',['as'=>'perfil.atualizar', 'uses'=>'PerfilController@atualizar'])
+    ->middleware('auth');;

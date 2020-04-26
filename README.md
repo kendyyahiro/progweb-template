@@ -30,13 +30,13 @@ Linux/Windows:
 - Abra o projeto em um editor de código-fonte e ao abrir o projeto loja, execute o comando: `composer install`
 - Inicialmente, inicie o APACHE e o MySQL do Xampp ou de outro software desejado
 - Rodar esse comando dentro do projeto "php artisan migrate"
-- Abra-o em um navegador e digite: "http://localhost/progweb-template/loja/public"
+- Abra-o em um navegador e digite: "http://localhost/progweb-template/loja-definitivo/public"
 ```
 
 ## Usando o E-commerce
 
 Para usar o E-commerce, basicamente:
-* Abra o navegador e digite o seguinte endereço: `http://localhost/progweb-template/loja/public`
+* Abra o navegador e digite o seguinte endereço: `http://localhost/progweb-template/loja-definitivo/public`
 * Ao abrir a aplicação você poderá:
   * Navegar pelo conteúdo público;
   * Cadastrar usuário;
