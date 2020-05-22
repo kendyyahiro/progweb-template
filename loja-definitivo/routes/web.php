@@ -36,4 +36,8 @@ Route::get('/perfil/editar', 'PerfilController@editar')->name('perfil');
 Route::get('/perfil/deletar/{id}',['as'=>'perfil.deletar', 'uses'=>'PerfilController@deletar']);
 
 Route::post('/perfil/atualizar/{id}',['as'=>'perfil.atualizar', 'uses'=>'PerfilController@atualizar'])
-    ->middleware('auth');;
+    ->middleware('auth');
+
+//listando produtos index
+Route::get('/',['as'=>'home', 'uses'=>'IndexController@index']);
+//Route::get('/',['as'=>'site.home', 'uses'=>'Site\HomeController@index']);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Produto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProdutoController extends Controller
 {
@@ -18,28 +19,44 @@ class ProdutoController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Mostrar formulário do produto
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        // $task = new Task();
-    	// $task->description = $request->description;
-    	// $task->user_id = Auth::id();
-    	// $task->save();
-    	// return redirect('/'); 
+        return view('produto.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request - Receber valores do formulário
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         //
+        // Produto::Create($request->all())
+    	$produto = new Produto();
+        $produto->nome = $request->nome;
+        $produto->descricao = $request->descricao;
+        $produto->valor = $request->valor;
+        $produto->user_id = Auth::id();
+        $file = $request->file(['imagem']);
+
+        if($file){
+           //exit($file);
+            $rand = rand(11111,99999);
+            $diretorio = "img/produtos_cadastrados/".($request->nome)."/";
+            $ext = $file->guessClientExtension();
+            $nomeArquivo = "_img_".$rand.".".$ext;
+            $file->move($diretorio,$nomeArquivo);
+            $produto->imagem = $diretorio.'/'.$nomeArquivo;
+        }
+        if($produto->save()){
+            return redirect('/produto')->with('success', 'Contact saved!');
+        }
     }
 
     /**
