@@ -37,11 +37,23 @@ class ProdutoController extends Controller
     public function store(Request $request)
     {
         // Produto::Create($request->all())
+        // Produto::Create($request->all())
     	$produto = new Produto();
         $produto->nome = $request->nome;
         $produto->descricao = $request->descricao;
         $produto->valor = $request->valor;
         $produto->user_id = Auth::id();
+        $file = $request->file(['imagem']);
+
+        if($file){
+           //exit($file);
+            $rand = rand(11111,99999);
+            $diretorio = "img/produtos_cadastrados/".($request->nome)."/";
+            $ext = $file->guessClientExtension();
+            $nomeArquivo = "_img_".$rand.".".$ext;
+            $file->move($diretorio,$nomeArquivo);
+            $produto->imagem = $diretorio.'/'.$nomeArquivo;
+        }
         if($produto->save()){
             return redirect('/produto')->with('success', 'Contact saved!');
         }

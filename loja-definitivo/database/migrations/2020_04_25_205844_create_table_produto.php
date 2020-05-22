@@ -19,6 +19,7 @@ class CreateTableProduto extends Migration
             $table->longText('descricao');
             $table->integer('categoria');
             $table->double('valor', 8, 2);
+            $table->string('imagem');
             $table->timestamps();
         });
     }

@@ -37,3 +37,7 @@ Route::get('/perfil/deletar/{id}',['as'=>'perfil.deletar', 'uses'=>'PerfilContro
 
 Route::post('/perfil/atualizar/{id}',['as'=>'perfil.atualizar', 'uses'=>'PerfilController@atualizar'])
     ->middleware('auth');
+
+//listando produtos index
+Route::get('/',['as'=>'home', 'uses'=>'IndexController@index']);
+//Route::get('/',['as'=>'site.home', 'uses'=>'Site\HomeController@index']);
