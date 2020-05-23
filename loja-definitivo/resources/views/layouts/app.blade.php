@@ -60,7 +60,7 @@
                                 <div class="img-anuncio">
                                     <img src="{{ asset('img/img_layout/meus_anuncios.png') }}" class="img-fluid">
                                 </div>
-                                <a href="{{ route('produto') }}" class="link-anuncio">Meus anúncios</a>
+                                <a href="{{ route('produto/meus-anuncios') }}" class="link-anuncio">Meus anúncios</a>
                             </li>
                             <li class="nav-item d-flex justify-content-center align-items-center">
                                 <div class="img-carrinho">

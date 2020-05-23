@@ -16,6 +16,17 @@ class ProdutoController extends Controller
      */
     public function index()
     {
+        $produtos = Produto::orderBy('id')->paginate(100);
+        return view('produto.index', compact('produtos'));
+    }
+
+    /**
+     * Mostra os produtos cadastrados por usuário logado
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function meusAnuncios()
+    {
         $id_usuario_logado = Auth::id();
 
         $produtos = DB::table('produto')
