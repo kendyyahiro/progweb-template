@@ -15,30 +15,27 @@
 				</tr>
 			</thead>
 			<tbody>
-				@php
-					$valor = 0
-				@endphp
 				@foreach ($produtos as $produto)
-					@php
-						$valor += $produto->valor
-					@endphp
-				<tr>
-					<td scope="row">
-						<div class="foto">
-							<a href="{{ route('produto/show', $produto->id) }}"><img class="card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}"></a>
-						</div>
-					</td>
-					<td><span class="nome_produto">{{ $produto->nome }}</span></td>
-					<td><span class="descricao_produto">{{ $produto->descricao }}</span></td>
-					<td><span class="valor_produto">R${{ number_format($produto->valor,2,",",".") }}</span></td>
-				</tr>
+					<tr>
+						<td scope="row">
+							<div class="foto">
+								<a href="{{ route('produto/show', $produto->id) }}"><img class="card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}"></a>
+							</div>
+						</td>
+						<td><span class="nome_produto">{{ $produto->nome }}</span></td>
+						<td><span class="descricao_produto">{{ $produto->descricao }}</span></td>
+						<td><span class="valor_produto">R${{ number_format($produto->valor,2,",",".") }}</span></td>
+					</tr>
 				@endforeach
 				<tr>
 					<td colspan="3"></td>
-					<td> <strong>Total: <?= number_format($valor,2,",",".") ?> </strong> </td>
+					<td> <strong>Total: <?= number_format($valor[0]->total, 2, ",", ".") ?> </strong> </td>
 				</tr>
 			</tbody>
 		</table>
+		<div class="text-right">
+			<a href="{{ route('carrinho-compra/finalizarCompra', $carrinhoCompra->id) }}" class="btn btn-success">Finalizar</a>
+		</div>
 	</div>
 </div>
 
