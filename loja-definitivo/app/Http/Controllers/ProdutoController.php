@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Produto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProdutoController extends Controller
 {
@@ -16,6 +17,23 @@ class ProdutoController extends Controller
     public function index()
     {
         $produtos = Produto::orderBy('id')->paginate(100);
+        return view('produto.index', compact('produtos'));
+    }
+
+    /**
+     * Mostra os produtos cadastrados por usuário logado
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function meusAnuncios()
+    {
+        $id_usuario_logado = Auth::id();
+
+        $produtos = DB::table('produto')
+                    ->where('user_id', $id_usuario_logado)
+                    ->orderBy('id', 'desc')
+                    ->get();
+                    
         return view('produto.index', compact('produtos'));
     }
 

@@ -3,8 +3,9 @@
 @section('content')
 
 <div class="container">
-	<div class="catalogo">
-		<div class="row">
+	<h1>Anúncios</h1>
+	<div class="row">
+		@if(count($produtos) != 0)
 			@foreach ($produtos as $produto)
 			<div class="col-md-3">
 				<div class="card" style="width: 100%;">
@@ -20,9 +21,12 @@
 					</div>
 				</div>
 			</div>
-
 			@endforeach
+		@else
+		<div class="col md-12">
+			<h2 class="text-center">Você não possui anúncios!</h2>
 		</div>
+		@endif
 	</div>
 </div>
 

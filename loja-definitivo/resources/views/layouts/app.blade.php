@@ -60,7 +60,7 @@
                                 <div class="img-anuncio">
                                     <img src="{{ asset('img/img_layout/meus_anuncios.png') }}" class="img-fluid">
                                 </div>
-                                <a href="{{ route('produto') }}" class="link-anuncio">Meus anúncios</a>
+                                <a href="{{ route('produto/meus-anuncios') }}" class="link-anuncio">Meus anúncios</a>
                             </li>
                             <li class="nav-item d-flex justify-content-center align-items-center">
                                 <div class="img-carrinho">
@@ -100,7 +100,7 @@
             </nav>
         </header>
         @if (Route::currentRouteName() != 'login' && Route::currentRouteName() != 'register')
-        <div class="menu container-fluid">
+        <!-- <div class="menu container-fluid">
             <div class="container-categories-stripe category-section-margin-bottom">
                 <div class="row">
                     <div class="col">
@@ -118,7 +118,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         
         <section class="menu container-fluid">
             <div class="container">

@@ -242,7 +242,6 @@ h3{
     font-family: goudy old style;
     font-size: 1.25em;
     font-weight: lighter;
-    /*padding-top: 15px;*/
     margin-left: 20px;
   }
 
@@ -276,4 +275,53 @@ h3{
   .menu_produtos ul li a:link {
     text-decoration: none;
   }
+
+  /*Produto - show */
+    #view-produto .img-produto{
+      max-height: 400px;
+    }
+    #view-produto .btn-comprar{
+      font-size: 20px;
+      font-weight: 700;
+      position: absolute;
+      bottom: 0px;
+      right: 15px;
+      width: 150px;
+    }
+
+    #view-produto .descricao-produto{
+      height: 220px;
+      overflow-y: scroll;
+      font-size: 18px;
+      text-align: justify;
+      font-weight: 900;
+      padding: 0px 15px;
+    }
+
+    #view-produto .valor-produto{
+      font-size: 26px;
+      font-weight: 700;
+      position: absolute;
+      right: 15px;
+    }
+  /*Fim Produto - show */
+
 /*Fim Produto*/
+
+
+/*Carrinho Compra*/
+  /*Carrinho Compra - Index*/
+    #carrinho-compra-listagem td{
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    #carrinho-compra-listagem .descricao_produto{
+      text-align: justify;
+    }
+
+    #valor-total-carrinho{
+      font-size: 20px !important;
+    }
+  /*Fim Carrinho Compra - Index*/
+/*Fim Carrinho Compra*/
