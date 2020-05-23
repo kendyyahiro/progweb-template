@@ -100,7 +100,7 @@
             </nav>
         </header>
         @if (Route::currentRouteName() != 'login' && Route::currentRouteName() != 'register')
-        <div class="menu container-fluid">
+        <!-- <div class="menu container-fluid">
             <div class="container-categories-stripe category-section-margin-bottom">
                 <div class="row">
                     <div class="col">
@@ -118,7 +118,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         
         <section class="menu container-fluid">
             <div class="container">

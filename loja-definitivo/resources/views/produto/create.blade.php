@@ -4,6 +4,8 @@
 
 
 <div class="container">
+    <h1>Cadastrar Anúncio</h1>
+
     <form method="POST" action="{{ action('ProdutoController@store') }}" enctype="multipart/form-data">
         <div class="form-group">
             <label for="nome">Nome</label>
