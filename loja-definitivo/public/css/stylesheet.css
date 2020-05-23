@@ -307,3 +307,21 @@ h3{
   /*Fim Produto - show */
 
 /*Fim Produto*/
+
+
+/*Carrinho Compra*/
+  /*Carrinho Compra - Index*/
+    #carrinho-compra-listagem td{
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    #carrinho-compra-listagem .descricao_produto{
+      text-align: justify;
+    }
+
+    #valor-total-carrinho{
+      font-size: 20px !important;
+    }
+  /*Fim Carrinho Compra - Index*/
+/*Fim Carrinho Compra*/
