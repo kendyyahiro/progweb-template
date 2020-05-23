@@ -29,8 +29,8 @@
                 </div>
 
                 <div class="card-body">
-                    <a href="{{ route('home',[$produto->id]) }}" class="card-link">Ver mais..</a>
-                </div>
+					<a href="{{ route('produto/show', $produto->id) }}" class="card-link">Ver mais..</a>
+				</div>
             </div>
             </div>
 

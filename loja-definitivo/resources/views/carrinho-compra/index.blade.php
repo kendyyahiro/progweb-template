@@ -33,9 +33,7 @@
 				</tr>
 			</tbody>
 		</table>
-		<div class="text-right">
-			<a href="{{ route('carrinho-compra/finalizarCompra', $carrinhoCompra->id) }}" class="btn btn-success">Finalizar</a>
-		</div>
+		
 	</div>
 </div>
 
