@@ -57,7 +57,7 @@ class ProdutoController extends Controller
             $produto->imagem = $diretorio.'/'.$nomeArquivo;
         }
         if($produto->save()){
-            return redirect('/produto')->with('success', 'Contact saved!');
+            return redirect('/produto')->with('success', 'Produto Adicionado');
         }
     }
 

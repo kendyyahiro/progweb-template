@@ -25,6 +25,9 @@ rotasCrud('produto', 'ProdutoController');
 /*Carrinho de compras*/
 rotasCrud('carrinho-compra', 'CarrinhoCompraController');
 
+Route::get('/carrinho-compra/adicionarCarrinho/{idProduto}', 'CarrinhoCompraController@adicionarCarrinho')->name('carrinho-compra/adicionarCarrinho')->middleware('auth');
+
+
 //Rotas de autenticação
 Auth::routes();
 

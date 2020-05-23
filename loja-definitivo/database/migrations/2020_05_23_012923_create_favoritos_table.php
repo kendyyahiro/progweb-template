@@ -15,13 +15,13 @@ class CreateFavoritosTable extends Migration
     {
         Schema::create('favoritos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-
             $table->foreignId('produto_id');
             $table->foreign('produto_id')->references('id')->on('produto');
 
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            
+            $table->timestamps();
         });
     }
 

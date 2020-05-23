@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\CarrinhoCompra;
+use App\Produto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CarrinhoCompraController extends Controller
 {
@@ -14,7 +17,12 @@ class CarrinhoCompraController extends Controller
      */
     public function index()
     {
-        return view('carrinho-compra.index');
+        $id_usuario_logado = Auth::id();
+        $produtos = DB::table('carrinho_compra')
+                    ->join('produto', 'produto.id', '=', 'carrinho_compra.produto_id')
+                    ->get();
+
+        return view('carrinho-compra.index', compact('produtos'));
     }
 
     /**
@@ -81,5 +89,18 @@ class CarrinhoCompraController extends Controller
     public function destroy(CarrinhoCompra $carrinhoCompra)
     {
         //
+    }
+
+    /**
+     */
+    public function adicionarCarrinho($idProduto)
+    {
+        $carrinhoCompra = new CarrinhoCompra();
+        $carrinhoCompra->produto_id = $idProduto;
+        $carrinhoCompra->user_id = Auth::id();
+
+        if($carrinhoCompra->save()){
+            return redirect('/carrinho-compra');
+        }
     }
 }
