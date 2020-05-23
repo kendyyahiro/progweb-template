@@ -43,7 +43,9 @@ class ProdutoController extends Controller
         $produto->descricao = $request->descricao;
         $produto->valor = $request->valor;
         $produto->user_id = Auth::id();
-        $file = $request->file(['imagem']);
+        $file = $request->file('imagem');
+
+        var_dump($file);
 
         if($file){
            //exit($file);

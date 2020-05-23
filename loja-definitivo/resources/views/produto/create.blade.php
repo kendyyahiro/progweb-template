@@ -21,6 +21,16 @@
         </div>
 
         <div class="form-group">
+                <div class="btn">
+                    <label >Imagem</label>
+                    <input type="file"  required  name="imagem">
+                </div>
+                @if(isset($produto->imagem))
+                    <img width="120" src="{{ asset($produto->imagem) }}">
+                @endif
+        </div>
+
+        <div class="form-group">
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </div>
         {{ csrf_field() }}
