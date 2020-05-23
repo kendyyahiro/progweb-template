@@ -15,7 +15,8 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        return view('produto.index');
+        $produtos = Produto::orderBy('id')->paginate(100);
+        return view('produto.index', compact('produtos'));
     }
 
     /**
@@ -43,7 +44,8 @@ class ProdutoController extends Controller
         $produto->descricao = $request->descricao;
         $produto->valor = $request->valor;
         $produto->user_id = Auth::id();
-        $file = $request->file(['imagem']);
+        $file = $request->file('imagem');
+
 
         if($file){
            //exit($file);
@@ -55,7 +57,7 @@ class ProdutoController extends Controller
             $produto->imagem = $diretorio.'/'.$nomeArquivo;
         }
         if($produto->save()){
-            return redirect('/produto')->with('success', 'Contact saved!');
+            return redirect('/produto')->with('success', 'Produto Adicionado');
         }
     }
 
@@ -65,9 +67,10 @@ class ProdutoController extends Controller
      * @param  \App\Produto  $produto
      * @return \Illuminate\Http\Response
      */
-    public function show(Produto $produto)
+    public function show($id)
     {
-        return view('produto.show');
+        $produto = Produto::findOrFail($id);
+        return view('produto.show', compact('produto'));
     }
 
     /**

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\CarrinhoCompra;
+use App\Produto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CarrinhoCompraController extends Controller
 {
@@ -14,7 +17,24 @@ class CarrinhoCompraController extends Controller
      */
     public function index()
     {
-        return view('carrinho-compra.index');
+        $id_usuario_logado = Auth::id();
+
+        //Busca os produtos que o usuário adicionou no carrinho
+        $produtos = DB::table('carrinho_compra')
+                    ->join('produto', 'produto.id', '=', 'carrinho_compra.produto_id')
+                    ->where('carrinho_compra.user_id', $id_usuario_logado)
+                    ->get();
+
+        //Busca os produtos e faz a soma total dos produtos
+        $valor = DB::table('carrinho_compra')
+                    ->select(DB::raw('SUM(produto.valor) as total'))
+                    ->join('produto', 'produto.id', '=', 'carrinho_compra.produto_id')
+                    ->where('carrinho_compra.user_id', $id_usuario_logado)
+                    ->get();
+
+        $carrinhoCompra = CarrinhoCompra::where('user_id', $id_usuario_logado)->first();
+
+        return view('carrinho-compra.index', compact('produtos', 'carrinhoCompra', 'valor'));
     }
 
     /**
@@ -81,5 +101,31 @@ class CarrinhoCompraController extends Controller
     public function destroy(CarrinhoCompra $carrinhoCompra)
     {
         //
+    }
+
+    /**
+     */
+    public function adicionarCarrinho($idProduto)
+    {
+        $carrinhoCompra = new CarrinhoCompra();
+        $carrinhoCompra->produto_id = $idProduto;
+        $carrinhoCompra->user_id = Auth::id();
+
+        if($carrinhoCompra->save()){
+            return redirect('/carrinho-compra');
+        }
+    }
+
+    /**
+     */
+    public function finalizarCompra($idCarrinhoCompra)
+    {
+        // $carrinhoCompra = new CarrinhoCompra();
+        // $carrinhoCompra->produto_id = $idProduto;
+        // $carrinhoCompra->user_id = Auth::id();
+
+        // if($carrinhoCompra->save()){
+        //     return redirect('/carrinho-compra');
+        // }
     }
 }
