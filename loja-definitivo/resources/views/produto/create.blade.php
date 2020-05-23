@@ -4,7 +4,7 @@
 
 
 <div class="container">
-    <form method="POST" action="{{ action('ProdutoController@store') }}">
+    <form method="POST" action="{{ action('ProdutoController@store') }}" enctype="multipart/form-data">
         <div class="form-group">
             <label for="nome">Nome</label>
             <input type="text" name="nome" class="form-control"></input>
@@ -33,6 +33,7 @@
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </div>
+
         {{ csrf_field() }}
     </form>
 </div>

@@ -15,7 +15,8 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        return view('produto.index');
+        $produtos = Produto::orderBy('id')->paginate(100);
+        return view('produto.index', compact('produtos'));
     }
 
     /**
@@ -45,7 +46,6 @@ class ProdutoController extends Controller
         $produto->user_id = Auth::id();
         $file = $request->file('imagem');
 
-        var_dump($file);
 
         if($file){
            //exit($file);

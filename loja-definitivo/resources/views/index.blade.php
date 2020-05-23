@@ -19,11 +19,12 @@
 	<div class="row">
 
 		@foreach ($produtos as $produto)
-            <div class="col-md-3 pl-sm-2 pt-3">
+            <div class="col-md-2">
             <div class="card" style="width: 100%;">
                 <a href="{{ route('home',[$produto->id]) }}"><img class="card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}"></a>
                 <div class="card-body">
                     <h5 class="card-title">{{ $produto->nome }}</h5>
+					<p class="card-text">{{ $produto->descricao }}</p>
                     <p class="card-text">R${{ number_format($produto->valor,2,",",".") }}</p>
                 </div>
 
