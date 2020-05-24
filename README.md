@@ -27,9 +27,17 @@ Para fazer o deploy da aplicação siga os seguintes passos:
 Linux/Windows:
 ```
 - Considerando que já foi clonado o repositório no caminho: `C:\xampp\htdocs`...
+```
+```
 - Abra o projeto em um editor de código-fonte e ao abrir o projeto loja, execute o comando: `composer install`
+```
+```
 - Inicialmente, inicie o APACHE e o MySQL do Xampp ou de outro software desejado
+```
+```
 - Rodar esse comando dentro do projeto "php artisan migrate"
+```
+```
 - Abra-o em um navegador e digite: "http://localhost/progweb-template/loja-definitivo/public"
 ```
 
@@ -44,53 +52,6 @@ Para usar o E-commerce, basicamente:
   * Colocar produtos dentro do carrinho eletrônico;
   * Pós-compra: Feedback, problemas no recebimento, assistência.  
 
-## Funcionalidades para o sistema de E-commerce:
-* Entrar e sair do login;
-* Navegar dentro do site;
-* Visualizar produtos anunciados;
- - Capacidade de ver características que o anunciador quiser acrescentar, respeitando pelo menos:
-   1) Nome do produto como título(nome do produto);
-   2) Número de contato;
-   3) Data de publicação(automático ou usuário decide);
-   4) Código específico de cada produto;
-   5) Marca do produto;
-   6) Tipo de produto(carro, livro, eletrônico, etc..);
-   7) Ano adquirido;
-   8) Valor em reais(R$ XX,YY);
-   9) Localização(cidade/estado);
- - Adicionar contatos, seja WhatsApp, Face ou email;
- - Fotos ilustrativas;
- - Carrinho de compras;
- - Adicional: perguntas e respostas para o produto
-* Criar conta com os requisitos necessário como:
- - Nome Completo ou dividir entre: Nome e Sobrenome;
- - Email;
- - Senha;
- - Endereço (CEP, Número da casa, Bairro e Rua);
- - Telefone;
-   OBS: permitir a alteração de alguns dados.
-* Entrar na conta já cadastrada:
- - Login (Usar o Email);
- - Senha;
-   OU BUSCAR A MANEIRA DE aproveitar a conta do facebook ou gmail para realizar cadastro.
-* Limitar a realização da compra APENAS se tiver cadastro no site; 
-* Permitir o cadastramento do produto APENAS se tiver cadastro no site; 
-* Permitir comentários em determinado produto APENAS se tiver cadastro no site;
-* Filtro sobre os produtos cadastrados.
-
-
-## Funcionalidades a mais para adotar dentro do sistema de E-commerce:
-
-* Lista de Desejos/Favoritos;
-* Possibilitar a adição de vídeos ilustrativos;
-* Lista de recomendação a partir de itens do mesmo tipo ou função;
-* Equipe de atendimentos;
-* Recuperar senha ou até mesmo a conta;
-* Cancelar todos os pedidos de uma só vez;
-* Denunciar postagem ou comentários que forem inapropriados. seka:
- - Racista, Sexual, Xenofóbica, Homofóbico ou outros(agressão, ameaça, campo para especificar a insatisfação).
-
-*Ao entrar no site do e-commerce, você poderá desfrutar de algumas funções como vender, anunciar produtos e/ou apenas buscar no banco de dados alguns produtos já anunciados e se quiser poderá efetivar a compra, mas apenas o usuário que estiver logado poderá efetuar a compra, pagamento e anunciar.*
 
 ## Contribuidores
 
