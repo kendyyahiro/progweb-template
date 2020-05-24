@@ -21,7 +21,7 @@
 		@foreach ($produtos as $produto)
             <div class="col-md-2">
             <div class="card" style="width: 100%;">
-                <a href="{{ route('home',[$produto->id]) }}"><img class="card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}"></a>
+                <a href="{{ route('produto/show', $produto->id) }}"><img class="card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}"></a>
                 <div class="card-body">
                     <h5 class="card-title">{{ $produto->nome }}</h5>
 					<p class="card-text">{{ $produto->descricao }}</p>
