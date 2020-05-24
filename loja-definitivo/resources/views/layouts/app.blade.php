@@ -47,52 +47,58 @@
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
                             @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Criar conta') }}</a>
-                            </li>
-                            @endif
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
+                                </li>
+                                @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Criar conta') }}</a>
+                                </li>
+                                @endif
                             @else
-                            <li class="nav-item d-flex justify-content-center align-items-center">
-                                <div class="img-anuncio">
-                                    <img src="{{ asset('img/img_layout/meus_anuncios.png') }}" class="img-fluid">
-                                </div>
-                                <a href="{{ route('produto/meus-anuncios') }}" class="link-anuncio">Meus anúncios</a>
-                            </li>
-                            <li class="nav-item d-flex justify-content-center align-items-center">
-                                <div class="img-carrinho">
-                                    <img src="{{ asset('img/img_layout/carrinho.png') }}" class="img-fluid">
-                                </div>
-                                <a href="{{ route('carrinho-compra') }}" class="link-carrinho">Carrinho</a>
-                            </li>
-                            <li class="nav-item">
-                                <div class="anuncie-aqui">
-                                    <a href="{{ route('produto/create') }}">Anuncie Aqui</a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                <li class="nav-item d-flex justify-content-center align-items-center">
+                                    <div class="img-anuncio">
+                                        <img src="{{ asset('img/img_layout/meus_anuncios.png') }}" class="img-fluid">
+                                    </div>
+                                    <a href="{{ route('produto/meus-anuncios') }}" class="link-anuncio">Meus anúncios</a>
+                                </li>
+                                <li class="nav-item d-flex justify-content-center align-items-center">
+                                    <div class="img-anuncio">
+                                        <img src="" class="img-fluid">
+                                    </div>
+                                    <a href="{{ route('transacao/minhas-compras') }}" class="link-anuncio">Minhas Compras</a>
+                                </li>
+                                <li class="nav-item d-flex justify-content-center align-items-center">
+                                    <div class="img-carrinho">
+                                        <img src="{{ asset('img/img_layout/carrinho.png') }}" class="img-fluid">
+                                    </div>
+                                    <a href="{{ route('carrinho-compra') }}" class="link-carrinho">Carrinho</a>
+                                </li>
+                                <li class="nav-item">
+                                    <div class="anuncie-aqui">
+                                        <a href="{{ route('produto/create') }}">Anuncie Aqui</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }} <span class="caret"></span>
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
 
-                                    <a class="dropdown-item" href="{{ route('perfil') }}">
-                                        {{ __('Perfil') }}
-                                    </a>
-                                </div>
-                            </li>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+
+                                        <a class="dropdown-item" href="{{ route('perfil') }}">
+                                            {{ __('Perfil') }}
+                                        </a>
+                                    </div>
+                                </li>
                             @endguest
                         </ul>
                     </div>

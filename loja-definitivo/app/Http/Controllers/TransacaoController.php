@@ -18,7 +18,17 @@ class TransacaoController extends Controller
      */
     public function index()
     {
-        //
+        $id_usuario_logado = Auth::id();
+
+        //Busca os produtos que o usuário adicionou no carrinho
+        $transacao = DB::table('transacao')
+                    ->where([
+                        ['transacao.user_id', '=', $id_usuario_logado]
+                    ])
+                    ->orderByDesc('id')
+                    ->get();
+
+        return view('transacao.index', compact('transacao'));
     }
 
     /**
@@ -48,9 +58,21 @@ class TransacaoController extends Controller
      * @param  \App\Transacao  $Transacao
      * @return \Illuminate\Http\Response
      */
-    public function show(Transacao $Transacao)
+    public function show($transacao_id)
     {
-        //
+        $id_usuario_logado = Auth::id();
+
+        //Busca os produtos que o usuário adicionou no carrinho
+        $produtos_transacao = DB::table('carrinho_compra')
+                    ->join('produto', 'produto.id', '=', 'carrinho_compra.produto_id')
+                    ->where([
+                        ['carrinho_compra.transacao_id', '=', $transacao_id],
+                        ['carrinho_compra.user_id', '=', $id_usuario_logado]
+                    ])
+                    ->orderByDesc('carrinho_compra.id')
+                    ->get();
+
+        return view('transacao.show', compact('produtos_transacao', 'transacao_id'));
     }
 
     /**

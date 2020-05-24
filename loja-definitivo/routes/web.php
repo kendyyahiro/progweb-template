@@ -31,6 +31,8 @@ Route::get('/carrinho-compra/finalizarCompra/{idCarrinhoCompra}', 'CarrinhoCompr
 
 /*Transacao */
 Route::get('/transacao/finalizar-compra', 'TransacaoController@finalizarCompra')->name('transacao/finalizar-compra')->middleware('auth');
+Route::get('/transacao/minhas-compras', 'TransacaoController@index')->name('transacao/minhas-compras')->middleware('auth');
+Route::get('/transacao/detalhes/{transacao_id}', 'TransacaoController@show')->name('transacao/detalhes')->middleware('auth');
 
 //Rotas de autenticação
 Auth::routes();
