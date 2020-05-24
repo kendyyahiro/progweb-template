@@ -93,20 +93,9 @@ li
      margin: 10px; 
 }
 
-h4 {
-    font-size: 1.5rem;
-    padding-left: 40px;
+.card-text{
+  text-align: justify;
 }
-h3{
-  text-align: center;
-}
-
-/*p {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    padding-left: 10px;
-    text-align: center;
-}*/
 
 /*Layout Base*/
   header .logo{
@@ -168,6 +157,11 @@ h3{
   footer .midia_social i{
     color: #FFF;
     font-size: 30px;
+  }
+
+  .form-group label{
+    font-size: 16px;
+    font-weight: 700;
   }
 
 /*Fim Layout Base*/
@@ -283,15 +277,12 @@ h3{
     #view-produto .btn-comprar{
       font-size: 20px;
       font-weight: 700;
-      position: absolute;
-      bottom: 0px;
-      right: 15px;
       width: 150px;
     }
 
     #view-produto .descricao-produto{
-      height: 220px;
-      overflow-y: scroll;
+      max-height: 130px;
+      overflow-y: auto;
       font-size: 18px;
       text-align: justify;
       font-weight: 900;
@@ -301,13 +292,12 @@ h3{
     #view-produto .valor-produto{
       font-size: 26px;
       font-weight: 700;
-      position: absolute;
-      right: 15px;
+      text-align: right;
+      margin: 0px;
     }
   /*Fim Produto - show */
 
 /*Fim Produto*/
-
 
 /*Carrinho Compra*/
   /*Carrinho Compra - Index*/
@@ -325,3 +315,13 @@ h3{
     }
   /*Fim Carrinho Compra - Index*/
 /*Fim Carrinho Compra*/
+
+/*Transacao*/
+  /*Transacao - index*/
+    #transacao-listagem tbody td{
+      width: 25%;
+      font-weight: 700;
+      font-size: 14px;
+    }
+  /*Fim Transacao - index*/
+/*Fim Transacao*/

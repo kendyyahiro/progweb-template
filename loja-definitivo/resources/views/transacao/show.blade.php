@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="card-body">
-                    <a href="{{ route('produto/show', $produto->id) }}" class="card-link">Ver mais..</a>
+                    <a href="{{ route('produto/show', $produto->id) }}" class="btn btn-dark card-link">Ver mais..</a>
                 </div>
             </div>
         </div>

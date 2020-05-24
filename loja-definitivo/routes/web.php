@@ -20,11 +20,11 @@ Route::get('/', function () {
 
 
 /*Produtos*/
-rotasCrud('produto', 'ProdutoController');
+rotasCrud('produto', 'ProdutoController', 'produto');
 Route::get('/produto/meus-anuncios', 'ProdutoController@meusAnuncios')->name('produto/meus-anuncios')->middleware('auth');
 
 /*Carrinho de compras*/
-rotasCrud('carrinho-compra', 'CarrinhoCompraController');
+rotasCrud('carrinho-compra', 'CarrinhoCompraController', 'carrinhoCompra');
 
 Route::get('/carrinho-compra/adicionarCarrinho/{idProduto}', 'CarrinhoCompraController@adicionarCarrinho')->name('carrinho-compra/adicionarCarrinho')->middleware('auth');
 Route::get('/carrinho-compra/finalizarCompra/{idCarrinhoCompra}', 'CarrinhoCompraController@finalizarCompra')->name('carrinho-compra/finalizarCompra')->middleware('auth');

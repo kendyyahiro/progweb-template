@@ -3,11 +3,8 @@
 @section('content')
 
 <style>
-    #transacao-listagem tbody td{
-        width: 25%;
-        font-weight: 700;
-        font-size: 14px;
-    }
+    
+    
 </style>
 
 <div class="container">
