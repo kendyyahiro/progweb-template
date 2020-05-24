@@ -30,7 +30,10 @@ class ProdutoController extends Controller
         $id_usuario_logado = Auth::id();
 
         $produtos = DB::table('produto')
-                    ->where('user_id', $id_usuario_logado)
+                    ->where([
+                        ['user_id', '=' ,$id_usuario_logado],
+                        ['disponivel', '=' , 1]
+                    ])
                     ->orderBy('id', 'desc')
                     ->get();
                     
@@ -64,7 +67,6 @@ class ProdutoController extends Controller
 
 
         if($file){
-           //exit($file);
             $rand = rand(11111,99999);
             $diretorio = "img/produtos_cadastrados/".($request->nome)."/";
             $ext = $file->guessClientExtension();
@@ -83,9 +85,8 @@ class ProdutoController extends Controller
      * @param  \App\Produto  $produto
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Produto $produto)
     {
-        $produto = Produto::findOrFail($id);
         return view('produto.show', compact('produto'));
     }
 
@@ -97,7 +98,7 @@ class ProdutoController extends Controller
      */
     public function edit(Produto $produto)
     {
-        return view('produto.edit');
+        return view('produto.edit', compact('produto'));
     }
 
     /**
@@ -109,7 +110,24 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, Produto $produto)
     {
-        //
+        $produto->nome = $request->nome;
+        $produto->descricao = $request->descricao;
+        $produto->valor = $request->valor;
+        $produto->user_id = Auth::id();
+        $file = $request->file('imagem');
+
+        if($file){
+            $rand = rand(11111,99999);
+            $diretorio = "img/produtos_cadastrados/".($request->nome)."/";
+            $ext = $file->guessClientExtension();
+            $nomeArquivo = "_img_".$rand.".".$ext;
+            $file->move($diretorio,$nomeArquivo);
+            $produto->imagem = $diretorio.'/'.$nomeArquivo;
+        }
+
+        if($produto->save()){
+            return redirect('/produto')->with('success', 'Produto Adicionado');
+        }
     }
 
     /**
@@ -120,6 +138,10 @@ class ProdutoController extends Controller
      */
     public function destroy(Produto $produto)
     {
-        //
+        $produto->disponivel = 0;
+
+        if($produto->save()){
+            return redirect('/produto')->with('success', 'Produto Deletado');
+        }
     }
 }
