@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-	<h1>Anúncios</h1>
+	<h1>Meus Anúncios</h1>
 	<div class="row">
 		@if(count($produtos) != 0)
 			@foreach ($produtos as $produto)
@@ -17,7 +17,7 @@
 					</div>
 
 					<div class="card-body">
-						<a href="{{ route('produto/show', $produto->id) }}" class="card-link">Ver mais..</a>
+						<a href="{{ route('produto/show', $produto->id) }}" class="btn btn-dark card-link">Ver mais..</a>
 					</div>
 				</div>
 			</div>
