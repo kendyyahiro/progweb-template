@@ -41,6 +41,9 @@
 			</tbody>
 		</table>
 	</div>
+	<div id="finalizar-compra text-right">
+		<a href="{{ route('transacao/finalizar-compra') }}" class="btn btn-success float-right">Finalizar Compra</a>
+	</div>	
 </div>
 
 @endsection
