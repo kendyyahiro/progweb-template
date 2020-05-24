@@ -55,8 +55,6 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        // Produto::Create($request->all())
-        // Produto::Create($request->all())
     	$produto = new Produto();
         $produto->nome = $request->nome;
         $produto->descricao = $request->descricao;

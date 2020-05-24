@@ -22,14 +22,20 @@ class CarrinhoCompraController extends Controller
         //Busca os produtos que o usuário adicionou no carrinho
         $produtos = DB::table('carrinho_compra')
                     ->join('produto', 'produto.id', '=', 'carrinho_compra.produto_id')
-                    ->where('carrinho_compra.user_id', $id_usuario_logado)
+                    ->where([
+                        ['carrinho_compra.user_id', '=', $id_usuario_logado],
+                        ['carrinho_compra.status', '=', 0],
+                    ])
                     ->get();
 
         //Busca os produtos e faz a soma total dos produtos
         $valor = DB::table('carrinho_compra')
                     ->select(DB::raw('SUM(produto.valor) as total'))
                     ->join('produto', 'produto.id', '=', 'carrinho_compra.produto_id')
-                    ->where('carrinho_compra.user_id', $id_usuario_logado)
+                    ->where([
+                        ['carrinho_compra.user_id', '=', $id_usuario_logado],
+                        ['carrinho_compra.status', '=', 0],
+                    ])
                     ->get();
 
         $carrinhoCompra = CarrinhoCompra::where('user_id', $id_usuario_logado)->first();
@@ -109,23 +115,11 @@ class CarrinhoCompraController extends Controller
     {
         $carrinhoCompra = new CarrinhoCompra();
         $carrinhoCompra->produto_id = $idProduto;
+        $carrinhoCompra->status = 0;
         $carrinhoCompra->user_id = Auth::id();
 
         if($carrinhoCompra->save()){
             return redirect('/carrinho-compra');
         }
-    }
-
-    /**
-     */
-    public function finalizarCompra($idCarrinhoCompra)
-    {
-        // $carrinhoCompra = new CarrinhoCompra();
-        // $carrinhoCompra->produto_id = $idProduto;
-        // $carrinhoCompra->user_id = Auth::id();
-
-        // if($carrinhoCompra->save()){
-        //     return redirect('/carrinho-compra');
-        // }
     }
 }

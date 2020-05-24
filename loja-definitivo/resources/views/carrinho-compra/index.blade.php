@@ -41,6 +41,11 @@
 			</tbody>
 		</table>
 	</div>
+	@if(count($produtos) != 0 )
+		<div id="finalizar-compra text-right">
+			<a href="{{ route('transacao/finalizar-compra') }}" class="btn btn-success float-right" onclick="return confirm('Você confirma a finalização da compra?')">Finalizar Compra</a>
+		</div>	
+	@endif
 </div>
 
 @endsection
