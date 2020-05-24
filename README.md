@@ -12,13 +12,14 @@ A aplicação faz com que vários indivíduos possam negociar produtos entre ele
 
 Antes de iniciar, certifique-se de cumprir os seguintes requisitos:
 <!--- Estes são alguns exemplos de requisitos. Adicione, duplique e remova como necessário --->
-* Você deve possuir a última versão do `PHP` instalado.
-* Você deve possuir a última versão do `Laravel 7.*` instalado.
-* Ter o Xampp (version ≥ 7.*) instalado.
+* Deve possuir a última versão do `PHP` instalado;
+* Deve possuir a última versão do `Laravel 7.*` instalado;
+* Ter instalado o `Composer`;
+* Ter o `Xampp (version ≥ 7.*)` instalado;
 * Após instalar o Xampp, clone o repositório dentro da pasta do Xampp no htdocs: `C:\xampp\htdocs`
-* Você deve possuir uma máquina `<Windows/Linux>`.
-* Você deve ler o `<guia/link/documentação>` dos termos de uso (Não é necessário, mas sempre bom).
-* Ter um banco de dados com o nome "store".
+* Você deve possuir uma máquina `<Windows/Linux>`;
+* Você deve ler o `<guia/link/documentação>` dos termos de uso (Não é necessário, mas sempre bom);
+* Ter um banco de dados com o nome "store";
 
 ## Como executar
 
@@ -58,7 +59,7 @@ Para usar o E-commerce, basicamente:
 As seguintes pessoas contribuiram para este projeto:
 
 * [Kendy Yahiro](https://github.com/kendyyahiro)
-* [Vitor Koji](https://github.com/vitorkoji)
+* [Victor Koji](https://github.com/vitorkoji)
 * [Geovanna Santiago](https://github.com/GeovannaSantiago)
 * [Roger Daniel](https://github.com/rrowdas)
 * [Kelli Regina](https://github.com/Kelli-Regina)
