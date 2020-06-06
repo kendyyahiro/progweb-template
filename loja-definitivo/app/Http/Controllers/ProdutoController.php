@@ -36,7 +36,7 @@ class ProdutoController extends Controller
                     ])
                     ->orderBy('id', 'desc')
                     ->get();
-                    
+
         return view('produto.index', compact('produtos'));
     }
 
@@ -62,9 +62,10 @@ class ProdutoController extends Controller
         $produto->nome = $request->nome;
         $produto->descricao = $request->descricao;
         $produto->valor = $request->valor;
-        $produto->user_id = Auth::id();
-        $file = $request->file('imagem');
+        $produto->user_id  = Auth::id();
+        $produto->categoria = $request->categoria;
 
+        $file = $request->file('imagem');
 
         if($file){
             $rand = rand(11111,99999);

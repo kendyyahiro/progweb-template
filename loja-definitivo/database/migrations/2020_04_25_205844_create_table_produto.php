@@ -17,10 +17,11 @@ class CreateTableProduto extends Migration
             $table->id();
             $table->string('nome');
             $table->longText('descricao');
-            $table->integer('categoria');
+            $table->enum('categoria', ['Imóveis', 'Auto e peças', 'Para casa', 'Eletrônicos e celulares', 'Artigos infantis', 'Serviços', 'Esporte e lazer', 'Moda e beleza', 'Animais de estimação', 'Outros']);
             $table->double('valor', 8, 2);
             $table->string('imagem');
             $table->timestamps();
+
         });
     }
 

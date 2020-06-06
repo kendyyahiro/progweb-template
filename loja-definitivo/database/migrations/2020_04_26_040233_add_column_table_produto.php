@@ -18,7 +18,7 @@ class AddColumnTableProduto extends Migration
             $table->foreign('user_id')->references('id')->on('users');
 
             $table->longText('descricao')->nullable()->change();
-            $table->integer('categoria')->nullable()->change();
+           
         });
     }
 
