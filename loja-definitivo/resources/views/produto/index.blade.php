@@ -6,9 +6,10 @@
 	<h1>Meus Anúncios</h1>
 
 	<div class="filtroBusca">
-            <input type="text" name="txtBusca" placeholder="O que você procura?">
-            <? php $valor = $_GET['txtBusca']; ?>
-            <button id="btnBusca" onclick="<?php echo $valor; ?>">Buscar</button>
+            <input type="text" id="txtBusca" placeholder="O que você procura?">
+            @if(isset($_POST['txtBusca']))
+            @endif
+            <button id="btnBusca" onclick="{{  $valor ?? '' }}">Buscar</button>
      </div>
 
 	<div class="row">
