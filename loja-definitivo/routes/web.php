@@ -50,3 +50,7 @@ Route::post('/perfil/atualizar/{id}',['as'=>'perfil.atualizar', 'uses'=>'PerfilC
 //listando produtos index
 Route::get('/',['as'=>'home', 'uses'=>'IndexController@index']);
 //Route::get('/',['as'=>'site.home', 'uses'=>'Site\HomeController@index']);
+
+/*Busca*/
+Route::get('/produto/busca-produtos', 'ProdutoController@buscaProdutos')->name('produto/busca-produtos')->middleware('auth');
+

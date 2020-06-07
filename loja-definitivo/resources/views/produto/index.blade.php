@@ -9,7 +9,7 @@
             <input type="text" id="txtBusca" placeholder="O que você procura?">
             @if(isset($_POST['txtBusca']))
             @endif
-            <button id="btnBusca" onclick="{{  $valor ?? '' }}">Buscar</button>
+            <a href="{{ route('produto/busca-produtos') }}" class="btn btnBusca">Buscar</a>
      </div>
 
 	<div class="row">
