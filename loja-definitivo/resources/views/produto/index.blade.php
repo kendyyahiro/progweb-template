@@ -4,6 +4,13 @@
 
 <div class="container">
 	<h1>Meus Anúncios</h1>
+
+	<div class="filtroBusca">
+            <input type="text" name="txtBusca" placeholder="O que você procura?">
+            <? php $valor = $_GET['txtBusca']; ?>
+            <button id="btnBusca" onclick="<?php echo $valor; ?>">Buscar</button>
+     </div>
+
 	<div class="row">
 		@if(count($produtos) != 0)
 			@foreach ($produtos as $produto)
