@@ -54,7 +54,7 @@ footer{flex-shrink: 0;}
     left: initial;
     font-size: 14px;
   }
-  
+
 .menu.container-fluid {
     background-color: #0988BE;
     display: flex;
@@ -62,6 +62,11 @@ footer{flex-shrink: 0;}
     align-items: center;
     padding: 10px;
 }
+
+.filtroBusca {
+    margin: 10px;
+}
+
 
 .category-stripe a .icon-background {
     background-color: #fff;
@@ -90,7 +95,7 @@ footer{flex-shrink: 0;}
 li
 {
      float: left;
-     margin: 10px; 
+     margin: 10px;
 }
 
 .card-text{
