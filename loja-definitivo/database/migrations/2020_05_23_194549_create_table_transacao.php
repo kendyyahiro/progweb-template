@@ -21,6 +21,8 @@ class CreateTableTransacao extends Migration
             $table->dateTime('data', 0)->useCurrent(); /* ??? */
             $table->decimal('valor_total');
 
+            $table->integer('situacao')->default(1);
+
             $table->timestamps(); /*create e modified*/
         });
     }
