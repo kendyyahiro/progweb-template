@@ -20,6 +20,8 @@ class CreateFavoritosTable extends Migration
 
             $table->foreignId('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+
+            $table->integer('situacao')->default(1);
             
             $table->timestamps();
         });
