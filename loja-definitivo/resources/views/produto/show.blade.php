@@ -14,18 +14,18 @@
         <div class="row">
 
             <div class="col-md-4">
-                <img class="card-img-top img-produto" src="{{ asset($produtos->imagem) }}" alt="{{ $produtos->nome }}" alt="{{ $produtos->nome }}">
+                <img class="card-img-top img-produto" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}">
             </div>
 
             <div class="col-md-8">
                 <div class="descricao">
-                    <h1>{{ $produtos->nome }}</h1>
+                    <h1>{{ $produto->nome }}</h1>
                     <h4>Descrição do produto:</h4>
-                    <p class="descricao-produto">{{ $produtos->descricao }}</p>
-                    <p class="valor-produto">R$ {{ number_format($produtos->valor,2,",",".") }}</p>
+                    <p class="descricao-produto">{{ $produto->descricao }}</p>
+                    <p class="valor-produto">R$ {{ number_format($produto->valor,2,",",".") }}</p>
                 </div>
                 <div class="box-btn-comprar">
-                    <a href="{{ route('carrinho-compra/adicionarCarrinho', $produtos->id) }}" class="btn btn-primary btn-comprar">Comprar</a>
+                    <a href="{{ route('carrinho-compra/adicionarCarrinho', $produto->id) }}" class="btn btn-primary btn-comprar">Comprar</a>
                 </div>
             </div>
         

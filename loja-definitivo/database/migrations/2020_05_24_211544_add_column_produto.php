@@ -14,7 +14,7 @@ class AddColumnProduto extends Migration
     public function up()
     {
         Schema::table('produto', function (Blueprint $table) {
-            $table->integer('disponivel')->default(1);
+            $table->integer('situacao')->default(1);
         });
     }
 

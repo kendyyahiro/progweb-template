@@ -9,7 +9,7 @@
 
 <div class="container">
 	<div id="transacao-listagem">
-		<h2>Meu carrinho</h2>
+		<h2>Minhas Compras</h2>
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
@@ -31,7 +31,7 @@
                     @endforeach
 				@else
 				<tr>
-					<td colspan="4" class="text-center"><h2>Você ainda não possui produtos no carrinho!</h2></td>
+					<td colspan="4" class="text-center"><h2>Você ainda não possui produtos comprados!</h2></td>
 				</tr>
 				@endif
 			</tbody>

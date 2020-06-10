@@ -32,7 +32,7 @@ class ProdutoController extends Controller
         $produtos = DB::table('produto')
                     ->where([
                         ['user_id', '=' ,$id_usuario_logado],
-                        ['disponivel', '=' , 1]
+                        ['situacao', '=' , 1]
                     ])
                     ->orderBy('id', 'desc')
                     ->get();
@@ -139,7 +139,7 @@ class ProdutoController extends Controller
      */
     public function destroy(Produto $produto)
     {
-        $produto->disponivel = 0;
+        $produto->situacao = 2;
 
         if($produto->save()){
             return redirect('/produto')->with('success', 'Produto Deletado');
