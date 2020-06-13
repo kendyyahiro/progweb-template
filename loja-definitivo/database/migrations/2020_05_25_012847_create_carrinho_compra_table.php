@@ -25,6 +25,8 @@ class CreateCarrinhoCompraTable extends Migration
             $table->foreignId('transacao_id')->nullable();
             $table->foreign('transacao_id')->references('id')->on('transacao');
 
+            $table->integer('situacao')->default(1);
+
             $table->timestamps();
         });
     }

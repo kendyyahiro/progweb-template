@@ -21,13 +21,15 @@ class CarrinhoCompraController extends Controller
 
         //Busca os produtos que o usuário adicionou no carrinho
         $produtos = DB::table('carrinho_compra')
+                    ->select('carrinho_compra.*', 'produto.id as produto_id', 'produto.nome', 'produto.imagem', 'produto.valor', 'produto.descricao')
                     ->join('produto', 'produto.id', '=', 'carrinho_compra.produto_id')
                     ->where([
                         ['carrinho_compra.user_id', '=', $id_usuario_logado],
                         ['carrinho_compra.status', '=', 0],
+                        ['carrinho_compra.situacao', '=', 1]
                     ])
-                    ->get();
-
+                    ->get("");
+       
         //Busca os produtos e faz a soma total dos produtos
         $valor = DB::table('carrinho_compra')
                     ->select(DB::raw('SUM(produto.valor) as total'))
@@ -35,6 +37,7 @@ class CarrinhoCompraController extends Controller
                     ->where([
                         ['carrinho_compra.user_id', '=', $id_usuario_logado],
                         ['carrinho_compra.status', '=', 0],
+                        ['carrinho_compra.situacao', '=', 1]
                     ])
                     ->get();
 
@@ -105,8 +108,13 @@ class CarrinhoCompraController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(CarrinhoCompra $carrinhoCompra)
-    {
-        //
+    {   
+        //Status 2 = removido do carrinho
+        $carrinhoCompra->situacao = 2;
+
+        if($carrinhoCompra->save()){
+            return redirect('/carrinho-compra')->with('success', 'Produto Deletado');
+        }
     }
 
     /**
