@@ -1,7 +1,11 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<?php
+$produto = \App\Produto::all();
+?>
 
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -131,7 +135,7 @@
                 <div class="slider">
 
                         <div class="category-stripe text-center">
-                            <a href="https://ms.olx.com.br/imoveis">
+                            <a href="{{ route('produto/categoria', $produto->categoria='Imóveis') }}">
                                 <span class="icon-background">
                                     <img src="{{ asset('img/img_menu_categoria/Imoveis.jpg') }}" alt style="width: 32px; height: 32px;">
                                 </span>
@@ -140,7 +144,7 @@
 
                         </div>
                         <div class="category-stripe text-center">
-                            <a href="https://ms.olx.com.br/imoveis">
+                            <a href="{{ route('produto/categoria', $produto->categoria='Auto e peças') }}">
                                 <span class="icon-background">
                                     <img src="{{ asset('img/img_menu_categoria/Auto-peça.png') }}" alt style="width: 32px; height: 32px;">
                                 </span>
@@ -149,7 +153,7 @@
 
                         </div>
                     <div class="category-stripe text-center">
-                        <a href="https://ms.olx.com.br/imoveis">
+                        <a href="{{ route('produto/categoria', $produto->categoria='Para casa') }}">
                                 <span class="icon-background">
                                     <img src="{{ asset('img/img_menu_categoria/Para_casa.png') }}" alt style="width: 32px; height: 32px;">
                                 </span>
@@ -158,7 +162,7 @@
 
                     </div>
                     <div class="category-stripe text-center">
-                        <a href="https://ms.olx.com.br/imoveis">
+                        <a href="{{ route('produto/categoria', $produto->categoria='Eletrônicos e celulares') }}">
                                 <span class="icon-background">
                                     <img src="{{ asset('img/img_menu_categoria/eletronicos.png') }}" alt style="width: 32px; height: 32px;">
                                 </span>
@@ -167,7 +171,7 @@
 
                     </div>
                     <div class="category-stripe text-center">
-                        <a href="https://ms.olx.com.br/imoveis">
+                        <a href="{{ route('produto/categoria', $produto->categoria='Artigos infantis') }}">
                                 <span class="icon-background">
                                     <img src="{{ asset('img/img_menu_categoria/infantil.png') }}" alt style="width: 32px; height: 32px;">
                                 </span>
@@ -176,7 +180,7 @@
 
                     </div>
                     <div class="category-stripe text-center">
-                        <a href="https://ms.olx.com.br/imoveis">
+                        <a href="{{ route('produto/categoria', $produto->categoria='Serviços') }}">
                                 <span class="icon-background">
                                     <img src="{{ asset('img/img_menu_categoria/serviços.png') }}" alt style="width: 32px; height: 32px;">
                                 </span>
@@ -185,7 +189,7 @@
 
                     </div>
                     <div class="category-stripe text-center">
-                        <a href="https://ms.olx.com.br/imoveis">
+                        <a href="{{ route('produto/categoria', $produto->categoria='Esporte e lazer') }}">
                                 <span class="icon-background">
                                     <img src="{{ asset('img/img_menu_categoria/esporte.png') }}" alt style="width: 32px; height: 32px;">
                                 </span>
@@ -194,7 +198,7 @@
 
                     </div>
                     <div class="category-stripe text-center">
-                        <a href="https://ms.olx.com.br/imoveis">
+                        <a href="{{ route('produto/categoria', $produto->categoria='Moda e beleza') }}">
                                 <span class="icon-background">
                                 <img src="{{ asset('img/img_menu_categoria/moda_beleza.jpg') }}" alt style="width: 32px; height: 32px;">
                                 </span>
@@ -203,7 +207,7 @@
 
                     </div>
                     <div class="category-stripe text-center">
-                        <a href="https://ms.olx.com.br/imoveis">
+                        <a href="{{ route('produto/categoria', $produto->categoria='Animais de estimação') }}">
                                 <span class="icon-background">
                                     <img src="{{ asset('img/img_menu_categoria/animais.jpg') }}" alt style="width: 32px; height: 32px;">
                                 </span>
@@ -212,7 +216,7 @@
 
                     </div>
                     <div class="category-stripe text-center">
-                        <a href="https://ms.olx.com.br/imoveis">
+                        <a href="{{ route('produto/categoria', $produto->categoria='Outros') }}">
                                 <span class="icon-background">
                                     <img src="{{ asset('img/img_menu_categoria/Outros.png') }}" alt style="width: 32px; height: 32px;">
                                 </span>

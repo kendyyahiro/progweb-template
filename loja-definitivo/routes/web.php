@@ -22,6 +22,7 @@ Route::get('/', function () {
 /*Produtos*/
 rotasCrud('produto', 'ProdutoController', 'produto');
 Route::get('/produto/meus-anuncios', 'ProdutoController@meusAnuncios')->name('produto/meus-anuncios')->middleware('auth');
+Route::get('/produto/categoria/{categoria}', 'ProdutoController@porCategoria')-> name('produto/categoria');
 
 /*Carrinho de compras*/
 rotasCrud('carrinho-compra', 'CarrinhoCompraController', 'carrinhoCompra');

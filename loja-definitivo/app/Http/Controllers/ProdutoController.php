@@ -145,4 +145,22 @@ class ProdutoController extends Controller
             return redirect('/produto')->with('success', 'Produto Deletado');
         }
     }
+
+    /**
+     * Mostra os produtos por categoria
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function porCategoria(string  $categoria)
+    {
+        $produtos = DB::table('produto')
+            ->where([
+
+                ['categoria', '=' ,$categoria]
+            ])
+            ->orderBy('id', 'desc')
+            ->get();
+
+        return view('produto.categoria', compact('produtos', 'categoria'));
+    }
 }
