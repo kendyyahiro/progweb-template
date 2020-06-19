@@ -32,7 +32,7 @@ class ProdutoController extends Controller
         $produtos = DB::table('produto')
                     ->where([
                         ['user_id', '=' ,$id_usuario_logado],
-                        ['situacao', '=' , 1]
+                        ['disponivel', '=' , 1]
                     ])
                     ->orderBy('id', 'desc')
                     ->get();
@@ -49,17 +49,15 @@ class ProdutoController extends Controller
     {
         $id_usuario_logado = Auth::id();
 
-        $valor = $txtBusca;
-
         $produtos = DB::table('produto')
             ->where([
                 ['user_id', '=' ,$id_usuario_logado],
-                ['nome', '=' , $valor]
+                ['nome', '=' , $txtBusca]
             ])
             ->orderBy('id', 'desc')
             ->get();
 
-        return view('produto.index', compact('produtos'));
+        return view('produto.busca', compact('txtBusca'));
     }
 
     /**

@@ -53,5 +53,5 @@ Route::get('/',['as'=>'home', 'uses'=>'IndexController@index']);
 //Route::get('/',['as'=>'site.home', 'uses'=>'Site\HomeController@index']);
 
 /*Busca*/
-Route::get('/produto/busca-produtos', 'ProdutoController@buscaProdutos')->name('produto/busca-produtos')->middleware('auth');
+Route::get('/produto/busca/', 'ProdutoController@buscaProdutos')->name('produto/busca')->middleware('auth');
 
