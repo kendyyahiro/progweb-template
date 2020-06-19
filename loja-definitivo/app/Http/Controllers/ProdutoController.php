@@ -41,6 +41,28 @@ class ProdutoController extends Controller
     }
 
     /**
+     * Mostra os produtos cadastrados pela busca nos anúncios
+     *@param  \App\Produto  $txtBusca
+     * @return \Illuminate\Http\Response
+     */
+    public function buscaProdutos(Produto $txtBusca)
+    {
+        $id_usuario_logado = Auth::id();
+
+        $valor = $txtBusca;
+
+        $produtos = DB::table('produto')
+            ->where([
+                ['user_id', '=' ,$id_usuario_logado],
+                ['nome', '=' , $valor]
+            ])
+            ->orderBy('id', 'desc')
+            ->get();
+
+        return view('produto.index', compact('produtos'));
+    }
+
+    /**
      * Mostrar formulário do produto
      *
      * @return \Illuminate\Http\Response
