@@ -23,6 +23,7 @@
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
+        "jquery-ajax": "^2.1.4",
         "slick-carousel": "^1.8.1"
     }
 }
