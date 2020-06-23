@@ -32,7 +32,7 @@ class ProdutoController extends Controller
         $produtos = DB::table('produto')
                     ->where([
                         ['user_id', '=' ,$id_usuario_logado],
-                        ['disponivel', '=' , 1]
+                        ['situacao', '=' , 1]
                     ])
                     ->orderBy('id', 'desc')
                     ->get();

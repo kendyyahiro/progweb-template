@@ -19,7 +19,7 @@
 	<div class="row">
 
 		@foreach ($produtos as $produto)
-            <div class="col-md-2">
+            <div class="col-12 col-sm-4 col-xl-2">
             <div class="card" style="width: 100%;">
                 <a href="{{ route('produto/show', $produto->id) }}"><img class="card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}"></a>
                 <div class="card-body">
