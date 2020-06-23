@@ -215,7 +215,7 @@ $produto = \App\Produto::all();
         <footer>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4 col-xl-5">
+                    <div class="col-12 col-md-4 col-xl-5">
                         <div class="links">
                             <a href="{{ route('produto') }}">Produtos</a>
                             <a href="{{ route('produto') }}">Produtos</a>
@@ -224,10 +224,10 @@ $produto = \App\Produto::all();
                             <a href="{{ route('produto') }}">Produtos</a>
                         </div>
                     </div>
-                    <div class="col-md-4 col-xl-2">
+                    <div class="col-12 col-md-4 col-xl-2">
                         <img src="{{ asset('img/logo_footer.png') }}" class="img-fluid">
                     </div>
-                    <div class="col-md-4 col-xl-5">
+                    <div class="col-12 col-md-4 col-xl-5">
                         <div class="midia_social">
                             <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                             <a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
