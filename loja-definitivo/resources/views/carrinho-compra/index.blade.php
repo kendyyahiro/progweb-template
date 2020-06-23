@@ -31,7 +31,7 @@
 							<td>
 								<form action="{{ action('CarrinhoCompraController@destroy', $produto->id) }}" method="POST">
 									@csrf
-									<button class="btn btn-danger btn-sm card-link" type="submit" onclick="return confirm('Você tem certeza?')">Apagar</button>
+									<button class="btn btn-danger btn-sm card-link" type="submit" onclick="return confirm('Você tem certeza?')">Remover</button>
 								</form>
 							</td>
 						</tr>

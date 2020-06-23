@@ -330,3 +330,7 @@ li
     }
   /*Fim Transacao - index*/
 /*Fim Transacao*/
+
+.slick-slider a:focus{
+  outline: none;
+}
