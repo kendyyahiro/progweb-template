@@ -113,11 +113,17 @@ class TransacaoController extends Controller
     {
         $id_usuario_logado = Auth::id();
 
-        //Busca os produtos e faz a soma total dos produtos
+        //Busca os produtos com status = 0, ou seja, não foram comprados ainda
+        //Situacao = 1 caso ele não esteja excluído
+        //E faz a soma total dos produtos
         $valor = DB::table('carrinho_compra')
                     ->select(DB::raw('SUM(produto.valor) as total'))
                     ->join('produto', 'produto.id', '=', 'carrinho_compra.produto_id')
-                    ->where('carrinho_compra.user_id', $id_usuario_logado)
+                    ->where([
+                        ['carrinho_compra.user_id', '=', $id_usuario_logado],
+                        ['carrinho_compra.status', '=', 0],
+                        ['carrinho_compra.situacao', '=', 1]
+                    ])
                     ->get();
 
     	$transacao = new Transacao();
@@ -133,6 +139,7 @@ class TransacaoController extends Controller
             ->where([
                 ['user_id', '=', $id_usuario_logado],
                 ['status', '=', 0],
+                ['situacao', '=', 1]
             ])
             ->update(array(
                 'status' => 1,
