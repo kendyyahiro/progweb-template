@@ -18,8 +18,7 @@ class ProdutoController extends Controller
     {
         $id_usuario_logado = Auth::id();
 
-        $produtos = DB::table('produto')
-                    ->where([
+        $produtos = Produto::where([
                         ['user_id', '=' ,$id_usuario_logado],
                         ['situacao', '=' , 1]
                     ])
@@ -38,8 +37,7 @@ class ProdutoController extends Controller
     {
         $id_usuario_logado = Auth::id();
 
-        $produtos = DB::table('produto')
-                    ->where([
+        $produtos = Produto::where([
                         ['user_id', '=' ,$id_usuario_logado],
                         ['situacao', '=' , 1]
                     ])
@@ -58,7 +56,7 @@ class ProdutoController extends Controller
     {
         $id_usuario_logado = Auth::id();
 
-        $produtos = DB::table('produto')
+        $produtos = Produto::with(['favoritos'])
             ->where([
                 ['user_id', '=' ,$id_usuario_logado],
                 ['nome', '=' , $txtBusca]
@@ -182,9 +180,8 @@ class ProdutoController extends Controller
      */
     public function porCategoria(string  $categoria)
     {
-        $produtos = DB::table('produto')
+        $produtos = Produto::with(['favoritos'])
             ->where([
-
                 ['categoria', '=' ,$categoria]
             ])
             ->orderBy('id', 'desc')
