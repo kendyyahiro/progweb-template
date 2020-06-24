@@ -16,7 +16,15 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        $produtos = Produto::orderBy('id')->paginate(100);
+        $id_usuario_logado = Auth::id();
+
+        $produtos = Produto::where([
+                        ['user_id', '=' ,$id_usuario_logado],
+                        ['situacao', '=' , 1]
+                    ])
+                    ->orderBy('id', 'desc')
+                    ->get();
+
         return view('produto.index', compact('produtos'));
     }
 
@@ -29,8 +37,7 @@ class ProdutoController extends Controller
     {
         $id_usuario_logado = Auth::id();
 
-        $produtos = DB::table('produto')
-                    ->where([
+        $produtos = Produto::where([
                         ['user_id', '=' ,$id_usuario_logado],
                         ['situacao', '=' , 1]
                     ])
@@ -102,7 +109,7 @@ class ProdutoController extends Controller
             $produto->imagem = $diretorio.'/'.$nomeArquivo;
         }
         if($produto->save()){
-            return redirect('/produto')->with('success', 'Produto Adicionado');
+            return redirect('/produto/meus-anuncios')->with('success', 'Produto Adicionado');
         }
     }
 
@@ -179,9 +186,8 @@ class ProdutoController extends Controller
      */
     public function porCategoria(string  $categoria)
     {
-        $produtos = DB::table('produto')
+        $produtos = Produto::with(['favoritos'])
             ->where([
-
                 ['categoria', '=' ,$categoria]
             ])
             ->orderBy('id', 'desc')

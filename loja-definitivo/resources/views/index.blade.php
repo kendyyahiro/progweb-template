@@ -13,25 +13,33 @@
 </style>
 
 @section('content')
-<p><h4>Anúncios Recentes</h4></p>
 <section id="produto-anunciado" class="container-fluid py-3">
+	<h4>Anúncios Recentes</h4>
 
 	<div class="row">
 
 		@foreach ($produtos as $produto)
             <div class="col-12 col-sm-4 col-xl-2">
-            <div class="card" style="width: 100%;">
-                <a href="{{ route('produto/show', $produto->id) }}"><img class="card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}"></a>
-                <div class="card-body">
-                    <h5 class="card-title">{{ $produto->nome }}</h5>
-					<p class="card-text">{{ $produto->descricao }}</p>
-                    <p class="card-text">R${{ number_format($produto->valor,2,",",".") }}</p>
-                </div>
+				<div class="card" style="width: 100%;">
+					<a href="{{ route('produto/show', $produto->id) }}" class="position-relative">
+						<img class="card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}">
+					</a>
+					@auth
+						<button class="produto_anunciado kokoro" data-id="{{ $produto->id }}">
+							<i class="fa {{ !empty($produto->favoritos) ? 'fa-heart' : 'fa-heart-o' }}" aria-hidden="true"></i>
+						</button>
+					@endauth
 
-                <div class="card-body">
-					<a href="{{ route('produto/show', $produto->id) }}" class="btn btn-dark card-link">Ver mais..</a>
+					<div class="card-body">
+						<h5 class="card-title">{{ $produto->nome }}</h5>
+						<p class="card-text">{{ $produto->descricao }}</p>
+						<p class="card-text">R${{ number_format($produto->valor,2,",",".") }}</p>
+					</div>
+
+					<div class="card-body">
+						<a href="{{ route('produto/show', $produto->id) }}" class="btn btn-dark card-link">Ver mais..</a>
+					</div>
 				</div>
-            </div>
             </div>
 
 		@endforeach

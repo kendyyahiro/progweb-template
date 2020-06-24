@@ -39,6 +39,7 @@
 					<tr>
 						<td colspan="3"></td>
 						<td id="valor-total-carrinho"> Total: <?= number_format($valor[0]->total, 2, ",", ".") ?> </td>
+						<td></td>
 					</tr>
 				@else
 				<tr>

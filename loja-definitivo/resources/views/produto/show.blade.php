@@ -15,6 +15,11 @@
 
             <div class="col-md-4">
                 <img class="card-img-top img-produto" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}">
+                @auth
+                    <button class="produto_anunciado kokoro" data-id="{{ $produto->id }}">
+                        <i class="fa {{ !empty($produto->favoritos) ? 'fa-heart' : 'fa-heart-o' }}" aria-hidden="true"></i>
+                    </button>
+                @endauth
             </div>
 
             <div class="col-md-8">

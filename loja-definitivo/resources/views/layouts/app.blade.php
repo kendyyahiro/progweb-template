@@ -16,8 +16,6 @@ $produto = \App\Produto::all();
 
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}"/>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -65,12 +63,6 @@ $produto = \App\Produto::all();
                                     <a href="{{ route('produto/meus-anuncios') }}" class="link-anuncio">Meus anúncios</a>
                                 </li>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <div class="img-anuncio">
-                                        <img src="" class="img-fluid">
-                                    </div>
-                                    <a href="{{ route('transacao/minhas-compras') }}" class="link-anuncio">Minhas Compras</a>
-                                </li>
-                                <li class="nav-item d-flex justify-content-center align-items-center">
                                     <div class="img-carrinho">
                                         <img src="{{ asset('img/img_layout/carrinho.png') }}" class="img-fluid">
                                     </div>
@@ -87,17 +79,20 @@ $produto = \App\Produto::all();
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
+                                        <a class="dropdown-item" href="{{ route('perfil') }}">
+                                            {{ __('Perfil') }}
                                         </a>
+
+                                        <a href="{{ route('transacao/minhas-compras') }}" class="link-anuncio dropdown-item">Minhas Compras</a>
+
+                                        <a href="{{ route('transacao/minhas-compras') }}" class="link-anuncio dropdown-item">Favoritos</a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf
                                         </form>
-
-                                        <a class="dropdown-item" href="{{ route('perfil') }}">
-                                            {{ __('Perfil') }}
+                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
                                         </a>
                                     </div>
                                 </li>
@@ -248,3 +243,51 @@ $produto = \App\Produto::all();
 </body>
 
 </html>
+
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
+<script>
+
+    $(document).ready(function(){
+        $('.slider').slick({
+            infinite: false,
+            slidesToShow: 5,
+            slidesToScroll: 3,
+            responsive: [
+                {
+                breakpoint: 576,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+
+        $('.produto_anunciado').on('click', function(){
+            $(this).find('i').toggleClass('fa-heart-o fa-heart');
+            let produto_id = $(this).data('id');
+
+            $.ajax({
+                url:  `{{ route('favoritos/addFavoritos') }}`,
+                type: 'POST',
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    produto_id: produto_id
+                },
+                success: (response) => {
+                    
+                },
+                error: () => {
+                    sweetToastError('Não foi possível realizar esta ação. Tente novamente!')
+                }
+            });
+
+        });
+    });
+    
+</script>
