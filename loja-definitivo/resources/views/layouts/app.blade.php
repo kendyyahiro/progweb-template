@@ -203,6 +203,12 @@ $produto = \App\Produto::all();
                     </div>
 
                 </div>
+
+                <form action="{{route('busca')}}" >
+                    <input class="col-12 px-md-4" placeholder="Buscar..." type="text" name="texto" value="{{ isset($busca['texto'])  ? $busca['texto'] : '' }}">
+                    <button class="btn deep-range darken-1">Buscar</button>
+                </form>
+
             </div>
         </section>
         @endif

@@ -3,11 +3,11 @@
 @section('content')
 
     <div class="container">
-        <h2>Produtos encontrados: {{$txtBusca}}</h2>
+        <h2>Produtos encontrados: {{$aux}}</h2>
 
         <div class="row">
-            @if(count($errors) != 0)
-                @foreach ($errors as $produto)
+            @if(count($produtos) != 0)
+                @foreach ($produtos as $produto)
                     <div class="col-md-4">
                         <div class="card" style="width: 100%;">
                             <a href="{{ route('produto/show', $produto->id) }}"><img class="card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}"></a>

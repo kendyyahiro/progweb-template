@@ -5,13 +5,6 @@
 <div class="container">
 	<h1>Meus Anúncios</h1>
 
-	<div class="filtroBusca">
-            <input type="text" id="txtBusca" placeholder="O que você procura?">
-            @if(isset($_POST['txtBusca']))
-            @endif
-            <a href="{{ route('produto/busca') }}" class="btn btn-primary btnBusca">Buscar</a>
-     </div>
-
 	<div class="row">
 		@if(count($produtos) != 0)
 			@foreach ($produtos as $produto)

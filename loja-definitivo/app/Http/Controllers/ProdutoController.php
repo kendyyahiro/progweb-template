@@ -42,22 +42,28 @@ class ProdutoController extends Controller
 
     /**
      * Mostra os produtos cadastrados pela busca nos anúncios
-     *@param  \App\Produto  $txtBusca
+     *
      * @return \Illuminate\Http\Response
      */
-    public function buscaProdutos(Produto $txtBusca)
+    public function buscaProduto(Request $request)
     {
-        $id_usuario_logado = Auth::id();
+        $busca = $request->all();
+        $aux = $busca['texto'];
 
-        $produtos = DB::table('produto')
-            ->where([
-                ['user_id', '=' ,$id_usuario_logado],
-                ['nome', '=' , $txtBusca]
-            ])
+        if ($busca['texto'] != '') {
+            $teste = [
+                ['nome', 'like', '%' . $busca['texto'] . '%']
+            ];
+        } else {
+            $teste = [
+                ['nome', '<>', null]
+            ];
+        }
+        $produtos = Produto::where($teste)
             ->orderBy('id', 'desc')
             ->get();
 
-        return view('produto.busca', compact('txtBusca'));
+        return view('produto.busca', compact('produtos', 'aux'));
     }
 
     /**
