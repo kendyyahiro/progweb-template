@@ -35,6 +35,8 @@ Route::get('/transacao/finalizar-compra', 'TransacaoController@finalizarCompra')
 Route::get('/transacao/minhas-compras', 'TransacaoController@index')->name('transacao/minhas-compras')->middleware('auth');
 Route::get('/transacao/detalhes/{transacao_id}', 'TransacaoController@show')->name('transacao/detalhes')->middleware('auth');
 
+Route::post('/favoritos/addFavoritos', 'FavoritosController@favoritarProduto')->name('favoritos/addFavoritos')->middleware('auth');
+
 //Rotas de autenticação
 Auth::routes();
 

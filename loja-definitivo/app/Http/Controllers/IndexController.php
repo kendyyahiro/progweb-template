@@ -9,7 +9,11 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $produtos = Produto::orderBy('id')->paginate(100);
+        //Utiliza a relação dos favoritos
+        $produtos = Produto::orderBy('produto.id')
+        ->with(['favoritos'])
+        ->paginate(100);
+
         $direcaoImagem = ['center-align','left-align','right-align'];
 
         return view('index',compact('produtos','direcaoImagem'));

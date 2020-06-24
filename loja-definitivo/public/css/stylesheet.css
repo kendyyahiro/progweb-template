@@ -169,6 +169,23 @@ li
     font-weight: 700;
   }
 
+  .kokoro{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: none;
+    background: none;
+  }
+
+  .kokoro:focus{
+    outline: none;
+  }
+
+  .kokoro i{
+    font-size: 20px;
+    color: #ff0e0e91;
+  }
+
 /*Fim Layout Base*/
 /*Produto*/
   /*CSS - Quem Somos*/

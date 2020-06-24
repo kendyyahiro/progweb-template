@@ -17,6 +17,12 @@
                                 <p class="card-text">R${{ number_format($produto->valor,2,",",".") }}</p>
                             </div>
 
+                            @auth
+                                <button class="produto_anunciado kokoro" data-id="{{ $produto->id }}">
+                                    <i class="fa {{ !empty($produto->favoritos) ? 'fa-heart' : 'fa-heart-o' }}" aria-hidden="true"></i>
+                                </button>
+                            @endauth
+
                             <div class="card-body d-flex justify-content-between">
                                 <a href="{{ route('produto/edit', $produto->id) }}" class="btn btn-primary btn-sm card-link">Editar Anúncio</a>
                                 <a href="{{ route('produto/show', $produto->id) }}" class="btn btn-dark btn-sm card-link">Visualizar</a>
