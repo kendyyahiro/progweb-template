@@ -27,16 +27,15 @@
                     <h1>{{ $produto->nome }}</h1>
                     <h4>Descrição do produto:</h4>
                     <p class="descricao-produto">{{ $produto->descricao }}</p>
+                    <h4>Categoria:</h4>
+                    <p class="descricao-produto">{{ $produto->categoria }}</p>
                     <p class="valor-produto">R$ {{ number_format($produto->valor,2,",",".") }}</p>
                 </div>
                 <div class="box-btn-comprar">
                     <a href="{{ route('carrinho-compra/adicionarCarrinho', $produto->id) }}" class="btn btn-primary btn-comprar">Comprar</a>
                 </div>
             </div>
-        
         </div>
     </div>
 </section>
-
-
 @endsection
