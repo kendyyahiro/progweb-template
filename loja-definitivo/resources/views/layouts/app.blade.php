@@ -85,7 +85,7 @@ $produto = \App\Produto::all();
 
                                         <a href="{{ route('transacao/minhas-compras') }}" class="link-anuncio dropdown-item">Minhas Compras</a>
 
-                                        <a href="{{ route('transacao/minhas-compras') }}" class="link-anuncio dropdown-item">Favoritos</a>
+                                        <a href="{{ route('favoritos') }}" class="link-anuncio dropdown-item">Favoritos</a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf
@@ -252,7 +252,6 @@ $produto = \App\Produto::all();
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 
 <script>
-
     $(document).ready(function(){
         $('.slider').slick({
             infinite: false,

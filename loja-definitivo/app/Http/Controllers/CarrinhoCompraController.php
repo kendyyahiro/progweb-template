@@ -27,7 +27,7 @@ class CarrinhoCompraController extends Controller
                         ['carrinho_compra.status', '=', 0],
                         ['carrinho_compra.situacao', '=', 1]
                     ])
-                    ->get("");
+                    ->get();
        
         //Busca os produtos e faz a soma total dos produtos
         $valor = CarrinhoCompra::select(DB::raw('SUM(produto.valor) as total'))

@@ -17,14 +17,26 @@ class FavoritosController extends Controller
      */
     public function index()
     {
-        return view('favoritos.index');
+        $id_usuario_logado = Auth::id();
+
+        $favoritos = Favoritos::
+            with('produto')
+            ->where([
+                ['user_id', '=', $id_usuario_logado],
+                ['situacao', '=', 1]
+            ])->get();
+
+        return view('favoritos.index', compact('favoritos'));
     }
 
     /**
-     * O que faz: 
+     * O que faz: Esse método irá adicionar ou remover o produto do favoritos.
+     * Caso seja a primeira vez a favoritar, irá criar uma nova tupla no banco. 
+     * Caso contrário, irá apenas ficar invertendo a situação do produto favoritado
      * 
-     * Usado em: 
+     * situacao = 1 (favoritado) || situacao = 0 (Não favoritado/removido)
      * 
+     * @param Request - Recebe os dados para favoritar algum produto
      */
     public function favoritarProduto(Request $request){
         $id_produto = $request->get('produto_id');
