@@ -75,7 +75,7 @@ $produto = \App\Produto::all();
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }} <span class="caret"></span>
+                                        {{ Auth::user()->name }} 
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -105,7 +105,11 @@ $produto = \App\Produto::all();
         @if (Route::currentRouteName() != 'login' && Route::currentRouteName() != 'register')
 
         <section class="menu container-fluid">
-            <div class="container">
+            <div class="container mt-2 mb-4 ">
+                <form action="{{route('busca')}}" >
+                    <input class="form-control col-12 px-md-4 mb-4" placeholder="Buscar..." type="text" name="texto" value="{{ isset($busca['texto'])  ? $busca['texto'] : '' }}">
+                    <!-- <button class="btn deep-range darken-1">Buscar</button> -->
+                </form>
                 <div class="slider">
                         <div class="category-stripe text-center">
                             <a href="{{ route('produto/categoria', $produto->categoria='Imóveis') }}">
@@ -199,10 +203,7 @@ $produto = \App\Produto::all();
 
                 </div>
 
-                <form action="{{route('busca')}}" >
-                    <input class="col-12 px-md-4" placeholder="Buscar..." type="text" name="texto" value="{{ isset($busca['texto'])  ? $busca['texto'] : '' }}">
-                    <button class="btn deep-range darken-1">Buscar</button>
-                </form>
+                
 
             </div>
         </section>
