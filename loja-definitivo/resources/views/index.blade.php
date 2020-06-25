@@ -22,7 +22,7 @@
             <div class="col-12 col-sm-4 col-xl-2">
 				<div class="card" style="width: 100%;">
 					<a href="{{ route('produto/show', $produto->id) }}" class="position-relative">
-						<img class="card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}">
+						<img class="produto-anunciado card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}">
 					</a>
 					@auth
 						<button class="produto_anunciado kokoro" data-id="{{ $produto->id }}">
@@ -45,13 +45,35 @@
 		@endforeach
 	</div>
 </section  class="space margin -bottom">
-<!-- Deixar AQUI específico para 3 anúncios pré-programados para 3 tipos de produtos. -->
 <section>
-<!-- Mexer dps no css que adulterei -->
-	<div class="row">
-	@for ($i = 1; $i <= 3; $i++)
-		<div style="background-image:url({{ asset('img/img_layout/Aluguel_Compra.png') }});" class="bg-destaque col-sm-4"></div>
-	@endfor
+	<div class="container-fluid">
+		<div class="row imagem-exemplos-cat">
+			<div class="imagem-responsivo-cat bg-destaque col-md-12 col-xs-4 col-sm-4 img-responsive">
+				<img src="{{ asset('img/img_layout/Aluguel_Compra.png')}}">
+			</div>
+			<div class="imagem-responsivo-cat bg-destaque col-md-12 col-xs-4 col-sm-4 img-responsive">
+				<img src="{{ asset('img/img_layout/Smartphone.png')}}">
+			</div>
+			<div class="imagem-responsivo-cat bg-destaque col-md-12 col-xs-4 col-sm-4 img-responsive">
+				<img src="{{ asset('img/img_layout/Instrumentos_Musicais.png')}}">
+			</div>
+			
+		</div>
+
+		<p><h4>Tendências</h4></p>
+
+		<!-- <div class="row">
+			<div class="col-4 col-sm-4 col-xl-4">
+				<img class="card-img-top" src="{{ asset('img/img_layout/Vagas_Estágio.png') }}">
+			</div>
+			<div class="imagem-responsivo-cat bg-destaque col-md-12 col-xs-4 col-sm-4 img-responsive">
+				<img src="{{ asset('img/img_layout/Smartphone.png')}}">
+				<img src="{{ asset('img/img_layout/Smartphone.png')}}">
+			</div>
+			<div class="col-4 col-sm-4 col-xl-4">
+				<img class="card-img-top" src="{{ asset('img/img_layout/Vagas_Estágio.png') }}">
+			</div>
+		</div> -->
 	</div>
 </section>
 

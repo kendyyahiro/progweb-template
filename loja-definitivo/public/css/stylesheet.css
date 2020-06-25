@@ -351,3 +351,29 @@ li
 .slick-slider a:focus{
   outline: none;
 }
+
+
+/* CSS para Meus Anuncios*/
+.produto-anunciado{
+  height: 240px;
+  object-fit: cover;
+}
+/*FIM CSS para Meus Anuncios*/
+
+
+.texto-regularizado{
+  text-align: left;
+}
+
+.imagem-responsivo-cat{
+  max-width: 592px;
+}
+
+.imagem-responsivo-cat img{
+  max-width: 100%;
+  height: auto;
+}
+
+.tendencia-central{
+  max-width: 100px;
+}

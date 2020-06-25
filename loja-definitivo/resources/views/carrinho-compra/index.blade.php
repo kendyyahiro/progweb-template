@@ -5,7 +5,7 @@
 
 <div class="container">
 	<div id="carrinho-compra-listagem">
-		<h2>Meu carrinho</h2>
+		<h4>Meu carrinho</h4>
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
