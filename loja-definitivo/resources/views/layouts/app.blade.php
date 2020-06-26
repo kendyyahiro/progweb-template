@@ -104,13 +104,13 @@ $produto = \App\Produto::all();
         </header>
         @if (Route::currentRouteName() != 'login' && Route::currentRouteName() != 'register')
 
-        <section class="menu container-fluid">
-            <div class="container mt-2 mb-4 ">
-                <form action="{{route('busca')}}" >
+        <section class="menu categorias">
+            <div class="container">
+                <form action="{{route('busca')}}" class="position-relative">
                     <input class="form-control col-12 px-md-4 mb-4" placeholder="Buscar..." type="text" name="texto" value="{{ isset($busca['texto'])  ? $busca['texto'] : '' }}">
-                    <!-- <button class="btn deep-range darken-1">Buscar</button> -->
+                    <button class="btn btn-info btn-buscar">Buscar</button>
                 </form>
-                <div class="slider">
+                <div id="slider-categorias">
                         <div class="category-stripe text-center">
                             <a href="{{ route('produto/categoria', $produto->categoria='Imóveis') }}">
                                 <span class="icon-background">
@@ -209,10 +209,9 @@ $produto = \App\Produto::all();
         </section>
         @endif
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
-
 
         <footer>
             <div class="container-fluid">
@@ -253,7 +252,7 @@ $produto = \App\Produto::all();
 
 <script>
     $(document).ready(function(){
-        $('.slider').slick({
+        $('#slider-categorias').slick({
             infinite: false,
             slidesToShow: 5,
             slidesToScroll: 3,

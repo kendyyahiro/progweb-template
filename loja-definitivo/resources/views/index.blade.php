@@ -1,16 +1,6 @@
 @extends('layouts.app')
 
 
-<style>
-.bg-destaque{
-	height: 300px;
-	width: 100%;
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center;
-}
-
-</style>
 
 @section('content')
 <section id="produto-anunciado" class="container-fluid py-3">
@@ -19,7 +9,7 @@
 	<div class="row">
 
 		@foreach ($produtos as $produto)
-            <div class="col-12 col-sm-4 col-xl-2">
+            <div class="col-12 col-sm-4 col-xl-2 pb-3">
 				<div class="card" style="width: 100%;">
 					<a href="{{ route('produto/show', $produto->id) }}" class="position-relative">
 						<img class="produto-anunciado card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}">
@@ -48,13 +38,13 @@
 <section>
 	<div class="container-fluid">
 		<div class="row imagem-exemplos-cat">
-			<div class="imagem-responsivo-cat bg-destaque col-md-12 col-xs-4 col-sm-4 img-responsive">
+			<div class="imagem-responsivo-cat bg-destaque col-12 col-lg-4 img-responsive">
 				<img src="{{ asset('img/img_layout/Aluguel_Compra.png')}}">
 			</div>
-			<div class="imagem-responsivo-cat bg-destaque col-md-12 col-xs-4 col-sm-4 img-responsive">
+			<div class="imagem-responsivo-cat bg-destaque col-12 col-lg-4 img-responsive">
 				<img src="{{ asset('img/img_layout/Smartphone.png')}}">
 			</div>
-			<div class="imagem-responsivo-cat bg-destaque col-md-12 col-xs-4 col-sm-4 img-responsive">
+			<div class="imagem-responsivo-cat bg-destaque col-12 col-lg-4 img-responsive">
 				<img src="{{ asset('img/img_layout/Instrumentos_Musicais.png')}}">
 			</div>
 			
@@ -74,6 +64,33 @@
 				<img class="card-img-top" src="{{ asset('img/img_layout/Vagas_Estágio.png') }}">
 			</div>
 		</div> -->
+	</div>
+</section>
+
+<section id="informacoes">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-4">
+				<div class="d-flex flex-column justify-content-center align-items-center item">
+					<img src="{{ asset('img/img_layout/cartao.png') }}" class="img-fluid">
+					<h5 class="text-center">Pague com cartão de crédito ou boleto</h5>
+				</div>
+			</div>
+
+			<div class="col-12 col-md-4">
+				<div class="d-flex flex-column justify-content-center align-items-center item">
+					<img src="{{ asset('img/img_layout/frete.png') }}" class="img-fluid">
+					<h5 class="text-center">Frete grátis a partir de R$ 120</h5>
+				</div>
+			</div>
+
+			<div class="col-12 col-md-4">
+				<div class="d-flex flex-column justify-content-center align-items-center item">
+					<img src="{{ asset('img/img_layout/seguranca.png') }}" class="img-fluid">
+					<h5 class="text-center">Segurança, do início ao fim</h5>
+				</div>
+			</div>
+		</div>
 	</div>
 </section>
 

@@ -55,18 +55,27 @@ footer{flex-shrink: 0;}
     font-size: 14px;
   }
 
-.menu.container-fluid {
+.menu.categorias {
     background-color: #0988BE;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 15px;
 }
 
-.filtroBusca {
-    margin: 10px;
-}
+/** Filtro buscar **/
+  .filtroBusca {
+      margin: 10px;
+  }
 
+  .menu.categorias .btn-buscar{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border-radius: 5px;
+    font-weight: 700;
+  }
+/** Fim Filtro buscar **/
 
 .category-stripe a .icon-background {
     background-color: #fff;
@@ -348,9 +357,15 @@ li
   /*Fim Transacao - index*/
 /*Fim Transacao*/
 
+/** Slider categoria **/
 .slick-slider a:focus{
   outline: none;
 }
+
+#slider-categorias .slick-slide:hover{
+    opacity: 0.7;
+}
+/** Slider categoria **/
 
 
 /* CSS para Meus Anuncios*/
@@ -365,10 +380,6 @@ li
   text-align: left;
 }
 
-.imagem-responsivo-cat{
-  max-width: 592px;
-}
-
 .imagem-responsivo-cat img{
   max-width: 100%;
   height: auto;
@@ -377,3 +388,28 @@ li
 .tendencia-central{
   max-width: 100px;
 }
+/* 
+.bg-destaque{
+	height: 300px;
+	width: 100%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+@media(max-width: 768px){
+  .bg-destaque{
+    height: auto;
+  }
+} */
+
+/** Informações do site **/
+  #informacoes{
+    background-color: #EBEBEB;
+    padding: 30px 0px;
+  }
+
+  #informacoes .item img{
+    width: 40%;
+  }
+/** Fim Informações do site **/
