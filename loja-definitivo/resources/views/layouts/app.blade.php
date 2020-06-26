@@ -213,6 +213,43 @@ $produto = \App\Produto::all();
             @yield('content')
         </main>
 
+    <style>
+        #informacoes{
+            background-color: #EBEBEB;
+            padding: 30px 0px;
+        }
+
+        #informacoes .item img{
+            width: 40%;
+        }
+    </style>
+        <section id="informacoes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <div class="d-flex flex-column justify-content-center align-items-center item">
+                            <img src="{{ asset('img/img_layout/cartao.png') }}" class="img-fluid">
+                            <h5 class="text-center">Pague com cartão de crédito ou boleto</h5>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="d-flex flex-column justify-content-center align-items-center item">
+                            <img src="{{ asset('img/img_layout/frete.png') }}" class="img-fluid">
+                            <h5 class="text-center">Frete grátis a partir de R$ 120</h5>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="d-flex flex-column justify-content-center align-items-center item">
+                            <img src="{{ asset('img/img_layout/seguranca.png') }}" class="img-fluid">
+                            <h5 class="text-center">Segurança, do início ao fim</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <footer>
             <div class="container-fluid">

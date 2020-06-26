@@ -365,10 +365,6 @@ li
   text-align: left;
 }
 
-.imagem-responsivo-cat{
-  max-width: 592px;
-}
-
 .imagem-responsivo-cat img{
   max-width: 100%;
   height: auto;
@@ -377,3 +373,17 @@ li
 .tendencia-central{
   max-width: 100px;
 }
+/* 
+.bg-destaque{
+	height: 300px;
+	width: 100%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+@media(max-width: 768px){
+  .bg-destaque{
+    height: auto;
+  }
+} */
