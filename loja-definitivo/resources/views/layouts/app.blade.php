@@ -104,13 +104,13 @@ $produto = \App\Produto::all();
         </header>
         @if (Route::currentRouteName() != 'login' && Route::currentRouteName() != 'register')
 
-        <section class="menu container-fluid">
-            <div class="container mt-2 mb-4 ">
+        <section class="menu categorias">
+            <div class="container">
                 <form action="{{route('busca')}}" >
                     <input class="form-control col-12 px-md-4 mb-4" placeholder="Buscar..." type="text" name="texto" value="{{ isset($busca['texto'])  ? $busca['texto'] : '' }}">
                     <!-- <button class="btn deep-range darken-1">Buscar</button> -->
                 </form>
-                <div class="slider">
+                <div id="slider-categorias">
                         <div class="category-stripe text-center">
                             <a href="{{ route('produto/categoria', $produto->categoria='Imóveis') }}">
                                 <span class="icon-background">
@@ -209,47 +209,9 @@ $produto = \App\Produto::all();
         </section>
         @endif
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
-
-    <style>
-        #informacoes{
-            background-color: #EBEBEB;
-            padding: 30px 0px;
-        }
-
-        #informacoes .item img{
-            width: 40%;
-        }
-    </style>
-        <section id="informacoes">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-md-4">
-                        <div class="d-flex flex-column justify-content-center align-items-center item">
-                            <img src="{{ asset('img/img_layout/cartao.png') }}" class="img-fluid">
-                            <h5 class="text-center">Pague com cartão de crédito ou boleto</h5>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-4">
-                        <div class="d-flex flex-column justify-content-center align-items-center item">
-                            <img src="{{ asset('img/img_layout/frete.png') }}" class="img-fluid">
-                            <h5 class="text-center">Frete grátis a partir de R$ 120</h5>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-4">
-                        <div class="d-flex flex-column justify-content-center align-items-center item">
-                            <img src="{{ asset('img/img_layout/seguranca.png') }}" class="img-fluid">
-                            <h5 class="text-center">Segurança, do início ao fim</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
 
         <footer>
             <div class="container-fluid">
@@ -290,7 +252,7 @@ $produto = \App\Produto::all();
 
 <script>
     $(document).ready(function(){
-        $('.slider').slick({
+        $('#slider-categorias').slick({
             infinite: false,
             slidesToShow: 5,
             slidesToScroll: 3,
