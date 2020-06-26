@@ -63,10 +63,19 @@ footer{flex-shrink: 0;}
     padding: 15px;
 }
 
-.filtroBusca {
-    margin: 10px;
-}
+/** Filtro buscar **/
+  .filtroBusca {
+      margin: 10px;
+  }
 
+  .menu.categorias .btn-buscar{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border-radius: 5px;
+    font-weight: 700;
+  }
+/** Fim Filtro buscar **/
 
 .category-stripe a .icon-background {
     background-color: #fff;

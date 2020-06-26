@@ -17,14 +17,8 @@
                                 <p class="card-text">R${{ number_format($produto->valor,2,",",".") }}</p>
                             </div>
 
-                            <div class="card-body d-flex justify-content-between">
-                                <a href="{{ route('produto/edit', $produto->id) }}" class="btn btn-primary btn-sm card-link">Editar Anúncio</a>
-                                <a href="{{ route('produto/show', $produto->id) }}" class="btn btn-dark btn-sm card-link">Visualizar</a>
-
-                                <form action="{{ action('ProdutoController@destroy', $produto->id) }}" method="POST">
-                                    @csrf
-                                    <button class="btn btn-danger btn-sm card-link" type="submit" onclick="return confirm('Você tem certeza?')">Apagar</button>
-                                </form>
+                            <div class="card-body">
+                                <a href="{{ route('produto/show', $produto->id) }}" class="btn btn-dark card-link">Ver mais..</a>
                             </div>
                         </div>
                     </div>
