@@ -510,6 +510,14 @@ footer{flex-shrink: 0;}
     margin-left: 5px;
   }
 }
+@media(max-width:576px){ 
+  #view-produto .btn-comprar{ 
+    width: 100%; 
+  } 
+  #view-produto .valor-produto{ 
+    text-align: left; 
+  } 
+}
 @media (max-width: 425px){
   .footer-img{
     width: 70px;
