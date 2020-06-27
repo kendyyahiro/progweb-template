@@ -61,7 +61,7 @@ class ProdutoController extends Controller
 
         $produtos = Produto::where([
             ['user_id', '=' ,$id_usuario_logado],
-            ['situacao', '=' , 2]
+            ['situacao', '=' , 0]
         ])
             ->orderBy('id', 'desc')
             ->get();
