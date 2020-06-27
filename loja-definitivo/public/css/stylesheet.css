@@ -319,7 +319,7 @@ footer{flex-shrink: 0;}
     #view-produto .descricao-produto{
       max-height: 130px;
       overflow-y: auto;
-      font-size: 18px;
+      font-size: 16px;
       text-align: justify;
       font-weight: 900;
       padding: 0px 15px;
@@ -330,6 +330,11 @@ footer{flex-shrink: 0;}
       font-weight: 700;
       text-align: right;
       margin: 0px;
+    }
+
+    .box-btn-comprar{
+        width: 100%;
+        text-align: right;
     }
   /*Fim Produto - show */
 
@@ -421,3 +426,12 @@ footer{flex-shrink: 0;}
     width: 40%;
   }
 /** Fim Informações do site **/
+
+@media(max-width:576px){
+  #view-produto .btn-comprar{
+    width: 100%;
+  }
+  #view-produto .valor-produto{
+    text-align: left;
+  }
+}
