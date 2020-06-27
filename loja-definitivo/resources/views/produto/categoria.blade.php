@@ -2,19 +2,21 @@
 
 @section('content')
 
-    <div class="container">
-        <h1>Vizualização da categoria: {{$categoria}}</h1>
+    <div class="container py-3">
+        <h4>Vizualização da categoria: {{$categoria}}</h4>
 
         <div class="row">
             @if(count($produtos) != 0)
                 @foreach ($produtos as $produto)
                     <div class="col-md-4">
                         <div class="card" style="width: 100%;">
-                            <a href="{{ route('produto/show', $produto->id) }}"><img class="card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}"></a>
+                            <a href="{{ route('produto/show', $produto->id) }}">
+                                <img class="produto-anunciado card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}">
+                            </a>
                             <div class="card-body">
                                 <h5 class="card-title">{{ $produto->nome }}</h5>
-                                <p class="card-text">{{ $produto->descricao }}</p>
-                                <p class="card-text">R${{ number_format($produto->valor,2,",",".") }}</p>
+                                <p class="card-text texto-left">{{ $produto->descricao }}</p>
+                                <p class="card-text texto-left">R${{ number_format($produto->valor,2,",",".") }}</p>
                             </div>
 
                             @auth
@@ -37,7 +39,7 @@
                 @endforeach
             @else
                 <div class="col md-12">
-                    <h2 class="text-center">Sem anúncios para essa categoria!</h2>
+                    <h3 class="text-center">Sem anúncios para essa categoria!</h3>
                 </div>
             @endif
         </div>

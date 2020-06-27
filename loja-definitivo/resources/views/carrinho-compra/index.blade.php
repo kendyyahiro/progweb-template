@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="container">
+<div class="container py-3">
 	<div id="carrinho-compra-listagem">
 		<h4>Meu carrinho</h4>
 		<table class="table">
@@ -43,7 +43,7 @@
 					</tr>
 				@else
 				<tr>
-					<td colspan="4" class="text-center"><h2>Você ainda não possui produtos no carrinho!</h2></td>
+					<td colspan="4" class="text-center"><h3>Você ainda não possui produtos no carrinho!</h3></td>
 				</tr>
 				@endif
 			</tbody>

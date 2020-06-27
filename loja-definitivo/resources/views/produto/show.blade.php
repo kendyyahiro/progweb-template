@@ -10,7 +10,7 @@
 </style>
 
 <section id="view-produto">
-    <div class="container">
+    <div class="container py-3">
         <div class="row">
 
             <div class="col-md-4">
@@ -24,7 +24,7 @@
 
             <div class="col-md-8">
                 <div class="descricao">
-                    <h1>{{ $produto->nome }}</h1>
+                    <h4>{{ $produto->nome }}</h4>
                     <h4>Descrição do produto:</h4>
                     <p class="descricao-produto">{{ $produto->descricao }}</p>
                     <h4>Categoria:</h4>
