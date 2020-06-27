@@ -4,7 +4,7 @@
 
 
 <div class="container">
-    <h1>Atualizar Anúncio</h1>
+    <h4>Atualizar Anúncio</h4>
 
     <form id="form-produto" method="POST" action="{{ action('ProdutoController@update', $produto->id) }}" enctype="multipart/form-data">
         <div class="form-group"> 

@@ -51,6 +51,25 @@ class ProdutoController extends Controller
     }
 
     /**
+     * Mostra os produtos Inativos cadastrados por usuário logado
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function meusAnunciosInativos()
+    {
+        $id_usuario_logado = Auth::id();
+
+        $produtos = Produto::where([
+            ['user_id', '=' ,$id_usuario_logado],
+            ['situacao', '=' , 2]
+        ])
+            ->orderBy('id', 'desc')
+            ->get();
+
+        return view('produto.index', compact('produtos'));
+    }
+
+    /**
      * Mostra os produtos cadastrados pela busca nos anúncios
      *
      * @return \Illuminate\Http\Response
@@ -205,6 +224,21 @@ class ProdutoController extends Controller
 
         if($produto->save()){
             return redirect('/produto')->with('success', 'Produto Deletado');
+        }
+    }
+
+    /**
+     * Mudar a situação do produto para ativa
+     *
+     * @param  \App\Produto  $produto
+     * @return \Illuminate\Http\Response
+     */
+    public function ativa(Produto $produto)
+    {
+        $produto->situacao = 1;
+
+        if($produto->save()){
+            return redirect('/produto')->with('success', 'Produto Ativado');
         }
     }
 

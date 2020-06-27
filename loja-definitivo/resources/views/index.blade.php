@@ -22,8 +22,12 @@
 
 					<div class="card-body">
 						<h5 class="card-title">{{ $produto->nome }}</h5>
-						<p class="card-text">{{ $produto->descricao }}</p>
-						<p class="card-text">R${{ number_format($produto->valor,2,",",".") }}</p>
+						<?php if(strlen($produto->descricao) < 70) : ?>
+							<p class="card-text texto-left">{{$produto->descricao }}</p>
+						<?php else : ?>
+							<p class="card-text texto-left">{{ substr($produto->descricao, 0, 70) }} ...</p>
+						<?php endif; ?>
+						<p class="card-text texto-left">R${{ number_format($produto->valor,2,",",".") }}</p>
 					</div>
 
 					<div class="card-body">
@@ -39,10 +43,15 @@
 	<div class="container-fluid">
 		<div class="row imagem-exemplos-cat">
 			<div class="imagem-responsivo-cat bg-destaque col-12 col-lg-4 img-responsive">
-				<img src="{{ asset('img/img_layout/Aluguel_Compra.png')}}">
+				<a href="{{ route('produto/categoria', $produto->categoria='Para casa') }}">
+					<img src="{{ asset('img/img_layout/Aluguel_Compra.png')}}">
+				</a>
 			</div>
 			<div class="imagem-responsivo-cat bg-destaque col-12 col-lg-4 img-responsive">
-				<img src="{{ asset('img/img_layout/Smartphone.png')}}">
+				<a href="{{ route('produto/categoria', $produto->categoria='Eletrônicos e celulares') }}">
+					<img src="{{ asset('img/img_layout/Smartphone.png')}}">
+				</a>
+
 			</div>
 			<div class="imagem-responsivo-cat bg-destaque col-12 col-lg-4 img-responsive">
 				<img src="{{ asset('img/img_layout/Instrumentos_Musicais.png')}}">

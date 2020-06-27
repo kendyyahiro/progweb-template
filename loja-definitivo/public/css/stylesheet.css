@@ -74,6 +74,7 @@ footer{flex-shrink: 0;}
     top: 0px;
     border-radius: 5px;
     font-weight: 700;
+    border-left-color: #0000001c;
   }
 /** Fim Filtro buscar **/
 
@@ -369,11 +370,14 @@ footer{flex-shrink: 0;}
 
 /* CSS para Meus Anuncios*/
 .produto-anunciado{
-  height: 240px;
+  height: 175px;
   object-fit: cover;
 }
 /*FIM CSS para Meus Anuncios*/
 
+.card-text{
+  text-align: left;
+}
 
 .texto-regularizado{
   text-align: left;
