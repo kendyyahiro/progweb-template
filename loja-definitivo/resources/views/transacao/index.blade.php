@@ -31,7 +31,7 @@
                     @endforeach
 				@else
 				<tr>
-					<td colspan="4" class="text-center"><h2>Você ainda não possui produtos comprados!</h2></td>
+					<td colspan="4" class="text-center"><h3>Você ainda não possui produtos comprados!</h3></td>
 				</tr>
 				@endif
 			</tbody>
