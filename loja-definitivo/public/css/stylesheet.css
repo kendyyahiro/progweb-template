@@ -104,7 +104,12 @@ footer{flex-shrink: 0;}
 
 #navbarSupportedContent li{
      float: left;
-     margin: 10px;
+     margin-right: 10px;
+}
+
+#navbarSupportedContent .nav-item{
+  align-items: center;
+  display: flex;
 }
 
 .card-text{
