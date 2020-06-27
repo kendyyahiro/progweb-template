@@ -161,6 +161,18 @@ footer{flex-shrink: 0;}
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
+    color: white;
+    font-size: 0.850rem;
+  }
+
+  footer .endereco-fisico{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    color: white;
+    font-size: 0.650rem;
   }
 
   footer .links a{
@@ -171,11 +183,39 @@ footer{flex-shrink: 0;}
   footer .midia_social{
     display: flex;
     justify-content: space-around;
+    border-left: 1px solid #FFFF;
   }
 
   footer .midia_social i{
     color: #FFF;
-    font-size: 30px;
+    font-size: 20px;
+  }
+  .footer-img{
+    width: 90px;
+  }
+  .botao-para-git{
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #dae0e5;
+    border-radius: 4px;
+    line-height: 1;
+    height: 15px;
+    -webkit-align-self: flex-end;
+    -ms-flex-item-align: end;
+    color: white;
+    align-self: flex-end;
+  }
+  .descricao-footer{
+    color: white;
+    font-weight: bold;
+  }
+
+  .frase-sensacionalista {
+    font-size: 12px;
+    font-weight: bold;
+    color: #163e4a;
+    font-family: 'Open Sans', sans-serif; 
+    padding-left: 0px;
   }
 
   .form-group label{
@@ -427,11 +467,90 @@ footer{flex-shrink: 0;}
   }
 /** Fim Informações do site **/
 
-@media(max-width:576px){
-  #view-produto .btn-comprar{
-    width: 100%;
+.espaco-img{
+  padding-right: 0px;
+}
+
+.acessa-produto a:hover{
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.7);
+}
+.aplica-hover a:hover{
+  color: rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+}
+.descricao-footer a:hover{
+  color: rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+}
+.anuncio-texto{
+  color: rgba(0, 0, 0, 0.58);
+}
+
+@media (max-width: 1440px){
+  .botao-para-git {
+    margin-left: 5px;
   }
-  #view-produto .valor-produto{
-    text-align: left;
+  footer .midia_social a{
+    margin-right: 10px;
+  }
+}
+@media (max-width: 1280px){
+  footer .midia_social {
+    margin-left: -22px;
+  }
+}
+@media (max-width: 768px){
+  .descricao-footer{
+    font-size: 10px;
+  }
+  .botao-para-git {
+    padding: 4px;
+    font-size: 10px;
+    margin-left: 5px;
+  }
+}
+@media (max-width: 425px){
+  .footer-img{
+    width: 70px;
+  }
+  footer .midia_social i{
+    font-size: 16px;
+  }
+
+  .controle-footer{
+    background-color: #0988BE;
+    padding: 15px 0px;
+    position: relative;
+    bottom: 0px;
+  }
+
+  .frase-sensacionalista{
+    font-size: 9px;
+  }
+  .descricao-footer{
+    display: none;
+  }
+
+  footer .midia_social {
+    display: flex;
+    justify-content: space-around;
+    margin: 0px 50px;
+    border-left: none;
+  }
+
+  footer .midia_social a{
+    margin-right: 15px;
+  }
+
+  
+}
+
+@media (max-width: 375px){
+  footer .midia_social {
+    display: flex;
+    justify-content: space-around;
+    margin: 0px 28px;
+    border-left: none;
   }
 }
