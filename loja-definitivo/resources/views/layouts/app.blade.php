@@ -60,7 +60,19 @@ $produto = \App\Produto::all();
                                     <div class="img-anuncio">
                                         <img src="{{ asset('img/img_layout/meus_anuncios.png') }}" class="img-fluid">
                                     </div>
-                                    <a href="{{ route('produto/meus-anuncios') }}" class="link-anuncio">Meus anúncios</a>
+
+
+
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        Meus anúncios
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a href="{{ route('produto/meus-anuncios') }}" class="link-anuncio dropdown-item">Ativos</a>
+                                        <a href="{{ route('produto/meus-anuncios-inativos') }}" class="link-anuncio dropdown-item">Inativos</a>
+                                    </div>
+                                </li>
                                 </li>
                                 <li class="nav-item d-flex justify-content-center align-items-center">
                                     <div class="img-carrinho">
@@ -75,7 +87,7 @@ $produto = \App\Produto::all();
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }} 
+                                        {{ Auth::user()->name }}
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -203,7 +215,7 @@ $produto = \App\Produto::all();
 
                 </div>
 
-                
+
 
             </div>
         </section>
@@ -279,7 +291,7 @@ $produto = \App\Produto::all();
                     produto_id: produto_id
                 },
                 success: (response) => {
-                    
+
                 },
                 error: () => {
                     sweetToastError('Não foi possível realizar esta ação. Tente novamente!')
@@ -288,5 +300,5 @@ $produto = \App\Produto::all();
 
         });
     });
-    
+
 </script>

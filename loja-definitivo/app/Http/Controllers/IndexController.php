@@ -10,8 +10,11 @@ class IndexController extends Controller
     public function index()
     {
         //Utiliza a relação dos favoritos
-        $produtos = Produto::orderBy('produto.id')
-        ->with(['favoritos'])
+        $produtos = Produto::
+            with(['favoritos'])
+        ->where([['situacao', '=' , 1]])
+        ->orderBy('produto.id','desc')
+
         ->paginate(100);
 
         $direcaoImagem = ['center-align','left-align','right-align'];

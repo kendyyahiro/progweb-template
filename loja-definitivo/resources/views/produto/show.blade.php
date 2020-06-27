@@ -29,11 +29,19 @@
                     <p class="descricao-produto">{{ $produto->descricao }}</p>
                     <h4>Categoria:</h4>
                     <p class="descricao-produto">{{ $produto->categoria }}</p>
+                    @if ($produto->situacao === 1)
                     <p class="valor-produto">R$ {{ number_format($produto->valor,2,",",".") }}</p>
+                    @endif;
                 </div>
+                @if ($produto->situacao === 1)
                 <div class="box-btn-comprar">
                     <a href="{{ route('carrinho-compra/adicionarCarrinho', $produto->id) }}" class="btn btn-primary btn-comprar">Comprar</a>
                 </div>
+                @else
+                    <div class="box-btn-comprar">
+                    <p class="btn btn-primary btn-comprar">Produto Indisponível</p>
+                    </div>
+                @endif;
             </div>
         </div>
     </div>
