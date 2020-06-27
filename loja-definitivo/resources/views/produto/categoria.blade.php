@@ -8,7 +8,7 @@
         <div class="row">
             @if(count($produtos) != 0)
                 @foreach ($produtos as $produto)
-                    <div class="col-md-4">
+                    <div class="col-md-4 pb-3">
                         <div class="card" style="width: 100%;">
                             <a href="{{ route('produto/show', $produto->id) }}">
                                 <img class="produto-anunciado card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}">
@@ -26,17 +26,7 @@
                             @endauth
 
                             <div class="card-body d-flex justify-content-between">
-                            @auth
-                                <a href="{{ route('produto/edit', $produto->id) }}" class="btn btn-primary btn-sm card-link">Editar Anúncio</a>
-                            @endauth
                                 <a href="{{ route('produto/show', $produto->id) }}" class="btn btn-dark btn-sm card-link">Visualizar</a>
-
-                            @auth
-                                <form action="{{ action('ProdutoController@destroy', $produto->id) }}" method="POST">
-                                    @csrf
-                                    <button class="btn btn-danger btn-sm card-link" type="submit" onclick="return confirm('Você tem certeza?')">Apagar</button>
-                                </form>
-                            @endauth
                             </div>
                         </div>
                     </div>
