@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container py-3">
 
     @if(count($produtos) != 0)
         @if($produtos[0]->situacao ===1)

@@ -10,29 +10,25 @@
 
 		@foreach ($produtos as $produto)
             <div class="col-12 col-sm-4 col-xl-2 pb-3">
-				<div class="card" style="width: 100%;">
+				<div class="acessa-produto card" style="width: 100%;">
 					<a href="{{ route('produto/show', $produto->id) }}" class="position-relative">
 						<img class="produto-anunciado card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}">
-					</a>
-					@auth
+						@auth
 						<button class="produto_anunciado kokoro" data-id="{{ $produto->id }}">
 							<i class="fa {{ !empty($produto->favoritos) ? 'fa-heart' : 'fa-heart-o' }}" aria-hidden="true"></i>
 						</button>
-					@endauth
+						@endauth
 
-					<div class="card-body">
-						<h5 class="card-title">{{ $produto->nome }}</h5>
-						<?php if(strlen($produto->descricao) < 70) : ?>
-							<p class="card-text texto-left">{{$produto->descricao }}</p>
-						<?php else : ?>
-							<p class="card-text texto-left">{{ substr($produto->descricao, 0, 70) }} ...</p>
-						<?php endif; ?>
-						<p class="card-text texto-left">R${{ number_format($produto->valor,2,",",".") }}</p>
-					</div>
-
-					<div class="card-body">
-						<a href="{{ route('produto/show', $produto->id) }}" class="btn btn-dark card-link">Ver mais..</a>
-					</div>
+						<div class="anuncio-texto card-body">
+							<h5 class="card-title">{{ $produto->nome }}</h5>
+							<?php if(strlen($produto->descricao) < 70) : ?>
+								<p class="card-text texto-left">{{$produto->descricao }}</p>
+							<?php else : ?>
+								<p class="card-text texto-left">{{ substr($produto->descricao, 0, 70) }} ...</p>
+							<?php endif; ?>
+							<p class="card-text texto-left">R${{ number_format($produto->valor,2,",",".") }}</p>
+						</div>
+					</a>
 				</div>
             </div>
 
@@ -83,13 +79,15 @@
 				<div class="d-flex flex-column justify-content-center align-items-center item">
 					<img src="{{ asset('img/img_layout/cartao.png') }}" class="img-fluid">
 					<h5 class="text-center">Pague com cartão de crédito ou boleto</h5>
+					<p class="text-center">Com o cartão do S&D você garamte ótimas experiências parcelando sem juros ou à vista no boleto. É sempre seguro!</p>
 				</div>
 			</div>
 
 			<div class="col-12 col-md-4">
 				<div class="d-flex flex-column justify-content-center align-items-center item">
 					<img src="{{ asset('img/img_layout/frete.png') }}" class="img-fluid">
-					<h5 class="text-center">Frete grátis a partir de R$ 120</h5>
+					<h5 class="text-center">Frete grátis a partir de R$ 150,00</h5>
+					<p class="text-center">Nossa empresa sempre se responsabiliza pelas entregas para os nossos clientes!</p>
 				</div>
 			</div>
 
@@ -97,6 +95,7 @@
 				<div class="d-flex flex-column justify-content-center align-items-center item">
 					<img src="{{ asset('img/img_layout/seguranca.png') }}" class="img-fluid">
 					<h5 class="text-center">Segurança, do início ao fim</h5>
+					<p class="text-center">Deu algo de errado na compra? Reclame! No S&D não existem problemas insolucionáveis, porque estamos dispostos a garantir total segurança na sua compra. </p>
 				</div>
 			</div>
 		</div>

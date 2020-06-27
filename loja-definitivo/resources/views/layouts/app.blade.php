@@ -56,15 +56,9 @@ $produto = \App\Produto::all();
                                 </li>
                                 @endif
                             @else
-                                <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <div class="img-anuncio">
-                                        <img src="{{ asset('img/img_layout/meus_anuncios.png') }}" class="img-fluid">
-                                    </div>
-
-
-
-                                <li class="nav-item dropdown">
+                                <li class="nav-item dropdown d-flex justify-content-center align-items-center">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <img src="{{ asset('img/img_layout/meus_anuncios.png') }}" class="img-anuncio img-fluid">
                                         Meus anúncios
                                     </a>
 
@@ -73,12 +67,11 @@ $produto = \App\Produto::all();
                                         <a href="{{ route('produto/meus-anuncios-inativos') }}" class="link-anuncio dropdown-item">Inativos</a>
                                     </div>
                                 </li>
-                                </li>
-                                <li class="nav-item d-flex justify-content-center align-items-center">
-                                    <div class="img-carrinho">
-                                        <img src="{{ asset('img/img_layout/carrinho.png') }}" class="img-fluid">
-                                    </div>
-                                    <a href="{{ route('carrinho-compra') }}" class="link-carrinho">Carrinho</a>
+                                <li class="aplica-hover nav-item d-flex justify-content-center align-items-center">
+                                    <a href="{{ route('carrinho-compra') }}" class="link-carrinho">    
+                                        <img src="{{ asset('img/img_layout/carrinho.png') }}" class="img-carrinho img-fluid">
+                                        Carrinho
+                                    </a>
                                 </li>
                                 <li class="nav-item">
                                     <div class="anuncie-aqui">
@@ -227,29 +220,44 @@ $produto = \App\Produto::all();
             @yield('content')
         </main>
 
-        <footer>
-            <div class="container-fluid">
+        <footer class="controle-footer">
+            <div class="container">
                 <div class="row">
-                    <div class="col-12 col-md-4 col-xl-5">
+                    <div class="col-8 col-md-6 col-xl-8">
+                        <div class="row">
+                            <div class="espaco-img col-4 col-sm-6 col-md-2 col-xl-2">
+                                <img src="{{ asset('img/logo.png') }}" class="img-fluid footer-img">
+                            </div>
+                            <div class="col-8 col-sm-9 col-md-10 col-xl-9 frase-sensacionalista">
+                                Compre no seu tempo e com total segurança.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-6 col-xl-4">
+                        <div class="row">
+                            <div class="descricao-footer col-6 col-sm-6 col-md-7 col-xl-8">
+                                Programação Web
+                                <a class="botao-para-git" href="https://github.com/kendyyahiro/progweb-template">
+                                Saiba mais
+                                </a>
+                            </div>
+                            <div class="midia_social col-6 col-sm-6 col-md-5 col-xl-4">
+                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-xl-12">
                         <div class="links">
-                            <a href="{{ route('produto') }}">Produtos</a>
-                            <a href="{{ route('produto') }}">Produtos</a>
-                            <a href="{{ route('produto') }}">Produtos</a>
-                            <a href="{{ route('produto') }}">Produtos</a>
-                            <a href="{{ route('produto') }}">Produtos</a>
+                            Copyright © 2019-2020 facom.ufms.br LTDA
+                        </div>
+                        <div class="endereco-fisico">
+                            Endereço Rua UFMS, 222-824 - Vila Olinda, Campo Grande - MS, 79050-010
                         </div>
                     </div>
-                    <div class="col-12 col-md-4 col-xl-2">
-                        <img src="{{ asset('img/logo_footer.png') }}" class="img-fluid">
-                    </div>
-                    <div class="col-12 col-md-4 col-xl-5">
-                        <div class="midia_social">
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </footer>
