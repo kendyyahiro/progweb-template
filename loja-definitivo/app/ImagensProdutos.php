@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CarrinhoCompra extends Model
+class ImagensProdutos extends Model
 {
-    protected $table = 'carrinho_compra';
+    protected $table = 'imagens_produtos';
     protected $primaryKey = 'id';
     /**
      * The attributes that are mass assignable.
@@ -18,6 +18,10 @@ class CarrinhoCompra extends Model
     ];
 
     public function produto(){
-        return $this->belongsTo(Produto::class);
+        return $this->hasMany(Produto::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }
