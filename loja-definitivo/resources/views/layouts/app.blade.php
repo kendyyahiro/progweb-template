@@ -108,7 +108,9 @@ $produto = \App\Produto::all();
             <div class="container">
                 <form action="{{route('busca')}}" class="position-relative">
                     <input class="form-control col-12 px-md-4 mb-4" placeholder="Buscar..." type="text" name="texto" value="{{ isset($busca['texto'])  ? $busca['texto'] : '' }}">
-                    <button class="btn btn-info btn-buscar">Buscar</button>
+                    <button class="btn btn-buscar">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
                 </form>
                 <div id="slider-categorias">
                         <div class="category-stripe text-center">

@@ -11,8 +11,8 @@
                 <a href="{{ route('produto/show', $produto->id) }}"><img class="produto-anunciado card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}"></a>
                 <div class="card-body">
                     <h5 class="card-title">{{ $produto->nome }}</h5>
-                    <p class="card-text">{{ $produto->descricao }}</p>
-                    <p class="card-text">R${{ number_format($produto->valor,2,",",".") }}</p>
+                    <p class="card-text texto-left">{{ $produto->descricao }}</p>
+                    <p class="card-text texto-left">R${{ number_format($produto->valor,2,",",".") }}</p>
                 </div>
 
                 <div class="card-body">
