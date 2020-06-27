@@ -12,9 +12,23 @@
 <section id="view-produto">
     <div class="container">
         <div class="row">
-
             <div class="col-md-4">
-                <img class="card-img-top img-produto" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}">
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <div class="slider-for">
+                            @foreach ($imagens as $imagem)
+                                <img class="card-img-top img-produto" src="{{ asset($imagem->imagem) }}">
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="slider-nav">
+                            @foreach ($imagens as $imagem)
+                                <img class="card-img-top img-produto" src="{{ asset($imagem->imagem) }}">
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
                 @auth
                     <button class="produto_anunciado kokoro" data-id="{{ $produto->id }}">
                         <i class="fa {{ !empty($produto->favoritos) ? 'fa-heart' : 'fa-heart-o' }}" aria-hidden="true"></i>
