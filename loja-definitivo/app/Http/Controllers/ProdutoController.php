@@ -276,7 +276,8 @@ class ProdutoController extends Controller
             $file->move($diretorio,$nomeArquivo);
 
             return response()->json([
-                'nome' => $nomeArquivo
+                'nome' => $nomeArquivo,
+                'original_name' => $file->getClientOriginalName(),
             ]);
         }
     }

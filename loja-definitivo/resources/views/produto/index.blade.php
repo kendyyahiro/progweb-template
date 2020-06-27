@@ -15,7 +15,7 @@
 
 		@if(count($produtos) != 0)
 			@foreach ($produtos as $produto)
-			<div class="col-12 col-sm-6 col-lg-4">
+			<div class="col-12 col-sm-6 col-lg-4 pb-3">
 				<div class="card" style="width: 100%;">
 					<a href="{{ route('produto/show', $produto->id) }}"><img class="produto-anunciado card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}"></a>
 					<div class="card-body">

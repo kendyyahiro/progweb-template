@@ -24,19 +24,25 @@ $(document).ready(function(){
 
     $("#image-upload").dropzone({
         acceptedFiles : ".png,.jpg,.gif,.bmp,.jpeg",
+        dictDefaultMessage: 'Selecione as imagens',
+        dictRemoveFile: "Remover Imagem",
+        addRemoveLinks: true,
         success: function (file, response) {
-            $('#form-produto').append('<input type="hidden" name="document[]" value="' + response.nome + '">')
+            $('#form-produto').append(`<input type="hidden" name="document[]" data-name="${response.original_name}" value="${response.nome}">`)
         },
-        // removedfile: function (file) {
-        //   file.previewElement.remove()
-        //   var name = ''
-        //   if (typeof file.file_name !== 'undefined') {
-        //     name = file.file_name
-        //   } else {
-        //     name = uploadedDocumentMap[file.name]
-        //   }
-        //   $('form').find('input[name="document[]"][value="' + name + '"]').remove()
-        // },
+        removedfile: function (file) {
+            file.previewElement.remove();
+            var name = '';
+            console.log(file.name);
+            if (typeof file.name !== 'undefined') {
+                name = file.name;
+            } else {
+                return;
+            }
+
+            $('#form-produto').find('input[name="document[]"][data-name="' + name + '"]').remove();
+
+        },
         // init:function(){
 
         //     $.ajax({
@@ -61,24 +67,6 @@ $(document).ready(function(){
 
         // }
     });
-
-
-
-    // Dropzone.options.imageUpload.on('success', function(file, response){
-    // });
-    // Dropzone.autoDiscover = false;
-    // var myDropzone = new Dropzone("#upload-file", { url: "/file/post"});
-
-    // myDropzone.options.myAwesomeDropzone = {
-    //     paramName: "file", // The name that will be used to transfer the file
-    //     maxFilesize: 2, // MB
-    //     accept: function(file, done) {
-    //         if (file.name == "justinbieber.jpg") {
-    //         done("Naha, you don't.");
-    //         }
-    //         else { done(); }
-    //     }
-    // };
 
     $('.produto_anunciado').on('click', function(){
         $(this).find('i').toggleClass('fa-heart-o fa-heart');

@@ -112,6 +112,8 @@ class CarrinhoCompraController extends Controller
     }
 
     /**
+     * Adiciona um produto no carrinho
+     * 
      */
     public function adicionarCarrinho($idProduto)
     {
