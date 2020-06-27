@@ -20,8 +20,7 @@ class CarrinhoCompraController extends Controller
         $id_usuario_logado = Auth::id();
 
         //Busca os produtos que o usuário adicionou no carrinho
-        $produtos = CarrinhoCompra::select('carrinho_compra.*', 'produto.id as produto_id', 'produto.nome', 'produto.imagem', 'produto.valor', 'produto.descricao')
-                    ->join('produto', 'produto.id', '=', 'carrinho_compra.produto_id')
+        $carrinhoCompra = CarrinhoCompra::with(['produto.imagens'])
                     ->where([
                         ['carrinho_compra.user_id', '=', $id_usuario_logado],
                         ['carrinho_compra.status', '=', 0],
@@ -30,18 +29,15 @@ class CarrinhoCompraController extends Controller
                     ->get();
        
         //Busca os produtos e faz a soma total dos produtos
-        $valor = CarrinhoCompra::select(DB::raw('SUM(produto.valor) as total'))
-                    ->join('produto', 'produto.id', '=', 'carrinho_compra.produto_id')
+        $valor = CarrinhoCompra::with(['produto'])
                     ->where([
                         ['carrinho_compra.user_id', '=', $id_usuario_logado],
                         ['carrinho_compra.status', '=', 0],
                         ['carrinho_compra.situacao', '=', 1]
                     ])
-                    ->get();
-
-        $carrinhoCompra = CarrinhoCompra::where('user_id', $id_usuario_logado)->first();
-
-        return view('carrinho-compra.index', compact('produtos', 'carrinhoCompra', 'valor'));
+                    ->get()->sum('produto.valor');
+       
+        return view('carrinho-compra.index', compact('carrinhoCompra', 'valor'));
     }
 
     /**
@@ -108,7 +104,7 @@ class CarrinhoCompraController extends Controller
     public function destroy(CarrinhoCompra $carrinhoCompra)
     {   
         //Status 2 = removido do carrinho
-        $carrinhoCompra->situacao = 2;
+        $carrinhoCompra->situacao = 0;
 
         if($carrinhoCompra->save()){
             return redirect('/carrinho-compra')->with('success', 'Produto Deletado');
@@ -116,6 +112,8 @@ class CarrinhoCompraController extends Controller
     }
 
     /**
+     * Adiciona um produto no carrinho
+     * 
      */
     public function adicionarCarrinho($idProduto)
     {

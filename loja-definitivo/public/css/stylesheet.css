@@ -102,10 +102,14 @@ footer{flex-shrink: 0;}
     align-items: center;
 }
 
-li
-{
+#navbarSupportedContent li{
      float: left;
-     margin: 10px;
+     margin-right: 10px;
+}
+
+#navbarSupportedContent .nav-item{
+  align-items: center;
+  display: flex;
 }
 
 .card-text{
@@ -171,7 +175,6 @@ li
     font-size: 0.650rem;
   }
 
-  
   footer .links a{
     color: #FFF;
     padding: 15px 0px;
@@ -356,7 +359,7 @@ li
     #view-produto .descricao-produto{
       max-height: 130px;
       overflow-y: auto;
-      font-size: 18px;
+      font-size: 16px;
       text-align: justify;
       font-weight: 900;
       padding: 0px 15px;
@@ -367,6 +370,11 @@ li
       font-weight: 700;
       text-align: right;
       margin: 0px;
+    }
+
+    .box-btn-comprar{
+        width: 100%;
+        text-align: right;
     }
   /*Fim Produto - show */
 

@@ -23,8 +23,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 /** Produtos **/
 rotasCrud('produto', 'ProdutoController', 'produto');
 Route::get('/produto/meus-anuncios', 'ProdutoController@meusAnuncios')->name('produto/meus-anuncios')->middleware('auth');
-Route::get('/produto/meus-anuncios-inaivos', 'ProdutoController@meusAnunciosInativos')->name('produto/meus-anuncios-inativos')->middleware('auth');
+Route::get('/produto/meus-anuncios-inativos', 'ProdutoController@meusAnunciosInativos')->name('produto/meus-anuncios-inativos')->middleware('auth');
 Route::get('/produto/categoria/{categoria}', 'ProdutoController@porCategoria')-> name('produto/categoria');
+Route::post('produto/media', 'ProdutoController@storeImagem')->name('produto/media');
+// Route::get('produto/fetch', 'ProdutoController@fetch')->name('produto/fetch');
+
 /** Busca **/
 Route::get('/produto/busca',['as'=>'busca', 'uses'=>'ProdutoController@buscaProduto']);
 

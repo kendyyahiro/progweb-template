@@ -26,4 +26,12 @@ class Produto extends Model
             ['user_id', $id_usuario_logado]
         ])->oldest();
     }
+
+    public function imagens(){
+        return $this->belongsTo(ImagensProdutos::class, 'id', 'produto_id');
+    }
+
+    public function carrinhoCompra(){
+        return $this->belongsTo(CarrinhoCompra::class, 'id', 'produto_id');
+    }
 }

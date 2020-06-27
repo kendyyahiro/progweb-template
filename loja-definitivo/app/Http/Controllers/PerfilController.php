@@ -38,6 +38,12 @@ class PerfilController extends Controller
         ]);
     }
 
+    /**
+     * Esse método atualiza o usuário
+     * 
+     * @param Request - Requisição
+     * @param Integer $id - Recebe o id do usuário a ser atualizado
+     */
     public function atualizar(Request $request, $id)
     {
 
@@ -52,34 +58,28 @@ class PerfilController extends Controller
         $usuario->name = $data['name'];
         $usuario->email = $data['email'];
         $usuario->password =  Hash::make($data['password']);
-        //exit( $usuario->password);
 
         if($usuario ->save()) {
             session()->flash('mensagem', 'Registro atualizado com sucesso!');
             session()->flash('alert', 'alert-success');
 
-            // Session::flash('mensagem', ['msg' => 'Registro atualizado com sucesso!', 'class' => 'green white-text']);
-            //return redirect('/perfil/editar' );
-            //return redirect()->route('perfil');
             return back()->withInput();
-            //Redirect::to("dashboard/user/$id")->withInput();
-        }
-        //return view('perfil.editar');
-    }
-
-    public function atualizarvrlho(request $data)
-    {
-        $id = (int)$data['id'];
-        //exit($data['id'] . $data['name']);
-        $usuario = \App\User::find($id);
-
-        $usuario->name = $data['name'];
-        $usuario->email = $data['email'];
-        $usuario->password =  Hash::make($data['password']);
-        if($usuario->save()){
-            return redirect('/usuario/update');
         }
     }
+
+    // public function atualizarvrlho(request $data)
+    // {
+    //     $id = (int)$data['id'];
+    //     //exit($data['id'] . $data['name']);
+    //     $usuario = \App\User::find($id);
+
+    //     $usuario->name = $data['name'];
+    //     $usuario->email = $data['email'];
+    //     $usuario->password =  Hash::make($data['password']);
+    //     if($usuario->save()){
+    //         return redirect('/usuario/update');
+    //     }
+    // }
 
     /**
      * Esse método verifica se esse usuário possui algum anúncio/produto cadastrado
