@@ -101,8 +101,7 @@ footer{flex-shrink: 0;}
     align-items: center;
 }
 
-li
-{
+#navbarSupportedContent li{
      float: left;
      margin: 10px;
 }
