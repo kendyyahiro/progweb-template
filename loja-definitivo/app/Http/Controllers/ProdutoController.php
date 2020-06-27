@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ImagensProdutos;
 use App\Produto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +19,8 @@ class ProdutoController extends Controller
     {
         $id_usuario_logado = Auth::id();
 
-        $produtos = Produto::where([
+        $produtos = Produto::with(['imagens'])
+                    ->where([
                         ['user_id', '=' ,$id_usuario_logado],
                         ['situacao', '=' , 1]
                     ])
@@ -37,7 +39,8 @@ class ProdutoController extends Controller
     {
         $id_usuario_logado = Auth::id();
 
-        $produtos = Produto::where([
+        $produtos = Produto::with(['imagens'])
+                    ->where([
                         ['user_id', '=' ,$id_usuario_logado],
                         ['situacao', '=' , 1]
                     ])
@@ -98,18 +101,31 @@ class ProdutoController extends Controller
         $produto->user_id  = Auth::id();
         $produto->categoria = $request->categoria;
 
-        $file = $request->file('imagem');
+        $files = $request->document;
 
-        if($file){
-            $rand = rand(11111,99999);
-            $diretorio = "img/produtos_cadastrados/".($request->nome)."/";
-            $ext = $file->guessClientExtension();
-            $nomeArquivo = "_img_".$rand.".".$ext;
-            $file->move($diretorio,$nomeArquivo);
-            $produto->imagem = $diretorio.'/'.$nomeArquivo;
-        }
+        /** Salva o produto antes de salvar as imagens **/
         if($produto->save()){
-            return redirect('/produto/meus-anuncios')->with('success', 'Produto Adicionado');
+            /** Verifica se existe arquivos a serem salvos **/
+            if($files){
+                /** Deletar imagens que estavam cadastradas antes com esse id do produto **/
+                ImagensProdutos::where('produto_id', $produto->id)->delete();
+
+                foreach ($files as $file) {
+                    $imagem = new ImagensProdutos();
+
+                    $diretorio = "img/produtos_cadastrados";
+
+                    /** Cria a relação do produto com a imagem **/
+                    $imagem->produto_id = $produto->id;
+                    $imagem->imagem = $diretorio.'/'.$file;
+
+                    /** Salva a imagem **/
+                    $imagem->save();
+                }
+            }
+
+            /** Redireciona para a tela de produtos cadastrados **/
+            return redirect('/produto')->with('success', 'Produto Adicionado');
         }
     }
 
@@ -121,7 +137,8 @@ class ProdutoController extends Controller
      */
     public function show(Produto $produto)
     {
-        return view('produto.show', compact('produto'));
+        $imagens = $produto->imagens()->get();
+        return view('produto.show', compact('produto', 'imagens'));
     }
 
     /**
@@ -148,19 +165,31 @@ class ProdutoController extends Controller
         $produto->descricao = $request->descricao;
         $produto->valor = $request->valor;
         $produto->user_id = Auth::id();
-        $file = $request->file('imagem');
+        $files = $request->document;
 
-        if($file){
-            $rand = rand(11111,99999);
-            $diretorio = "img/produtos_cadastrados/".($request->nome)."/";
-            $ext = $file->guessClientExtension();
-            $nomeArquivo = "_img_".$rand.".".$ext;
-            $file->move($diretorio,$nomeArquivo);
-            $produto->imagem = $diretorio.'/'.$nomeArquivo;
-        }
-
+        /** Salva o produto antes de salvar as imagens **/
         if($produto->save()){
-            return redirect('/produto')->with('success', 'Produto Adicionado');
+            /** Verifica se existe arquivos a serem salvos **/
+            if($files){
+                /** Deletar imagens que estavam cadastradas antes com esse id do produto **/
+                ImagensProdutos::where('produto_id', $produto->id)->delete();
+
+                foreach ($files as $file) {
+                    $imagem = new ImagensProdutos();
+
+                    $diretorio = "img/produtos_cadastrados";
+
+                    /** Cria a relação do produto com a imagem **/
+                    $imagem->produto_id = $produto->id;
+                    $imagem->imagem = $diretorio.'/'.$file;
+
+                    /** Salva a imagem **/
+                    $imagem->save();
+                }
+            }
+
+            /** Redireciona para a tela de produtos cadastrados **/
+            return redirect('/produto/meus-anuncios')->with('success', 'Produto Adicionado');
         }
     }
 
@@ -172,7 +201,7 @@ class ProdutoController extends Controller
      */
     public function destroy(Produto $produto)
     {
-        $produto->situacao = 2;
+        $produto->situacao = 0;
 
         if($produto->save()){
             return redirect('/produto')->with('success', 'Produto Deletado');
@@ -195,4 +224,44 @@ class ProdutoController extends Controller
 
         return view('produto.categoria', compact('produtos', 'categoria'));
     }
+
+    /**
+     * Mostra os produtos por categoria
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function storeImagem(Request $request)
+    {
+        $file = $request->file('file');
+
+        if($file){
+            $rand = rand(11111,99999);
+            $diretorio = "img/produtos_cadastrados";
+            $ext = $file->guessClientExtension();
+            $nomeArquivo = "_img_".$rand.".".$ext;
+            $file->move($diretorio,$nomeArquivo);
+
+            return response()->json([
+                'nome' => $nomeArquivo
+            ]);
+        }
+    }
+
+    // function fetch(Request $request)
+    // {
+    //     $images = ImagensProdutos::where([
+    //         ['produto_id', '=', $request->id]
+    //     ]);
+    //     $output = '<div class="row">';
+    //     foreach ($images as $image) {
+    //         $output .= '
+    //             <div class="col-md-2" style="margin-bottom:16px;" align="center">
+    //                 <img src="' . asset('images/' . $image->getFilename()) . '" class="img-thumbnail" width="175" height="175" style="height:175px;" />
+    //                 <button type="button" class="btn btn-link remove_image" id="' . $image->getFilename() . '">Remove</button>
+    //             </div>
+    //         ';
+    //     }
+    //     $output .= '</div>';
+    //     echo $output;
+    // }
 }

@@ -17,19 +17,19 @@
 				</tr>
 			</thead>
 			<tbody>
-				@if(count($produtos) != 0 )
-					@foreach ($produtos as $produto)
+				@if(count($carrinhoCompra) != 0 )
+					@foreach ($carrinhoCompra as $carrinho)
 						<tr>
 							<td scope="row">
 								<div class="foto">
-									<a href="{{ route('produto/show', $produto->produto_id) }}"><img class="card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}"></a>
+									<a href="{{ route('produto/show', $carrinho->produto_id) }}"><img class="card-img-top" src="{{ asset(@$carrinho->produto->imagens->imagem) }}" alt="{{ $carrinho->produto->nome }}"></a>
 								</div>
 							</td>
-							<td width="150px"><span class="nome_produto">{{ $produto->nome }}</span></td>
-							<td><p class="descricao_produto">{{ $produto->descricao }}</p></td>
-							<td><span class="valor_produto">R${{ number_format($produto->valor,2,",",".") }}</span></td>
+							<td width="150px"><span class="nome_produto">{{ $carrinho->produto->nome }}</span></td>
+							<td><p class="descricao_produto">{{ $carrinho->produto->descricao }}</p></td>
+							<td><span class="valor_produto">R${{ number_format($carrinho->produto->valor,2,",",".") }}</span></td>
 							<td>
-								<form action="{{ action('CarrinhoCompraController@destroy', $produto->id) }}" method="POST">
+								<form action="{{ action('CarrinhoCompraController@destroy', $carrinho->id) }}" method="POST">
 									@csrf
 									<button class="btn btn-danger btn-sm card-link" type="submit" onclick="return confirm('Você tem certeza?')">Remover</button>
 								</form>
@@ -38,7 +38,7 @@
 					@endforeach
 					<tr>
 						<td colspan="3"></td>
-						<td id="valor-total-carrinho"> Total: <?= number_format($valor[0]->total, 2, ",", ".") ?> </td>
+						<td id="valor-total-carrinho"> Total: <?= number_format($valor, 2, ",", ".") ?> </td>
 						<td></td>
 					</tr>
 				@else
@@ -49,15 +49,11 @@
 			</tbody>
 		</table>
 	</div>
-	@if(count($produtos) != 0 )
+	@if(count($carrinhoCompra) != 0 )
 		<div id="finalizar-compra text-right">
 			<a href="{{ route('transacao/finalizar-compra') }}" class="btn btn-success float-right" onclick="return confirm('Você confirma a finalização da compra?')">Finalizar Compra</a>
 		</div>	
 	@endif
 </div>
-
-<script>
-	console.log($("filtroBusca"));
-</script>
 
 @endsection

@@ -21,13 +21,14 @@ $produto = \App\Produto::all();
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.1/dropzone.min.css" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/stylesheet.css') }}" rel="stylesheet">
     <link href="{{ asset('css/cssLaravel.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha256-NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w=" crossorigin="anonymous" />
-
+    
 </head>
 
 <body>
@@ -209,7 +210,7 @@ $produto = \App\Produto::all();
         </section>
         @endif
 
-        <main>
+        <main class="py-3">
             @yield('content')
         </main>
 
@@ -249,44 +250,5 @@ $produto = \App\Produto::all();
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-
-<script>
-    $(document).ready(function(){
-        $('#slider-categorias').slick({
-            infinite: false,
-            slidesToShow: 5,
-            slidesToScroll: 3,
-            responsive: [
-                {
-                breakpoint: 576,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-            ]
-        });
-
-        $('.produto_anunciado').on('click', function(){
-            $(this).find('i').toggleClass('fa-heart-o fa-heart');
-            let produto_id = $(this).data('id');
-
-            $.ajax({
-                url:  `{{ route('favoritos/addFavoritos') }}`,
-                type: 'POST',
-                data: {
-                    _token: "{{ csrf_token() }}",
-                    produto_id: produto_id
-                },
-                success: (response) => {
-                    
-                },
-                error: () => {
-                    sweetToastError('Não foi possível realizar esta ação. Tente novamente!')
-                }
-            });
-
-        });
-    });
-    
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.1/dropzone.min.js"></script>
+<script src="{{ asset('js/script.js') }}"></script>

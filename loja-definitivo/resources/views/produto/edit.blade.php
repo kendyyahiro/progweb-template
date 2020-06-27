@@ -6,7 +6,7 @@
 <div class="container">
     <h1>Atualizar Anúncio</h1>
 
-    <form method="POST" action="{{ action('ProdutoController@update', $produto->id) }}" enctype="multipart/form-data">
+    <form id="form-produto" method="POST" action="{{ action('ProdutoController@update', $produto->id) }}" enctype="multipart/form-data">
         <div class="form-group"> 
             <label for="nome">Nome</label>
             <input type="text" name="nome" class="form-control" value="{{ $produto->nome }}"></input>
@@ -21,21 +21,17 @@
             <label for="valor">Valor</label>
             <input type="number" name="valor" class="form-control" value="{{ $produto->valor }}"></input>
         </div>
-
-        <div class="form-group">
-            <label >Imagem</label>
-            <input type="file"  name="imagem" value="{{ $produto->imagem }}">
-            @if(isset($produto->imagem))
-                <img width="120" src="{{ asset($produto->imagem) }}">
-            @endif
-        </div>
-
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Atualizar</button>
-        </div>
-
-        {{ csrf_field() }}
+        @csrf
     </form>
+
+    <form action="{{ route('produto/media') }}" class="dropzone" id="image-upload">
+        @csrf
+        <div class="fallback">
+            <!-- <input id="dropzone-image" name="file" type="file" multiple /> -->
+        </div>
+    </form>
+
+    <button type="submit" id="btn-submit-produto" class="btn btn-primary mt-3">Atualizar</button>
 </div>
 
 
