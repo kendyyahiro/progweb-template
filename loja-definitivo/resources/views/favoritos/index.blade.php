@@ -14,7 +14,7 @@
 					<a href="{{ route('produto/show', $favorito->produto->id) }}"><img class="produto-anunciado card-img-top" src="{{ asset($favorito->produto->imagem) }}" alt="{{ $favorito->produto->nome }}"></a>
 					<div class="card-body">
 						<h5 class="card-title">{{ $favorito->produto->nome }}</h5>
-						<p class="card-text texto-left"> {{ substr($favorito->produto->descricao, 0, 70}}</p>
+						<p class="card-text texto-left"> {{ substr($favorito->produto->descricao, 0, 70) }}</p>
 						<p class="card-text texto-left">R${{ number_format($favorito->produto->valor,2,",",".") }}</p>
                     </div>
                     

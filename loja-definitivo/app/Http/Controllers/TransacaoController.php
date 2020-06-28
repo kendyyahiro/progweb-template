@@ -32,27 +32,6 @@ class TransacaoController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  \App\Transacao  $Transacao
@@ -63,8 +42,7 @@ class TransacaoController extends Controller
         $id_usuario_logado = Auth::id();
 
         //Busca os produtos que o usuário adicionou no carrinho
-        $produtos_transacao = DB::table('carrinho_compra')
-                    ->join('produto', 'produto.id', '=', 'carrinho_compra.produto_id')
+        $produtos_transacao = CarrinhoCompra::join('produto', 'produto.id', '=', 'carrinho_compra.produto_id')
                     ->where([
                         ['carrinho_compra.transacao_id', '=', $transacao_id],
                         ['carrinho_compra.user_id', '=', $id_usuario_logado]
@@ -76,39 +54,10 @@ class TransacaoController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Transacao  $Transacao
-     * @return \Illuminate\Http\Response
+     * Esse método busca todos os produtos no carrinho do usuário logado
+     * Depois cria uma nova transação com esses produtos.
+     * 
      */
-    public function edit(Transacao $Transacao)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Transacao  $Transacao
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Transacao $Transacao)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Transacao  $Transacao
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Transacao $Transacao)
-    {
-        //
-    }
-
     public function finalizarCompra()
     {
         $id_usuario_logado = Auth::id();
