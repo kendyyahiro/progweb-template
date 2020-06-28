@@ -42,7 +42,7 @@ class TransacaoController extends Controller
         $id_usuario_logado = Auth::id();
 
         //Busca os produtos que o usuário adicionou no carrinho
-        $produtos_transacao = CarrinhoCompra::join('produto', 'produto.id', '=', 'carrinho_compra.produto_id')
+        $produtos_transacao = CarrinhoCompra::with(['produto.imagens'])
                     ->where([
                         ['carrinho_compra.transacao_id', '=', $transacao_id],
                         ['carrinho_compra.user_id', '=', $id_usuario_logado]
