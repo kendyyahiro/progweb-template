@@ -46,13 +46,14 @@ Linux/Windows:
 
 Para usar o E-commerce, basicamente:
 * Abra o navegador e digite o seguinte endereço: `http://localhost/progweb-template/loja-definitivo/public`
-* Ao abrir a aplicação você poderá:
+* Ferramentas da aplicação:
   * Navegar pelo conteúdo público;
-  * Cadastrar usuário;
+  * Cadastrar/Editar usuário;
+  * Cadastrar/Editar produto;
   * Entrar com usuário e senha para anunciar e/ou comprar produtos anunciados;
   * Colocar produtos dentro do carrinho eletrônico;
-  * Pós-compra: Feedback, problemas no recebimento, assistência.  
-
+  * Favoritar produtos para compras futuras
+  * Histórico de compras
 
 ## Contribuidores
 
