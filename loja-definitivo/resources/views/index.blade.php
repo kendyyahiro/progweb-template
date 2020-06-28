@@ -12,7 +12,7 @@
             <div class="col-12 col-sm-4 col-xl-2 pb-3">
 				<div class="acessa-produto card" style="width: 100%;">
 					<a href="{{ route('produto/show', $produto->id) }}" class="position-relative">
-						<img class="produto-anunciado card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}">
+						<img class="produto-anunciado card-img-top" src="{{ asset($produto->imagens->imagem) }}" alt="{{ $produto->nome }}">
 						<div class="anuncio-texto card-body">
 							<h5 class="card-title">{{ $produto->nome }}</h5>
 							<?php if(strlen($produto->descricao) < 70) : ?>

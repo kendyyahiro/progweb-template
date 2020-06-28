@@ -20,8 +20,4 @@ class ImagensProdutos extends Model
     public function produto(){
         return $this->hasMany(Produto::class);
     }
-
-    public function user(){
-        return $this->belongsTo(User::class);
-    }
 }
