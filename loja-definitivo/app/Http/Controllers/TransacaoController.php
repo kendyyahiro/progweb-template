@@ -84,8 +84,7 @@ class TransacaoController extends Controller
         if($transacao->save()){
 
             //Essa função irá buscar os valores com as condições passadas e irá atualizar o valores
-            $afetados = DB::table('carrinho_compra')
-            ->where([
+            $afetados = CarrinhoCompra::where([
                 ['user_id', '=', $id_usuario_logado],
                 ['status', '=', 0],
                 ['situacao', '=', 1]

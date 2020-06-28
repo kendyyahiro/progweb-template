@@ -24,7 +24,7 @@
         @csrf
     </form>
 
-    <form action="{{ route('produto/media') }}" class="dropzone" id="image-upload">
+    <form action="{{ route('produto/media') }}" class="dropzone" id="image-upload" data-produto-id="{{ $produto->id }}">
         @csrf
         <div class="fallback">
             <!-- <input id="dropzone-image" name="file" type="file" multiple /> -->

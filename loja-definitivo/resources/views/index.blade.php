@@ -13,12 +13,6 @@
 				<div class="acessa-produto card" style="width: 100%;">
 					<a href="{{ route('produto/show', $produto->id) }}" class="position-relative">
 						<img class="produto-anunciado card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}">
-						@auth
-						<button class="produto_anunciado kokoro" data-id="{{ $produto->id }}">
-							<i class="fa {{ !empty($produto->favoritos) ? 'fa-heart' : 'fa-heart-o' }}" aria-hidden="true"></i>
-						</button>
-						@endauth
-
 						<div class="anuncio-texto card-body">
 							<h5 class="card-title">{{ $produto->nome }}</h5>
 							<?php if(strlen($produto->descricao) < 70) : ?>
@@ -29,6 +23,11 @@
 							<p class="card-text texto-left">R${{ number_format($produto->valor,2,",",".") }}</p>
 						</div>
 					</a>
+					@auth
+					<button class="produto_anunciado kokoro" data-id="{{ $produto->id }}">
+						<i class="fa {{ !empty($produto->favoritos) ? 'fa-heart' : 'fa-heart-o' }}" aria-hidden="true"></i>
+					</button>
+					@endauth
 				</div>
             </div>
 
