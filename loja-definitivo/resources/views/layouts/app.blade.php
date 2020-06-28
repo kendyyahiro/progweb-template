@@ -74,12 +74,12 @@ $produto = \App\Produto::all();
                                         Carrinho
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item d-flex justify-content-center align-items-center">
                                     <div class="anuncie-aqui">
                                         <a href="{{ route('produto/create') }}">Anuncie Aqui</a>
                                     </div>
                                 </li>
-                                <li class="nav-item dropdown">
+                                <li class="nav-item dropdown d-flex justify-content-center align-items-center">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }}
                                     </a>
