@@ -105,6 +105,14 @@ class ProdutoController extends Controller
         return view('produto.create');
     }
 
+    public static function messages($id = '') {
+        return [
+            'nome' => 'adfsdfasafs sadfsdffasdsdf',
+            'valor' => 'required',
+        ];
+    }
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -113,6 +121,16 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nome' => 'required',
+            'descricao' => 'required',
+            'valor' => 'required',
+        ],[
+            'nome.required' => 'O campo nome é obrigatório',
+            'descricao.required' => 'O campo descrição é obrigatório',
+            'valor.required' => 'O campo valor é obrigatório',
+        ]);
+    
     	$produto = new Produto();
         $produto->nome = $request->nome;
         $produto->descricao = $request->descricao;
@@ -180,6 +198,17 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, Produto $produto)
     {
+
+        $request->validate([
+            'nome' => 'required',
+            'descricao' => 'required',
+            'valor' => 'required',
+        ],[
+            'nome.required' => 'O campo nome é obrigatório',
+            'descricao.required' => 'O campo descrição é obrigatório',
+            'valor.required' => 'O campo valor é obrigatório',
+        ]);
+
         $produto->nome = $request->nome;
         $produto->descricao = $request->descricao;
         $produto->valor = $request->valor;
@@ -260,7 +289,7 @@ class ProdutoController extends Controller
     }
 
     /**
-     * Mostra os produtos por categoria
+     * Salva as imagens na pasta produtos_cadastrados
      *
      * @return \Illuminate\Http\Response
      */
@@ -282,21 +311,15 @@ class ProdutoController extends Controller
         }
     }
 
-    // function fetch(Request $request)
-    // {
-    //     $images = ImagensProdutos::where([
-    //         ['produto_id', '=', $request->id]
-    //     ]);
-    //     $output = '<div class="row">';
-    //     foreach ($images as $image) {
-    //         $output .= '
-    //             <div class="col-md-2" style="margin-bottom:16px;" align="center">
-    //                 <img src="' . asset('images/' . $image->getFilename()) . '" class="img-thumbnail" width="175" height="175" style="height:175px;" />
-    //                 <button type="button" class="btn btn-link remove_image" id="' . $image->getFilename() . '">Remove</button>
-    //             </div>
-    //         ';
-    //     }
-    //     $output .= '</div>';
-    //     echo $output;
-    // }
+    /**
+     * Busca as imagens do que estão cadastradas para esse produto
+     */
+    function buscarImagens(Request $request)
+    {
+        $images = ImagensProdutos::where([
+            ['produto_id', '=', $request->id]
+        ])->get();
+
+        return response()->json($images);
+    }
 }

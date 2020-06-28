@@ -14,14 +14,10 @@ class ImagensProdutos extends Model
      * @var array
      */
     protected $fillable = [
-        'produto_id', 'user_id'
+        'produto_id', 'imagem'
     ];
 
     public function produto(){
         return $this->hasMany(Produto::class);
-    }
-
-    public function user(){
-        return $this->belongsTo(User::class);
     }
 }

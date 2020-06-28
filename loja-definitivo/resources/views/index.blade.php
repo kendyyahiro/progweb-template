@@ -12,13 +12,7 @@
             <div class="col-12 col-sm-4 col-xl-2 pb-3">
 				<div class="acessa-produto card" style="width: 100%;">
 					<a href="{{ route('produto/show', $produto->id) }}" class="position-relative">
-						<img class="produto-anunciado card-img-top" src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" alt="{{ $produto->nome }}">
-						@auth
-						<button class="produto_anunciado kokoro" data-id="{{ $produto->id }}">
-							<i class="fa {{ !empty($produto->favoritos) ? 'fa-heart' : 'fa-heart-o' }}" aria-hidden="true"></i>
-						</button>
-						@endauth
-
+						<img class="produto-anunciado card-img-top" src="{{ asset($produto->imagens->imagem) }}" alt="{{ $produto->nome }}">
 						<div class="anuncio-texto card-body">
 							<h5 class="card-title">{{ $produto->nome }}</h5>
 							<?php if(strlen($produto->descricao) < 70) : ?>
@@ -29,6 +23,11 @@
 							<p class="card-text texto-left">R${{ number_format($produto->valor,2,",",".") }}</p>
 						</div>
 					</a>
+					@auth
+					<button class="produto_anunciado kokoro" data-id="{{ $produto->id }}">
+						<i class="fa {{ !empty($produto->favoritos) ? 'fa-heart' : 'fa-heart-o' }}" aria-hidden="true"></i>
+					</button>
+					@endauth
 				</div>
             </div>
 
@@ -39,12 +38,12 @@
 	<div class="container-fluid">
 		<div class="row imagem-exemplos-cat">
 			<div class="imagem-responsivo-cat bg-destaque col-12 col-lg-4 img-responsive">
-				<a href="{{ route('produto/categoria', $produto->categoria='Para casa') }}">
+				<a href="{{ route('produto/categoria', 'Para casa') }}">
 					<img src="{{ asset('img/img_layout/Aluguel_Compra.png')}}">
 				</a>
 			</div>
 			<div class="imagem-responsivo-cat bg-destaque col-12 col-lg-4 img-responsive">
-				<a href="{{ route('produto/categoria', $produto->categoria='Eletrônicos e celulares') }}">
+				<a href="{{ route('produto/categoria', 'Eletrônicos e celulares') }}">
 					<img src="{{ asset('img/img_layout/Smartphone.png')}}">
 				</a>
 

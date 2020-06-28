@@ -12,7 +12,7 @@ $produto = \App\Produto::all();
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Loja') }}</title>
+    <title> Supply & Demand</title>
 
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}"/>
 
@@ -238,15 +238,15 @@ $produto = \App\Produto::all();
                         <div class="row">
                             <div class="descricao-footer col-6 col-sm-6 col-md-7 col-xl-8">
                                 Programação Web
-                                <a class="botao-para-git" href="https://github.com/kendyyahiro/progweb-template">
+                                <a class="botao-para-git" href="https://github.com/kendyyahiro/progweb-template" target="_blank">
                                 Saiba mais
                                 </a>
                             </div>
                             <div class="midia_social col-6 col-sm-6 col-md-5 col-xl-4">
-                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
+                                <a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                                <a href="https://www.twitter.com" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="https://github.com/kendyyahiro/progweb-template" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -273,4 +273,136 @@ $produto = \App\Produto::all();
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.1/dropzone.min.js"></script>
-<script src="{{ asset('js/script.js') }}"></script>
+<!-- <script src="{{ asset('js/script.js') }}"></script> -->
+
+
+<script>
+    Dropzone.autoDiscover = false;
+
+    $(document).ready(function(){
+
+        /** Slider - Menu de Categorias **/
+            $('#slider-categorias').slick({
+                infinite: false,
+                slidesToShow: 5,
+                slidesToScroll: 3,
+                responsive: [
+                    {
+                    breakpoint: 576,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        /** Slider - Menu de Categorias **/
+
+        /** Submeter cadastro/edit do produto **/
+        $('#btn-submit-produto').on('click', function(){
+            $('#form-produto').submit();
+        });
+
+        $("#image-upload").dropzone({
+            acceptedFiles : ".png,.jpg,.gif,.bmp,.jpeg",
+            dictDefaultMessage: 'Selecione as imagens',
+            dictRemoveFile: "Remover Imagem",
+            addRemoveLinks: true,
+            success: function (file, response) {
+                $('#form-produto').append(`<input type="hidden" name="document[]" data-name="${response.original_name}" value="${response.nome}">`)
+            },
+            removedfile: function (file) {
+                file.previewElement.remove();
+                var name = '';
+                if (typeof file.name !== 'undefined') {
+                    name = file.name;
+                } else {
+                    return;
+                }
+
+                /** Remove o input com o nome da imagem para não salvar **/
+                $('#form-produto').find('input[name="document[]"][data-name="' + name + '"]').remove();
+
+            },
+            init:function(){
+                produto_id = $('#image-upload').data('produto-id');
+                dropzone = this;
+                
+                $.ajax({
+                    url: `{{ route('produto/buscar-imagens') }}`,
+                    type: 'GET',
+                    data:{
+                        id: produto_id
+                    },
+                    success: (response) => {
+                        $.each(response, function(index, item){
+                            url_imagem = item.imagem;
+                            name_array = (url_imagem).split('/');
+                            name = name_array[name_array.length - 1];
+
+                            /** Adiciona o input dessa imagem no form **/
+                            $('#form-produto').append(`<input type="hidden" name="document[]" data-name="${name}" value="${name}">`);
+
+                            let mockFile = { name: name};       
+                            dropzone.options.addedfile.call(dropzone, mockFile);
+                            dropzone.options.thumbnail.call(dropzone, mockFile, `{{ asset('${url_imagem}') }}`);
+                            mockFile.previewElement.classList.add('dz-success');
+                            mockFile.previewElement.classList.add('dz-complete');
+                        });
+                        
+                    }
+                });
+            }
+        });
+
+        /** Função para favoritar um produto **/
+            $('.produto_anunciado').on('click', function(){
+                $(this).find('i').toggleClass('fa-heart-o fa-heart');
+                let produto_id = $(this).data('id');
+
+                $.ajax({
+                    url:  `{{ route('favoritos/addFavoritos') }}`,
+                    type: 'POST',
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        produto_id: produto_id
+                    },
+                    success: (response) => {
+                        console.log('Sucesso!');
+                    },
+                    error: () => {
+                        sweetToastError('Não foi possível realizar esta ação. Tente novamente!')
+                    }
+                });
+            });
+        /** Função para favoritar um produto **/
+
+        /** Slider - Imagem dos Produtos **/
+            $('.slider-for').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                fade: true,
+                asNavFor: '.slider-nav'
+            });
+            $('.slider-nav').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                asNavFor: '.slider-for',
+                dots: true,
+                centerMode: false,
+                focusOnSelect: true,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            centerMode: false
+                        }
+                    },
+                ]
+            });
+        /** Slider - Imagem dos Produtos **/
+    });
+</script>

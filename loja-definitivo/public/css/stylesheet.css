@@ -376,6 +376,14 @@ footer{flex-shrink: 0;}
         width: 100%;
         text-align: right;
     }
+
+    #image-upload .dz-image img{
+      width: 100%;
+    }
+    #image-upload .dz-size{
+      display: none;
+    }
+    
   /*Fim Produto - show */
 
 /*Fim Produto*/

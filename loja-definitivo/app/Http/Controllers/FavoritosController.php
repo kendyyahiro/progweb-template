@@ -20,7 +20,7 @@ class FavoritosController extends Controller
         $id_usuario_logado = Auth::id();
 
         $favoritos = Favoritos::
-            with('produto')
+            with('produto.imagens')
             ->where([
                 ['user_id', '=', $id_usuario_logado],
                 ['situacao', '=', 1]
