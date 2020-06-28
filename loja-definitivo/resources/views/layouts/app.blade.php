@@ -45,7 +45,7 @@ $produto = \App\Produto::all();
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
+                        <ul class="navbar-nav ml-auto text-center">
                             <!-- Authentication Links -->
                             @guest
                                 <li class="nav-item">
@@ -57,34 +57,39 @@ $produto = \App\Produto::all();
                                 </li>
                                 @endif
                             @else
-                                <li class="nav-item dropdown d-flex justify-content-center align-items-center">
+                                <li class="nav-item d-sm-none">
+                                    <div class="anuncie-aqui">
+                                        <a href="{{ route('produto/create') }}">Anuncie Aqui</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         <img src="{{ asset('img/img_layout/meus_anuncios.png') }}" class="img-anuncio img-fluid">
                                         Meus anúncios
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a href="{{ route('produto/meus-anuncios') }}" class="link-anuncio dropdown-item">Ativos</a>
                                         <a href="{{ route('produto/meus-anuncios-inativos') }}" class="link-anuncio dropdown-item">Inativos</a>
                                     </div>
                                 </li>
-                                <li class="aplica-hover nav-item d-flex justify-content-center align-items-center">
+                                <li class="aplica-hover nav-item">
                                     <a href="{{ route('carrinho-compra') }}" class="link-carrinho">    
                                         <img src="{{ asset('img/img_layout/carrinho.png') }}" class="img-carrinho img-fluid">
                                         Carrinho
                                     </a>
                                 </li>
-                                <li class="nav-item d-flex justify-content-center align-items-center">
+                                <li class="nav-item d-none d-sm-block">
                                     <div class="anuncie-aqui">
                                         <a href="{{ route('produto/create') }}">Anuncie Aqui</a>
                                     </div>
                                 </li>
-                                <li class="nav-item dropdown d-flex justify-content-center align-items-center">
+                                <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }}
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('perfil') }}">
                                             {{ __('Perfil') }}
                                         </a>
@@ -273,7 +278,6 @@ $produto = \App\Produto::all();
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.1/dropzone.min.js"></script>
-<!-- <script src="{{ asset('js/script.js') }}"></script> -->
 
 
 <script>
