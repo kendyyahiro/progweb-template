@@ -12,7 +12,7 @@ $produto = \App\Produto::all();
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Loja') }}</title>
+    <title> Supply & Demand</title>
 
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}"/>
 
@@ -238,15 +238,15 @@ $produto = \App\Produto::all();
                         <div class="row">
                             <div class="descricao-footer col-6 col-sm-6 col-md-7 col-xl-8">
                                 Programação Web
-                                <a class="botao-para-git" href="https://github.com/kendyyahiro/progweb-template">
+                                <a class="botao-para-git" href="https://github.com/kendyyahiro/progweb-template" target="_blank">
                                 Saiba mais
                                 </a>
                             </div>
                             <div class="midia_social col-6 col-sm-6 col-md-5 col-xl-4">
-                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
+                                <a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                                <a href="https://www.twitter.com" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="https://github.com/kendyyahiro/progweb-template" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
