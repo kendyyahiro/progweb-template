@@ -105,6 +105,14 @@ class ProdutoController extends Controller
         return view('produto.create');
     }
 
+    public static function messages($id = '') {
+        return [
+            'nome' => 'adfsdfasafs sadfsdffasdsdf',
+            'valor' => 'required',
+        ];
+    }
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -113,6 +121,16 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nome' => 'required',
+            'descricao' => 'required',
+            'valor' => 'required',
+        ],[
+            'nome.required' => 'O campo nome é obrigatório',
+            'descricao.required' => 'O campo descrição é obrigatório',
+            'valor.required' => 'O campo valor é obrigatório',
+        ]);
+    
     	$produto = new Produto();
         $produto->nome = $request->nome;
         $produto->descricao = $request->descricao;
@@ -180,6 +198,17 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, Produto $produto)
     {
+
+        $request->validate([
+            'nome' => 'required',
+            'descricao' => 'required',
+            'valor' => 'required',
+        ],[
+            'nome.required' => 'O campo nome é obrigatório',
+            'descricao.required' => 'O campo descrição é obrigatório',
+            'valor.required' => 'O campo valor é obrigatório',
+        ]);
+
         $produto->nome = $request->nome;
         $produto->descricao = $request->descricao;
         $produto->valor = $request->valor;

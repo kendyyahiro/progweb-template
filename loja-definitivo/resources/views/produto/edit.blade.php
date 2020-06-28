@@ -5,7 +5,15 @@
 
 <div class="container">
     <h4>Atualizar Anúncio</h4>
-
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form id="form-produto" method="POST" action="{{ action('ProdutoController@update', $produto->id) }}" enctype="multipart/form-data">
         <div class="form-group"> 
             <label for="nome">Nome</label>
