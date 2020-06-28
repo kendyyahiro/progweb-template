@@ -162,7 +162,7 @@ footer{flex-shrink: 0;}
     flex-wrap: wrap;
     flex-direction: column;
     color: white;
-    font-size: 0.850rem;
+    font-size: 0.650rem;
   }
 
   footer .endereco-fisico{
@@ -172,7 +172,7 @@ footer{flex-shrink: 0;}
     flex-wrap: wrap;
     flex-direction: column;
     color: white;
-    font-size: 0.650rem;
+    font-size: 0.450rem;
   }
 
   footer .links a{

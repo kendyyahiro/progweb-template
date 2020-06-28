@@ -26,7 +26,7 @@
         </div>
 
         <div class="form-group">
-            <label for="valor">valor</label>
+            <label for="valor">Valor</label>
             <input type="number" name="valor" class="form-control"></input>
         </div>
 
