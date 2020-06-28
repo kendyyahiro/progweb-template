@@ -38,12 +38,12 @@
 	<div class="container-fluid">
 		<div class="row imagem-exemplos-cat">
 			<div class="imagem-responsivo-cat bg-destaque col-12 col-lg-4 img-responsive">
-				<a href="{{ route('produto/categoria', $produto->categoria='Para casa') }}">
+				<a href="{{ route('produto/categoria', 'Para casa') }}">
 					<img src="{{ asset('img/img_layout/Aluguel_Compra.png')}}">
 				</a>
 			</div>
 			<div class="imagem-responsivo-cat bg-destaque col-12 col-lg-4 img-responsive">
-				<a href="{{ route('produto/categoria', $produto->categoria='Eletrônicos e celulares') }}">
+				<a href="{{ route('produto/categoria', 'Eletrônicos e celulares') }}">
 					<img src="{{ asset('img/img_layout/Smartphone.png')}}">
 				</a>
 
